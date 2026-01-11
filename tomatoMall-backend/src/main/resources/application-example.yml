@@ -1,0 +1,60 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/tomatomall?characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true
+    username: yourname
+    password: yourpassword
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+        hibernate:
+          dialect: org.hibernate.dialect.MySQL8Dialect
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 100MB
+      max-request-size: 100MB
+  # 增加 HTTP 请求体大小限制（支持 Base64 大图片）
+  codec:
+    max-in-memory-size: 20MB
+
+server:
+  port: 8080
+  # 增加 Tomcat 请求体大小限制
+  tomcat:
+    max-http-post-size: 20MB
+
+aliyun:
+  oss:
+    file:
+      endpoint: oss-cn-beijing.aliyuncs.com
+      keyid: yourKeyID 
+      keysecret: yourKeySercret
+      bucketname: yourBucketname
+  dashscope:
+    api-key: "sk-a09b5e22f90c4335b460566f577a329b"
+  #    app-id: "b845979d674b46c0bd4efa05fce06fc3"
+  #    api-url: "https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation"
+
+#alipay:
+#  app-id: 2021000147691760
+#  private-key: MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCDxtExFy9/G1YWzKp1WBWtHwlt6MmV8k8/v5VL/3oTiuXsuzot05/VvCEuKrPH71cPbTkq44+Z7pwcPXTpS8m22UfwB2my7KBjr8y8RqeAIF+tF2nzNglNlBEQFuxtpqwVjDoVqCEB8rvq5m1mC6PYvxIp7GfpoqAUKm85GOZklYbZmZEpBtwSxEfvEKCZSGoqhJ6u4MCAUHMvl/LLDNStiuFHRnP6A4sYY7F73h+KH1LUMN6Z4AU6l9s3ZFPnffVrtxG9W/IlzKhGYmVekAev0rRxS9O9twP66JAWM2KTCLFLusd+AEeJnjRkV0EJ85dfPA8cJXbgljcrzynm/MfXAgMBAAECggEAbRTlEcfpj0QnrVPaPqydtOMeQRcT18XvCAwlH/XpLcgqsB4D+O9XPewvYzICBB0Bakm1quUYeAnmvBG7d2s/HNccD3tzaaMq2Zoq1id+fDdQO85H7AXtCYTp4vG24MW5aVTcuBSmziAKolYAdRpplQAFnyKMmf/+lvLRgugzv0o+X2WJ9NQmKwPkk3hQY1JZMVEwkTVVv9Y1A4IeAgO2mbOpfSQKN4l+NTFz7/H7Np4Y25AK41I6lXJuOJXVLbIfnultQvm8dC2T8OP5q/sNMju5wsen/EchLFQujF2aYixK/0idMfSGRWidD2bti9ttm3hLKUj/RUA+w38e9PhDAQKBgQDHz4fN2UGSJpoI8GGB9oLb/TnpMnKxKlU1ns9uWNGClJspyXTZaAY1lzDIlkVIt//EW+WBKLKwzg9RcEAA257zTaRierfUhSQ81UKxZgi4Fp7xDgKUDztHZGqtpy99RQbh1beCaO92OVt6mbJ8mEOHHgc5jVn34Hv28uiQm/+5QQKBgQCo1XuByIbTJHh36GDcuVpUirvLBW3nhZEjCYs7DERlnhVeL/WQlktp/aqABH8ps1v9OVSmUHNz93GAiv6fHf62iOdfsDzGTz9UUS1lA7V8BoZyneqaXp2S4BmfbDr4myX626Ga+RCqYgmKPAd92IICdjzfSkacAtA/xT3BL59jFwKBgQC9EdWRpaj0YO6U0tGRpu/AtudbkM8ScdpbeMETy5vEklYYvnaBWnu1rjENPZSl8OZmqgaLpzUfNH0uNKd7qFXKKIgKX9EfmjTmE26easyJVW5k7zrlW1xee9iuJWs8gFq4zABvuFgPaMr1Qgaw+2u6qWFwxh6B/buPu97xJ4xdgQKBgQCAhaq0PFMuLggqt1HtFIhH7ShRvztP0GSQuHYtqAP1GycHARk9TLvx3nFJbKLkuq2fEWJ4DKwmrknP4X8831eD2qnPNNi+2ZrK89TLncwsssbsP3xUsQvgwAmhS4GEuI5r7X+S+mCOY30BpvrI+OTXPOzPyboAjz+6G8sL4dXCVwKBgF7hr0nMWsQVbl3hB2mimhPWlHIN7v1vH2vxRJMGLn77RPE78fXz+KjtZVkX8nLdT2exAIDUubYSuXalqJ97IqfwpIk/uJzjILUvkMcBBqR1HfvFQ7YpRisifhncmxvr5Ap4k8R6r6/UhFBPw/KAdWXi/47RwNGMqebxkWtrlBhg
+#  alipay-public-key: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiKtsoFgbQ51VVBUpnbIvkLRfva/chdqBFdmPPtgsMvg12RaHOsePU9FWRsI+N5ok3BGzyhGuQIPU5oFUHEyVXxKvlgk+oclf+Q8Hi1YaYGJQovpTDWJdPLCO2U647lO3uBBskamTBCFn+qZNmFmUHV0CbZWbeC0AnCifD7V0AkpYkY3nEYCFM2w+eD1d8xpbr/sAWw5dCGsMZHr4eu/Bb/6rt+X5ENtT1WoS0LqExz3lDSy86qKYRxPESOm9sdXxdX5lYMenEoL/p4fAKjEky8MMAN0ZkhaFTT0pMy2gnY9P85OVqHwPB40Mcs+lWP9ynwx4ovXUaR7lMFzcGt2joQIDAQAB
+#  server-url: https://openapi-sandbox.dl.alipaydev.com/gateway.do
+#  charset: utf-8
+#  sign-type: RSA2
+#  notify-url: http://n56df4a2.natappfree.cc/api/orders/notify
+#  return-url: http://n56df4a2.natappfree.cc/api/orders/returnUrl
+
+alipay:
+  app-id: 2021000147691760
+  private-key: MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCK+dN8rj2J7dlLNslGfygMhhI+SApeoYFAh3PHOaglhR6le03EcujOvBnB9F4icU/P2cTq2deU74DlU2Puv+xdWGxHNtF03e0CLrwZ1g5CsyvbW7Lvcq523sMdsKAXQ/bCmIyyQzMLjlBPLO+7aR9GPn4jN5P2s+cPiHm+dUJBvKlHq9CvjvSlSYDGddV0uieseG6XUwyFyd2seO+ADbl/CG/8pC6jOFdWUeeskoqwug5g6b0MF+HMObvfUlaayDD4/0WDqmQ5uvgljPsqNlILWD0e8PNKtSMnVApD/VNR3J4qw6jmZRcFJOisSdtEu/DQiwpFL5MqRdaRfd9C/yRfAgMBAAECggEAAoCVCj2o5f7eVrhZz2citXcEhRKO/T0zMpI9x2yGVoabEqexssPO5UoFvLRFraEUqs1k+kWJ2CinzXk+52GVQ+j/qhiWlOAaEFv/DwgHobPQKlbwVddexM0l/jbb6w9SNhbBEcSb+q1JTOOmPV2bLoyZgNDTXTHIC0ONzZwW4VAZZhQCa/PsUXvK28DWxD6FKOZO+AGK3Km3PbtPaHxAByFSx8PqTPdSEqtdwFE5YGp0ZnHA5KpsOchELipH9AXk8goJLfYNjGwFP6g/a6JUIE2oLZmhj6HF1J58AkurrRyB/++ifHplDk3JI0vR/ZgFS5Vz+7B4SHO7AuPoqa99YQKBgQDhGYiT/P7OH8igmhaYXuBwZpURs7Lpn4RtSAKBDxt0n8u0CwjcUk5CAJvBVCuA66H+5IBKciVVh2BQaVvZUxXYwQiw72iIkb/aj6URE3mQ5CQhQhF2rFnzCGzx1BPDoQr2XGjlMIo/ZB1xUDLPahJX+q+WrvIw3LAXulW5QOiHAwKBgQCeDblB6Zfm3f6hymBtcmzvzj9gudxCh45a0UBhd/Z/Jhp5wUsJOt4khf70FO/IVFEodQCWhiLzfgRiQVxuBxQyDMtcLEnGSslJ6cHudBR0N04JzNwylPR4fyjpaCv0L3ozbM6GEoSY/wClHkTCpwaxODCW6y+BV/7dgzb/eq3QdQKBgQCosRPzo9Po8VTPVuq8Ac49LgNlIsBf6JW7uA14XrP6sI5ePS7EvkG7oO0Y81Uu5meet+uU3vovoKaDXJHiyitDJ1a2EpTKVD/tMV1I8MlX1kFlUzf3Ma6vPY83o/Gz2Ap5GkPaDohsfUC7XJjXa+yXVl0klbMW/yxQe+omTQh1tQKBgFGmRU4HnrFlfWWXZrkjo6M+qP8PBPpZjPDdqKSxlGWbCZJciKb8AkZb8pmlNzoGVObRirw4D1Y6g4k+usEcZxJ0CZpURshpWhMU71qAHRDsgSQO8LIwwRp+lmP9rLc4z6hBTW91oYpoMa0bNepY3twuauuME7599uv4HTFd7u0BAoGAes/iI4Wu5Y5UMR6Vy38LFvBzhh1iA5rPU5hV+YZDC9grpjRzbMM0v/TwtNO+I6jDpOujO4cq23JS+Wq3YrLR1xcySD8E4Jl1l+PpArU9GtPErGCtUur4Z3mQ1cowfupF+xjF6NE/s3yz3wyYVzr3lErL5dfnN7rsHRkJzgqG7K4=
+  alipay-public-key: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnE9lBTBBuCPeFRBTQrTZEMqupiG8Z7wFfMRDPHkVEuwDH85s0vCtv5n2M3SXqV7IS/Qqu9T4WT9C8LHdVifZt1KSznPfkCA9V6ZfgfvNL1Z1IWy7pDcLcAmGwpE30hsFLjHLMZuvzbdzZwuF8l1rFRiVNrEQqeAARfnQDF9UonSdX7+0IBXrHRs7d/ADkDP8+Ui2oUOG3p9eNkDY4fpBXQVCZV4ZWuKFBd+/9dKpQp3Od9Y+8f4e35FkIuDCN7Kg4t4Im+FCgZF5qhVone5XtipsbwY6T3l7jjSzPed9LMmiB9/bhSHwnZjQXyHgeSVQPTzQGnmavdRanNMJZtGerwIDAQAB
+  server-url: https://openapi-sandbox.dl.alipaydev.com/gateway.do
+  charset: utf-8
+  sign-type: RSA2
+  notify-url:  http://v86d9fd3.natappfree.cc/api/orders/notify
+  return-url:  http://v86d9fd3.natappfree.cc/api/orders/returnUrl
+

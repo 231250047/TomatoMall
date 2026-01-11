@@ -1,0 +1,25 @@
+id	product_condition	cover	create_time	description	detail	price	rate	seller_id	status	tag	title
+1	10_NEW	https://bucket-231250047.oss-cn-beijing.aliyuncs.com/0b55b319ebc4b745bba2741bc0fc1e178a82158d.jpg	2025-12-21 00:52:17.920000			8.00	8	1	available	literature	简爱
+3	10_NEW	https://bucket-231250047.oss-cn-beijing.aliyuncs.com/10dfa9ec8a13632762d0eabb64d5b7ec08fa503d69ba.jpg	2025-12-21 18:25:59.571000			30.00	8	1	available	science	三体
+4	10_NEW	https://bucket-231250047.oss-cn-beijing.aliyuncs.com/203fb80e7bec54e736d1bb546a608c504fc2d5623c7a.png	2025-12-21 18:26:59.616000			50.00	9.7	1	available	literature	红楼梦
+5	10_NEW	https://bucket-231250047.oss-cn-beijing.aliyuncs.com/12100009890-1_b_1697628001.png	2025-12-21 18:31:04.845000			29.00	8	1	available	literature	平凡的世界
+6	10_NEW	https://bucket-231250047.oss-cn-beijing.aliyuncs.com/29589834-1_b_1701744170.jpg	2025-12-21 18:31:34.178000			30.00	7	1	available	education	高等数学
+7	10_NEW	https://bucket-231250047.oss-cn-beijing.aliyuncs.com/29600975-1_b_1720511230.jpg	2025-12-25 14:16:17.937000	线性代数经典教材全新升级，国内外数百所高校核心教材，中文版累计销售20余万册。线性代数应用典范，开创理论与实际应用相结合的先河		20.00	7	1	available	education	线性代数
+8	5_NEW	https://bucket-231250047.oss-cn-beijing.aliyuncs.com/29636747-1_b_1704772577.jpg	2025-12-25 14:17:14.821000	习近平新时代中国特色社会主义思想概论 2023新版		10.00	8	1	available	education	习近平新时代中国特色社会主义思想概论 2023新版
+9	8_NEW	https://bucket-231250047.oss-cn-beijing.aliyuncs.com/29633745-1_b_1695868276.jpg	2025-12-25 14:18:27.889000	陈阅增普通生物学（第5版）		40.00	7	1	available	education	普通生物学
+10	10_NEW	https://bucket-231250047.oss-cn-beijing.aliyuncs.com/29845944-1_b_1741923158 (1).jpg	2025-12-25 14:20:02.577000	统计学（第9版）（21世纪统计学系列教材；本教材第7版曾获首届全国教材建设奖全国优秀教材二等奖；“十二五“普通高等教育本科国家级规划教		39.90	7	1	available	education	统计学
+11	10_NEW	https://bucket-231250047.oss-cn-beijing.aliyuncs.com/29795933-1_b_1729832138.jpg	2025-12-25 14:21:47.339000	数据结构（C语言版）（第3版）双色版		43.60	8	1	available	education	数据结构（C语言版）
+12	10_NEW	https://bucket-231250047.oss-cn-beijing.aliyuncs.com/105272-1_b_5.jpg	2025-12-25 14:23:12.848000	水浒传（上下册，全两册，中国古典文学读本丛书）		30.00	9	1	available	literature	水浒传
+13	5_NEW	https://bucket-231250047.oss-cn-beijing.aliyuncs.com/29296795-1_b_3.jpg	2025-12-25 14:24:26.600000	朱元璋：从和尚到皇帝。国民史学读本，持续风行十余年，畅销3000万册，全本白话正说明朝大历史 		9.00	9	1	available	history	明朝那些事儿
+14	10_NEW	https://bucket-231250047.oss-cn-beijing.aliyuncs.com/23581910-1_b_1764815876.jpg	2025-12-25 14:25:54.648000	吕思勉典藏史籍全新校订珍藏版！一位在通史、断代史研究领域都颇有成就的历史学家！以进化史观编撰的通史教材！		28.00	8	1	available	history	中国通史：学界公认的国史入门经典
+15	10_NEW	https://bucket-231250047.oss-cn-beijing.aliyuncs.com/29934642-1_b_1757040244.jpg	2025-12-25 14:27:04.440000	探寻国史真谛，召唤民族之魂，一部影响了几代国人的中国通史不朽之作，首度推出简体横排版		47.00	8.7	1	available	history	国史大纲
+16	10_NEW	https://bucket-231250047.oss-cn-beijing.aliyuncs.com/28528198-1_b_3.jpg	2025-12-25 14:28:43.511000	图解世界名画（附加码01）		8.00	7.8	1	available	art	图解世界名画
+17	10_NEW	https://bucket-231250047.oss-cn-beijing.aliyuncs.com/29948882-1_b_1762224745.jpg	2025-12-25 14:30:02.228000	顾爷2025重磅新书，畅销经典“小顾聊绘画”系列第四弹。艺术圈顶流——有人出尔反尔，有人靠运气一直在巅峰；毕加索怎么一步步“封神”，“印象派”又是如何跌落神坛的？八位艺术家，个个身怀绝技！		50.00	0	1	available	art	别闹了，这是艺术！
+18	5_NEW	https://bucket-231250047.oss-cn-beijing.aliyuncs.com/29793036-1_b_1729073523.jpg	2025-12-25 14:31:06.695000	铅笔素描如此简单：Q萌小动物		7.90	6	1	available	art	铅笔素描如此简单：Q萌小动物
+20	10_NEW	https://bucket-231250047.oss-cn-beijing.aliyuncs.com/23725133-1_b_1742439049.jpg	2025-12-25 14:33:55.998000	科幻电影《流浪地球》《疯狂的外星人》原著小说 入选7年级下语文教材		20.00	8.7	1	available	science	带上她的眼睛
+21	10_NEW	https://bucket-231250047.oss-cn-beijing.aliyuncs.com/29128490-1_b_10.jpg	2025-12-25 14:36:02.619000	马克思主义哲学（第二版）		34.00	7	1	available	education	马克思主义哲学
+22	5_NEW	https://bucket-231250047.oss-cn-beijing.aliyuncs.com/27950730-1_b_3.jpg	2025-12-25 14:37:05.449000	无机化学（第六版）精要与习题解析		8.90	6	1	available	education	无机化学
+23	10_NEW	https://bucket-231250047.oss-cn-beijing.aliyuncs.com/29925212-1_b_1758795348.jpg	2025-12-25 14:41:33.885000	红楼梦（全3册）高中生整本书课外阅读名著 人民教育出版社		60.00	9	3	available	literature	红楼梦（全3册）
+24	8_NEW	https://bucket-231250047.oss-cn-beijing.aliyuncs.com/29351158-1_w_1.jpg	2025-12-25 14:51:44.579000	离散数学（第六版）		14.00	7	3	available	education	离散数学
+25	5_NEW	https://bucket-231250047.oss-cn-beijing.aliyuncs.com/12343361475-1_b_1765404435.jpg	2025-12-25 15:27:33.504000	离散数学结构 [美]科曼 著 9787040310450 高等教育出版社		4.00	7	3	available	education	离散数学结构
+26	10_NEW	https://bucket-231250047.oss-cn-beijing.aliyuncs.com/e73ec19df93ef465.jpg	2025-12-25 15:38:09.350000	离散数学结构第六版		32.00	7	1	available	education	离散数学结构第六版

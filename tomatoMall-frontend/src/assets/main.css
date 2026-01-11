@@ -1,0 +1,56 @@
+@import './base.css';
+
+
+#app {
+  /* 删除或修改这些限制 
+   max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-weight: normal;
+  */
+  /* padding: 1rem; */
+  width: 100%;
+  min-height: 100vh;
+
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: var(--el-color-primary);
+  transition: 0.4s;
+  padding: 3px;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: var(--el-color-primary-light-2);
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+  }
+
+  #app {
+    /* 修改媒体查询
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 2rem;
+    */
+    /*display:  flex;*/
+    /*flex-direction: column;*/
+    /*align-items: center;*/
+    display: block;
+    /* 关键修改点 */
+    max-width: 1440px;
+    /* 合理的内容宽度 */
+    margin: 0 auto;
+    /* 水平居中 */
+    padding: 2rem;
+    width: 100%;
+    /* 保持响应式宽度 */
+  }
+}

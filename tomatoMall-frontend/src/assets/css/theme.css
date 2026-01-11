@@ -1,0 +1,160 @@
+/* 
+  Element Plus 全局主题覆盖
+  主色调: 棕色/黄色
+*/
+
+/* 覆盖 Element Plus 主色及选择项样式，避免默认蓝色 */
+:root {
+  --el-color-primary: #c27935; /* 页面主橙色（用于选中/高亮） */
+  --el-color-primary-dark-2: #9B341F; /* hover / 深色 */
+  --el-color-primary-light-2: rgba(194,121,53,0.12); /* 轻微背景高亮 */
+  /* 补充 Element Plus 常用浅色变量，避免组件使用未覆盖的默认蓝色 */
+  --el-color-primary-light-3: rgba(194,121,53,0.10);
+  --el-color-primary-light-4: rgba(194,121,53,0.08);
+  --el-color-primary-light-5: rgba(194,121,53,0.06);
+  --el-color-primary-light-6: rgba(194,121,53,0.04);
+  --el-color-primary-light-7: rgba(194,121,53,0.03);
+  --el-color-primary-light-8: rgba(194,121,53,0.02);
+  --el-color-primary-light-9: rgba(194,121,53,0.08);
+}
+/* 成功/绿色系，调整为与站点棕橙色调更为协调的暖色绿/橄榄色 */
+:root {
+  /* 调暗后的成功色，降低亮度以更匹配站点暖色系 */
+  --el-color-success: #556B2F; /* 更沉稳的橄榄绿 */
+  --el-color-success-dark-2: #3f4f11;
+  --el-color-success-light-2: rgba(85,107,47,0.10);
+  --el-color-success-light-3: rgba(85,107,47,0.08);
+  --el-color-success-light-4: rgba(85,107,47,0.06);
+  --el-color-success-light-5: rgba(85,107,47,0.04);
+  --el-color-success-light-6: rgba(85,107,47,0.03);
+  --el-color-success-light-7: rgba(85,107,47,0.02);
+  --el-color-success-light-8: rgba(85,107,47,0.01);
+  --el-color-success-light-9: rgba(85,107,47,0.07);
+}
+
+/* 新增：统一菜单激活颜色为橙色（与其他页面一致） */
+:root {
+	/* 如果已有类似变量，请改为项目使用的橙色值 */
+	--app-primary-orange: #ff7a00;
+}
+
+/* 覆盖 select 下拉项 hover 与选中样式为橙色系 */
+
+.el-select-dropdown__item:hover,
+.el-select-dropdown__item.is-hover,
+.el-select-dropdown__item.selected,
+.el-select-dropdown__item.is-active {
+  background-color: rgba(194,121,53,0.08) !important;
+  color: #6B3E1E !important;
+}
+
+/* 选中项前的勾或标记颜色（若存在） */
+.el-select-dropdown__item .el-checkbox__input.is-checked .el-checkbox__inner,
+.el-select-dropdown__item .el-icon-circle-check {
+  color: #c27935 !important;
+  border-color: #c27935 !important;
+}
+
+/* 当 select 聚焦时，输入框边框使用橙色（增强可见性） */
+.el-select .el-input.is-focus .el-input__inner,
+.el-input__wrapper.is-focus,
+.el-select .el-input.is-focus .el-input__wrapper {
+  box-shadow: 0 0 0 1px rgba(194,121,53,0.9) inset !important;
+  border-color: #c27935 !important;
+}
+
+/* 覆盖 el-option 内部高亮（兼容不同 Element 版本类名） */
+.el-option.is-selected,
+.el-option:hover {
+  background-color: rgba(194,121,53,0.08) !important;
+  color: #6B3E1E !important;
+}
+
+/* 按钮 */
+.el-button--primary {
+  --el-button-bg-color: #6B3E1E;
+  /* 主色：深棕 */
+  --el-button-border-color: #6B3E1E;
+  --el-button-hover-bg-color: #4B2D18;
+  /* 悬停更深的棕色 */
+  --el-button-hover-border-color: #4B2D18;
+  --el-button-active-bg-color: #3d2312;
+  --el-button-active-border-color: #3d2312;
+  --el-button-disabled-bg-color: #efe6db;
+  --el-button-disabled-border-color: #efe6db;
+}
+
+.el-button--primary.is-plain {
+  --el-button-bg-color: #efe6db;
+  /* 纸张米色 */
+  --el-button-text-color: #6B3E1E;
+  --el-button-border-color: #dcc090;
+  --el-button-hover-text-color: #ffffff;
+  --el-button-hover-bg-color: #6B3E1E;
+  --el-button-hover-border-color: #6B3E1E;
+}
+
+/* 链接 */
+.el-link--primary {
+  --el-link-text-color: #d97706;
+  --el-link-hover-text-color: #b45309;
+}
+
+/* 标签 */
+.el-tag--primary {
+  --el-tag-bg-color: #fef3c7;
+  --el-tag-border-color: #fde68a;
+  --el-tag-text-color: #b45309;
+}
+
+/* 输入框/选择器 聚焦时的边框颜色 */
+.el-input__wrapper.is-focus,
+.el-select .el-input.is-focus .el-input__wrapper,
+.el-textarea__inner:focus {
+  box-shadow: 0 0 0 1px #d97706 inset !important;
+}
+
+/* 轮播指示器 */
+.el-carousel__indicator.is-active button {
+  background-color: #d97706;
+}
+
+/* Badge */
+.el-badge__content.is-fixed {
+  background-color: #d97706;
+}
+
+/* Switch */
+.el-switch.is-checked .el-switch__core {
+  background-color: #d97706;
+  border-color: #d97706;
+}
+
+/* Message 成功提示样式：降低透明度，增强可见性 */
+.el-message--success {
+  background-color: rgba(85,107,47,0.16) !important; /* 更不透明的暖橄榄色背景 */
+  color: #ffffff !important;
+  border: 1px solid rgba(85,107,47,0.20) !important;
+  box-shadow: 0 2px 8px rgba(85,107,47,0.06) !important;
+}
+.el-message--success .el-message__content {
+  color: #ffffff !important;
+}
+
+/* 普通菜单激活项文字颜色 */
+.el-menu-item.is-active {
+	color: var(--app-primary-orange) !important;
+}
+
+/* 侧边菜单激活项背景和文字 */
+.el-menu-vertical .el-menu-item.is-active,
+.el-menu--collapse .el-menu-item.is-active {
+	background-color: rgba(255,122,0,0.08) !important; /* 轻微橙色背景，按需调整透明度 */
+	color: var(--app-primary-orange) !important;
+}
+
+/* 顶部水平菜单（如需要）强调色 */
+.el-menu--horizontal .el-menu-item.is-active {
+	border-bottom-color: var(--app-primary-orange) !important;
+	color: var(--app-primary-orange) !important;
+}

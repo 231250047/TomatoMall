@@ -1,0 +1,97 @@
+package com.example.tomatomall.po;
+
+import com.example.tomatomall.repository.AccountRepository;
+import com.example.tomatomall.vo.OrderVO;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.persistence.*;
+import java.math.BigDecimal;
+import java.util.Date;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@Entity
+@Table(name = "orders")
+public class Order {
+    // 定义订单状态枚举
+    public enum OrderStatus {
+        PENDING,   // 待支付
+        SUCCESS,   // 支付成功
+        FAILED,    // 支付失败
+        TIMEOUT    // 超时未支付
+    }
+
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @Column(name = "orderId")
+    private Integer orderId;
+
+    @Basic
+    @Column(name = "userId", nullable = false)
+    private Integer userId;
+
+    @Basic
+    @Column(name = "total_amount", nullable = false, precision = 10, scale = 2)
+    private BigDecimal totalAmount;
+
+    @Basic
+    @Column(name = "payment_method", nullable = false, length = 50)
+    private String paymentMethod;
+
+    // 使用枚举类型，映射到数据库的字符串
+    @Enumerated(EnumType.STRING)  // 存储枚举的名称（如 "PENDING"）
+    @Column(name = "status", nullable = false, length = 20)
+    private OrderStatus status = OrderStatus.PENDING;
+
+    @Basic
+    @Column(name = "create_time")
+    private Date createTime;
+
+    @Basic
+    @Column(name = "payment_time")
+    private Date paymentTime;  // 新增：支付时间
+
+    @Basic
+    @Column(name = "receiver_name", length = 50)
+    private String receiverName; // 收货人姓名
+
+    @Basic
+    @Column(name = "receiver_phone", length = 20)
+    private String receiverPhone; // 收货人电话
+
+    @Basic
+    @Column(name = "receiver_address", length = 255)
+    private String receiverAddress; // 收货地址
+
+    @Basic
+    @Column(name = "receiver_postal_code", length = 10)
+    private String receiverPostalCode; // 邮政编码
+
+    // 金额非负校验
+    public void setTotalAmount(BigDecimal totalAmount) {
+        if (totalAmount.doubleValue() < 0) {
+            throw new IllegalArgumentException("订单金额不能为负数");
+        }
+        this.totalAmount = totalAmount;
+    }
+    public OrderVO partToVO() {//无法填充username字段，需要手动填充
+        OrderVO orderVO = new OrderVO();
+        orderVO.setOrderId(orderId);
+        orderVO.setStatus(this.status.toString());
+        orderVO.setPaymentMethod(this.paymentMethod);
+        orderVO.setCreateTime(this.createTime);
+        orderVO.setPaymentTime(paymentTime);  // 新增：设置支付时间
+        orderVO.setTotalAmount(this.totalAmount);
+
+        // 填充收货信息
+        orderVO.setReceiverName(this.receiverName);
+        orderVO.setReceiverPhone(this.receiverPhone);
+        orderVO.setReceiverAddress(this.receiverAddress);
+        orderVO.setReceiverPostalCode(this.receiverPostalCode);
+        return orderVO;
+    }
+}
