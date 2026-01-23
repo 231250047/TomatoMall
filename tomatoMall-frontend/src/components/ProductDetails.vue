@@ -223,12 +223,6 @@ const formatPrice = (price) => {
   return `¥${price.toFixed(2)}`
 }
 
-// 页面加载时获取数据
-onMounted(async () => {
-  await loadProductDetail()
-  fetchComments(props.id)
-})
-
 //判断是否处于库存管理模式下
 const isAdmin = sessionStorage.getItem('change') === 'true';
 const username = sessionStorage.getItem('username')

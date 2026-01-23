@@ -36,7 +36,11 @@ public class LoginInterceptor implements HandlerInterceptor {
         if ("/api/accounts".equals(uri) && "POST".equalsIgnoreCase(method)) {
             return true;
         }
-        if("api/orders/notify".equals(uri)){
+        // 支付宝回调不需要登录验证
+        if("/api/orders/notify".equals(uri)){
+            return true;
+        }
+        if("/api/orders/returnUrl".equals(uri)){
             return true;
         }
         if("/oss/fileoss".equals(uri)){

@@ -49,7 +49,7 @@ public class AliPayServiceImpl implements AliPayService {
         if(!orderRepository.existsById(orderId)){
             throw TomatoMallException.orderNotExist();
         }
-        Order order = orderRepository.getById(orderId);
+        Order order = orderRepository.findById(orderId).orElseThrow(TomatoMallException::orderNotExist);
         JSONObject bizContent = new JSONObject();
         bizContent.put("out_trade_no", order.getOrderId());  // 我们自己生成的订单编号
         bizContent.put("total_amount", order.getTotalAmount()); // 订单的总金额

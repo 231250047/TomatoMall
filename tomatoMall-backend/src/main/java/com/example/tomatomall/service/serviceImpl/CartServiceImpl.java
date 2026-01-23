@@ -9,6 +9,7 @@ import com.example.tomatomall.po.Stockpile;
 import com.example.tomatomall.repository.CartItemRepository;
 import com.example.tomatomall.repository.ProductRepository;
 import com.example.tomatomall.repository.StockpileRepository;
+import com.example.tomatomall.service.CartCacheService;
 import com.example.tomatomall.service.CartService;
 import com.example.tomatomall.vo.CartItemVO;
 import com.example.tomatomall.vo.CartListVO;
@@ -43,6 +44,9 @@ public class CartServiceImpl implements CartService {
 
     @Autowired
     private ProductServiceImpl productService;
+    
+    @Autowired
+    private CartCacheService cartCacheService;
 
     @Override
     @Transactional
@@ -105,6 +109,9 @@ public class CartServiceImpl implements CartService {
                     cartItemRepository.save(existing);
                 }
             }
+            
+            // 【Redis】同步到购物车缓存
+            cartCacheService.updateQuantity(userId, productIdInt, newTotal);
         }
 
         return "成功添加到购物车";
@@ -115,10 +122,17 @@ public class CartServiceImpl implements CartService {
     @Transactional
     public String deleteCartItem(String cartItemId) {
         Integer id= Integer.parseInt(cartItemId);
-        if (!cartItemRepository.existsById(id)) {
-            throw TomatoMallException.cartItemNotExist();
-        }
+        CartItem item = cartItemRepository.findById(id)
+                .orElseThrow(TomatoMallException::cartItemNotExist);
+        
+        Account account = securityUtil.getCurrentAccount();
+        Integer userId = account.getId();
+        
         cartItemRepository.deleteById(id);
+        
+        // 【Redis】从购物车缓存中删除
+        cartCacheService.removeFromCart(userId, item.getProductId());
+        
         return "购物车商品删除成功";
     }
 
@@ -156,6 +170,15 @@ public class CartServiceImpl implements CartService {
         }
         item.setQuantity(quantity);
         cartItemRepository.save(item);
+        
+        // 【Redis】同步到购物车缓存
+        if (quantity == 0) {
+            // 数量为0时删除缓存
+            cartCacheService.removeFromCart(userId, item.getProductId());
+        } else {
+            cartCacheService.updateQuantity(userId, item.getProductId(), quantity);
+        }
+        
         return "购物车商品数量修改成功";
     }
 
