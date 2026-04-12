@@ -96,8 +96,9 @@ public class ProductController {
     public Response<String> updateProduct(@RequestBody ProductVO productVO) {
         try {
             Product product = productVO.toProductPO();
-            productService.updateProduct(product);
+            productService.updateProduct(product); // 1. 先更新数据库
             
+            // 2. 再删除缓存（Cache Aside）
             // 【Redis】删除商品缓存，保证数据一致性
             if (productVO.getId() != null) {
                 productCacheService.deleteProductCache(productVO.getId().toString());
