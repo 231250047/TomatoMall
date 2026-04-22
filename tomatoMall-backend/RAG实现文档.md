@@ -909,8 +909,3 @@ String responseB = chatWithPromptV2(userMessage);
 - 或手动调用`buildVectorIndex()`
 
 ---
-
-**版本**: v6.0 - Prompt驱动架构
-**更新时间**: 2026-04-23
-**维护者**: Claude + 用户
-**许可证**: MIT
