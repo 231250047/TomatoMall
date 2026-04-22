@@ -3,7 +3,7 @@ package com.example.tomatomall.po;
 import com.example.tomatomall.vo.AdvertisementVO;
 import lombok.*;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 
 @Table(name = "advertisements")
@@ -33,7 +33,7 @@ public class Advertisement {
     @Basic
     @Column(name = "related_url", nullable = true, length = 500)
     private String relatedUrl;
-    // getter 和 setter 省略
+    // getter �?setter 省略
 
     public AdvertisementVO toVO() {
         AdvertisementVO advertisementVO = new AdvertisementVO();

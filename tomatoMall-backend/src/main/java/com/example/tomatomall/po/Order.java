@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -17,12 +17,12 @@ import java.util.Date;
 @Entity
 @Table(name = "orders")
 public class Order {
-    // 定义订单状态枚举
+    // 定义订单状态枚�?
     public enum OrderStatus {
-        PENDING,   // 待支付
+        PENDING,   // 待支�?
         SUCCESS,   // 支付成功
         FAILED,    // 支付失败
-        TIMEOUT    // 超时未支付
+        TIMEOUT    // 超时未支�?
     }
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,8 +42,8 @@ public class Order {
     @Column(name = "payment_method", nullable = false, length = 50)
     private String paymentMethod;
 
-    // 使用枚举类型，映射到数据库的字符串
-    @Enumerated(EnumType.STRING)  // 存储枚举的名称（如 "PENDING"）
+    // 使用枚举类型，映射到数据库的字符�?
+    @Enumerated(EnumType.STRING)  // 存储枚举的名称(�?"PENDING"�?
     @Column(name = "status", nullable = false, length = 20)
     private OrderStatus status = OrderStatus.PENDING;
 
@@ -53,15 +53,15 @@ public class Order {
 
     @Basic
     @Column(name = "payment_time")
-    private Date paymentTime;  // 新增：支付时间
+    private Date paymentTime;  // 新增:支付时�?
 
     @Basic
     @Column(name = "receiver_name", length = 50)
-    private String receiverName; // 收货人姓名
+    private String receiverName; // 收货人姓�?
 
     @Basic
     @Column(name = "receiver_phone", length = 20)
-    private String receiverPhone; // 收货人电话
+    private String receiverPhone; // 收货人电�?
 
     @Basic
     @Column(name = "receiver_address", length = 255)
@@ -74,17 +74,17 @@ public class Order {
     // 金额非负校验
     public void setTotalAmount(BigDecimal totalAmount) {
         if (totalAmount.doubleValue() < 0) {
-            throw new IllegalArgumentException("订单金额不能为负数");
+            throw new IllegalArgumentException("订单金额不能为负");
         }
         this.totalAmount = totalAmount;
     }
-    public OrderVO partToVO() {//无法填充username字段，需要手动填充
+    public OrderVO partToVO() {//无法填充username字段，需要手动填�?
         OrderVO orderVO = new OrderVO();
         orderVO.setOrderId(orderId);
         orderVO.setStatus(this.status.toString());
         orderVO.setPaymentMethod(this.paymentMethod);
         orderVO.setCreateTime(this.createTime);
-        orderVO.setPaymentTime(paymentTime);  // 新增：设置支付时间
+        orderVO.setPaymentTime(paymentTime);  // 新增:设置支付时�?
         orderVO.setTotalAmount(this.totalAmount);
 
         // 填充收货信息

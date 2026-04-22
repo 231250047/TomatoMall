@@ -3,11 +3,11 @@ package com.example.tomatomall.po;
 import com.example.tomatomall.vo.AccountVO;
 import lombok.*;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Table(name = "account")
 @Data
-@NoArgsConstructor(force = true) // 让 Lombok 生成默认值
+@NoArgsConstructor(force = true) // �?Lombok 生成默认�?
 @AllArgsConstructor
 @Entity
 public class Account {

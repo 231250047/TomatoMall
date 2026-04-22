@@ -35,7 +35,7 @@ public class ProductServiceImpl implements ProductService {
     AccountRepository accountRepository;
 
     /**
-     * 填充商品VO的卖家信息（头像和姓名）
+     * 填充商品VO的卖家信息(头像和姓名)
      */
     private void fillSellerInfo(ProductVO productVO) {
         if (productVO.getSellerId() != null) {
@@ -101,7 +101,7 @@ public class ProductServiceImpl implements ProductService {
             oldProduct.setDetail(product.getDetail());
         if (product.getTag() != null)
             oldProduct.setTag(product.getTag());
-        // 新增：更新成色
+        // 新增:更新成�?
         if (product.getCondition() != null)
             oldProduct.setCondition(product.getCondition());
 
@@ -157,7 +157,7 @@ public class ProductServiceImpl implements ProductService {
                 Stockpile stockpile = new Stockpile();
                 stockpile.setProduct(product);
                 stockpile.setAmount(amount);
-                stockpile.setFrozen(0); // 默认为0
+                stockpile.setFrozen(0); // 默认�?
                 stockpileRepository.save(stockpile);
                 return true;
             }
@@ -173,6 +173,9 @@ public class ProductServiceImpl implements ProductService {
     @Transactional(readOnly = true)
     public Stockpile findStockpile(String productId) {
         Stockpile stockpile = stockpileRepository.findByProductId(Integer.parseInt(productId));
+        if (stockpile == null) {
+            throw TomatoMallException.productNotExist();
+        }
         return stockpile;
     }
 
@@ -234,7 +237,7 @@ public class ProductServiceImpl implements ProductService {
         List<Product> products = productRepository.findByCreateTimeAfter(twoMonthsAgo);
         List<ProductVO> productVOs = products.stream().map(product -> {
             ProductVO vo = product.toVO();
-            // 填充规格（如果需要）
+            // 填充规格(如果需要)
             List<Specification> specificationList = specificationRepository.findByProductId(product.getId());
             List<SpecificationVO> specificationVOList = new ArrayList<>();
             for (Specification specification : specificationList) {

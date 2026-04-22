@@ -1,6 +1,6 @@
 <script setup>
 import {ref, onMounted, nextTick} from 'vue'
-import {sendMessageToAI} from '@/api/aiService'
+import {recommendBooks} from '@/api/aiService'
 import {ElMessage} from 'element-plus'
 
 // 响应式数据
@@ -33,11 +33,11 @@ const handleSendMessage = () => {
   saveMessages()
   scrollToBottom()
 
-  // 获取AI回复
+  // 获取AI回复 - 使用RAG推荐系统
   isLoading.value = true
-  console.log("message：" + message)
+  console.log("用户查询：" + message)
 
-  sendMessageToAI(message)
+  recommendBooks(message)
       .then(res => {
         messages.value.push({
           role: 'assistant',
@@ -47,8 +47,8 @@ const handleSendMessage = () => {
         saveMessages()
       })
       .catch(error => {
-        ElMessage.error('AI服务请求失败')
-        console.error('AI请求错误:', error)
+        ElMessage.error('RAG推荐服务请求失败')
+        console.error('RAG请求错误:', error)
       })
       .finally(() => {
         isLoading.value = false
@@ -197,7 +197,7 @@ const handleKeyDown = (e) => {
 <template>
   <div class="ai-chat-container">
     <div class="chat-header">
-      <h2>AI 智能助手</h2>
+      <h2>📚 RAG智能图书推荐</h2>
     </div>
 
     <div ref="chatContainer" class="chat-messages">
@@ -244,7 +244,7 @@ const handleKeyDown = (e) => {
           v-model="userInput"
           type="textarea"
           :rows="3"
-          placeholder="请输入您的问题..."
+          placeholder="请输入您的图书需求，如：推荐几本Java编程相关的书..."
           @keydown="handleKeyDown"
           :disabled="isLoading"
           resize="none"

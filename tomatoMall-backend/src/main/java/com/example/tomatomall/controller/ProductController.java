@@ -11,17 +11,17 @@ import com.example.tomatomall.vo.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
  * 商品控制器
  * 
  * 【Redis 集成说明】
- * 1. 商品详情：使用 Hash 缓存，支持缓存穿透/击穿/雪崩防护
- * 2. 商品浏览：使用 ZSet 记录热度，支持热门商品排行
- * 3. PV/UV 统计：使用 String + HyperLogLog 统计访问量
+ * 1. 商品详情:使用 Hash 缓存，支持缓存穿透、击穿/雪崩防护
+ * 2. 商品浏览:使用 ZSet 记录热度，支持热门商品排名
+ * 3. PV/UV 统计:使用 String + HyperLogLog 统计访问量
  */
 @RestController
 @RequestMapping("/api/products")
@@ -57,26 +57,26 @@ public class ProductController {
      * 
      * 【Redis 功能】
      * 1. 优先从 Redis Hash 缓存获取商品详情
-     * 2. 记录商品浏览热度（ZSet）
+     * 2. 记录商品浏览热度(ZSet)
      * 3. 记录 PV/UV 统计
      */
     @GetMapping("/{id}")
     public Response<ProductVO> getProduct(@PathVariable String id, HttpServletRequest request) {
         try {
-            // 【Redis】从缓存获取商品详情（包含缓存穿透/击穿/雪崩防护）
+            // 【Redis】从缓存获取商品详情(包含缓存穿透、击穿/雪崩防护)
             ProductVO product = productCacheService.getProductWithCache(id);
             
             if (product == null) {
                 return Response.buildFailure("商品不存在", "404");
             }
             
-            // 【Redis】记录商品浏览热度（ZSet ZINCRBY）
+            // 【Redis】记录商品浏览热度(ZSet ZINCRBY)
             hotRankService.recordProductView(Integer.parseInt(id));
             
-            // 【Redis】记录 PV（String INCR）
+            // 【Redis】记录 PV(String INCR)
             statisticsService.incrProductPV(Integer.parseInt(id));
             
-            // 【Redis】记录 UV（HyperLogLog PFADD）
+            // 【Redis】记录 UV(HyperLogLog PFADD)
             String userId = getVisitorId(request);
             statisticsService.recordProductUV(Integer.parseInt(id), userId);
             
@@ -90,7 +90,7 @@ public class ProductController {
      * 更新商品
      * 
      * 【Redis 功能】
-     * 更新后删除缓存，保证数据一致性（Cache Aside Pattern）
+     * 更新后删除缓存，保证数据一致性(Cache Aside Pattern)
      */
     @PutMapping()
     public Response<String> updateProduct(@RequestBody ProductVO productVO) {
@@ -98,7 +98,7 @@ public class ProductController {
             Product product = productVO.toProductPO();
             productService.updateProduct(product); // 1. 先更新数据库
             
-            // 2. 再删除缓存（Cache Aside）
+            // 2. 再删除缓存(Cache Aside)
             // 【Redis】删除商品缓存，保证数据一致性
             if (productVO.getId() != null) {
                 productCacheService.deleteProductCache(productVO.getId().toString());

@@ -2,7 +2,7 @@ package com.example.tomatomall.po;
 
 import lombok.*;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Table(name = "comment")

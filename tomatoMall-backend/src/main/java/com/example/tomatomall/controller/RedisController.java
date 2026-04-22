@@ -14,16 +14,16 @@ import java.util.Map;
  * Redis 功能演示 Controller
  * 
  * 【功能说明】
- * 提供 Redis 各种功能的 API 接口，用于：
+ * 提供 Redis 各种功能的 API 接口，用于:
  * 1. 面试时演示 Redis 功能
  * 2. 测试 Redis 服务是否正常
  * 3. 查看缓存数据
  * 
  * 【接口分类】
- * 1. 商品缓存：/api/redis/product/*
- * 2. 热搜榜：/api/redis/hot/*
- * 3. 统计：/api/redis/stats/*
- * 4. 库存：/api/redis/stock/*
+ * 1. 商品缓存:/api/redis/product/*
+ * 2. 热搜榜:/api/redis/hot/*
+ * 3. 统计:/api/redis/stats/*
+ * 4. 库存:/api/redis/stock/*
  */
 @RestController
 @RequestMapping("/api/redis")
@@ -53,11 +53,11 @@ public class RedisController {
     // ==================== 商品缓存 API ====================
     
     /**
-     * 获取商品详情（带缓存）
+     * 获取商品详情(带缓存�?
      * 
-     * 【演示要点】
-     * 1. 第一次访问：缓存未命中，从数据库加载
-     * 2. 第二次访问：缓存命中，直接返回
+     * 【演示要点�?
+     * 1. 第一次访问:缓存未命中，从数据库加载
+     * 2. 第二次访问:缓存命中，直接返�?
      * 3. 体现 Cache Aside 模式
      */
     @GetMapping("/product/{productId}")
@@ -72,8 +72,8 @@ public class RedisController {
     /**
      * 删除商品缓存
      * 
-     * 【演示要点】
-     * 商品信息更新后，应删除缓存保证一致性
+     * 【演示要点�?
+     * 商品信息更新后，应删除缓存保证一致�?
      */
     @DeleteMapping("/product/{productId}/cache")
     public Response<String> deleteProductCache(@PathVariable String productId) {
@@ -81,12 +81,12 @@ public class RedisController {
         return Response.buildSuccess("商品缓存已删除");
     }
     
-    // ==================== 热搜榜 API ====================
+    // ==================== 热搜�?API ====================
     
     /**
      * 记录搜索热度
      * 
-     * 【演示要点】
+     * 【演示要点�?
      * 使用 ZSet ZINCRBY 原子递增分数
      */
     @PostMapping("/hot/search")
@@ -96,10 +96,10 @@ public class RedisController {
     }
     
     /**
-     * 获取热搜关键词 Top N
+     * 获取热搜关键�?Top N
      * 
-     * 【演示要点】
-     * 使用 ZSet ZREVRANGE 获取排行榜
+     * 【演示要点�?
+     * 使用 ZSet ZREVRANGE 获取排行�?
      */
     @GetMapping("/hot/keywords")
     public Response<List<String>> getHotKeywords(
@@ -140,9 +140,9 @@ public class RedisController {
     // ==================== PV/UV 统计 API ====================
     
     /**
-     * 记录页面访问（PV + UV）
+     * 记录页面访问(PV + UV�?
      * 
-     * 【演示要点】
+     * 【演示要点�?
      * PV: String INCR
      * UV: HyperLogLog PFADD
      */
@@ -162,8 +162,8 @@ public class RedisController {
     /**
      * 获取页面统计数据
      * 
-     * 【演示要点】
-     * 返回 PV（精确）和 UV（HyperLogLog 估算，约 0.81% 误差）
+     * 【演示要点�?
+     * 返回 PV(精确)�?UV(HyperLogLog 估算，约 0.81% 误差�?
      */
     @GetMapping("/stats/{pageKey}")
     public Response<Map<String, Long>> getPageStats(@PathVariable String pageKey) {
@@ -201,8 +201,8 @@ public class RedisController {
     /**
      * 获取商品库存
      * 
-     * 【演示要点】
-     * 从 Redis 获取缓存的库存
+     * 【演示要点�?
+     * �?Redis 获取缓存的库�?
      */
     @GetMapping("/stock/{productId}")
     public Response<Long> getStock(@PathVariable Integer productId) {
@@ -211,10 +211,10 @@ public class RedisController {
     }
     
     /**
-     * 扣减库存（原子操作）
+     * 扣减库存(原子操作)
      * 
-     * 【演示要点】
-     * 使用 DECRBY 原子扣减，防止超卖
+     * 【演示要点�?
+     * 使用 DECRBY 原子扣减，防止超�?
      */
     @PostMapping("/stock/{productId}/decr")
     public Response<Object> decrStock(
@@ -242,7 +242,7 @@ public class RedisController {
     }
     
     /**
-     * 同步库存到 Redis
+     * 同步库存�?Redis
      */
     @PostMapping("/stock/sync")
     public Response<String> syncAllStock() {
@@ -269,22 +269,22 @@ public class RedisController {
             @RequestParam String taskData,
             @RequestParam(defaultValue = "60000") long delayMs) {
         delayQueueService.addDelayTask("test", taskData, delayMs);
-        return Response.buildSuccess("延迟任务已添加，将在 " + delayMs + "ms 后到期");
+        return Response.buildSuccess("延迟任务已添加，将在 " + delayMs + "ms 后到");
     }
     
-    // ==================== 缓存状态 API ====================
+    // ==================== 缓存状�?API ====================
     
     /**
-     * 获取 Redis 缓存状态摘要
+     * 获取 Redis 缓存状态摘�?
      * 
-     * 【演示要点】
-     * 一览各类缓存的状态
+     * 【演示要点�?
+     * 一览各类缓存的状�?
      */
     @GetMapping("/status")
     public Response<Map<String, Object>> getCacheStatus() {
         Map<String, Object> status = new HashMap<>();
         
-        // 延迟队列状态
+        // 延迟队列状�?
         status.put("orderTimeoutQueueSize", 
             delayQueueService.getQueueSize(DelayQueueService.ORDER_TIMEOUT_QUEUE));
         

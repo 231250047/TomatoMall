@@ -27,7 +27,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @Service
 public class CartServiceImpl implements CartService {
 
-    // 进程内按 productId 的轻量锁，避免同一实例中并发超卖（跨 JVM 无效）
+    // 进程内按 productId 的轻量锁，避免同一实例中并发超卖(�?JVM 无效�?
     private static final ConcurrentHashMap<Integer, Object> productLocks = new ConcurrentHashMap<>();
 
     @Autowired
@@ -60,11 +60,11 @@ public class CartServiceImpl implements CartService {
 
         Integer productIdInt = Integer.parseInt(productId);
 
-        // 检查 product 是否存在
+        // 检�?product 是否存在
         Product product = productRepository.findById(productIdInt)
                 .orElseThrow(TomatoMallException::productNotExist);
 
-        // 事务内重新读取库存状态，避免先前检查后库存变化导致的问题
+        // 事务内重新读取库存状态，避免先前检查后库存变化导致的问�?
         Stockpile stockpile = stockpileRepository.findByProductId(productIdInt);
         if (stockpile == null) {
             throw TomatoMallException.stockpileNotExist();
@@ -73,7 +73,7 @@ public class CartServiceImpl implements CartService {
         // 进程内对同一商品进行串行化处理，降低并发超卖
         Object lock = productLocks.computeIfAbsent(productIdInt, k -> new Object());
         synchronized (lock) {
-            // 重新读取当前用户已有购物项（事务内）
+            // 重新读取当前用户已有购物项(事务内)
             Optional<CartItem> existingOpt = cartItemRepository.findByUserIdAndProductId(userId, productIdInt);
             int existingQty = existingOpt.map(CartItem::getQuantity).orElse(0);
             int newTotal = existingQty + quantity;
@@ -95,12 +95,12 @@ public class CartServiceImpl implements CartService {
                 try {
                     cartItemRepository.save(newItem);
                 } catch (DataIntegrityViolationException e) {
-                    // 唯一约束冲突（并发插入），重新查询并更新数量
+                    // 唯一约束冲突(并发插入)，重新查询并更新数量
                     CartItem existing = cartItemRepository.findByUserIdAndProductId(userId, productIdInt)
-                            .orElseThrow(() -> new RuntimeException("并发插入失败，无法找到已存在项"));
+                            .orElseThrow(() -> new RuntimeException("并发插入失败，无法找到已存在"));
                     existing.setQuantity(existing.getQuantity() + quantity);
                     
-                    // 再次检查库存
+                    // 再次检查库�?
                     Stockpile recheck = stockpileRepository.findByProductId(productIdInt);
                     if (recheck != null && existing.getQuantity() > recheck.getAmount()) {
                         throw TomatoMallException.stockpileNotEnough();
@@ -110,7 +110,7 @@ public class CartServiceImpl implements CartService {
                 }
             }
             
-            // 【Redis】同步到购物车缓存
+            // 【Redis】同步到购物车缓�?
             cartCacheService.updateQuantity(userId, productIdInt, newTotal);
         }
 
@@ -136,7 +136,7 @@ public class CartServiceImpl implements CartService {
         return "购物车商品删除成功";
     }
 
-    // 更新购物车商品数量,注意不能超过库存
+    // 更新购物车商品数�?注意不能超过库存
     @Override
     @Transactional
     public String updateQuantity(String cartItemId, Integer quantity) {
@@ -152,14 +152,14 @@ public class CartServiceImpl implements CartService {
                 .orElseThrow(TomatoMallException::cartItemNotExist);
 
         if (!item.getUserId().equals(userId)) {
-            // 防止越权修改（如果需要更严格检查，可抛出特定异常）
+            // 防止越权修改(如果需要更严格检查，可抛出特定异常)
             throw new IllegalArgumentException("非法操作");
         }
 
         Product product = productRepository.findById(item.getProductId())
                 .orElseThrow(TomatoMallException::productNotExist);
 
-        // 事务内重新读取库存
+        // 事务内重新读取库�?
         Stockpile stockpile = stockpileRepository.findByProductId(product.getId());
         if (stockpile == null) {
             throw TomatoMallException.stockpileNotExist();
@@ -171,9 +171,9 @@ public class CartServiceImpl implements CartService {
         item.setQuantity(quantity);
         cartItemRepository.save(item);
         
-        // 【Redis】同步到购物车缓存
+        // 【Redis】同步到购物车缓�?
         if (quantity == 0) {
-            // 数量为0时删除缓存
+            // 数量�?时删除缓�?
             cartCacheService.removeFromCart(userId, item.getProductId());
         } else {
             cartCacheService.updateQuantity(userId, item.getProductId(), quantity);
@@ -198,7 +198,7 @@ public class CartServiceImpl implements CartService {
 
             // 如果商品不存在，跳过当前商品
             if (!productOptional.isPresent()) {
-                continue; // 直接跳到下一个商品
+                continue; // 直接跳到下一个商�?
             }
 
             Product product = productOptional.get();
@@ -214,7 +214,7 @@ public class CartServiceImpl implements CartService {
 
         CartListVO result = new CartListVO();
         result.setItems(itemVOs);
-        result.setTotal(itemVOs.size());  // 商品种类数
+        result.setTotal(itemVOs.size());  // 商品种类�?
         result.setTotalAmount(totalAmount);
 
         return result;

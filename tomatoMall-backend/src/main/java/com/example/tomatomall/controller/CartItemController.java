@@ -12,7 +12,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 
@@ -20,7 +20,7 @@ import java.util.Map;
  * 购物车控制器
  * 
  * 【Redis 集成说明】
- * 1. 购物车数据同步：操作后同步 Redis Hash 缓存
+ * 1. 购物车数据同步:操作后同步 Redis Hash 缓存
  * 2. 下单后添加超时任务到延迟队列
  */
 @RestController
@@ -43,13 +43,13 @@ public class CartItemController {
     @Autowired
     private DelayQueueService delayQueueService;
     
-    // 订单超时时间（分钟）
+    // 订单超时时间(分钟)
     private static final int ORDER_TIMEOUT_MINUTES = 30;
 
     /**
      * 添加商品到购物车
      * 
-     * 【Redis 功能】
+     * 【Redis 功能�?
      * 同时更新 Redis Hash 缓存
      */
     @PostMapping
@@ -59,8 +59,8 @@ public class CartItemController {
         Integer quantity = Integer.parseInt(addToCartRequest.get("quantity"));
         String result = cartService.addToCart(productId, quantity);
         
-        // 【Redis】同步购物车缓存（简化处理：直接让缓存失效，下次查询时重建）
-        // 实际生产中可以直接更新缓存
+        // 【Redis】同步购物车缓存(简化处理:直接让缓存失效，下次查询时重建)
+        // 实际生产中可以直接更新缓�?
         return Response.buildSuccess(result);
     }
 
@@ -84,8 +84,8 @@ public class CartItemController {
     /**
      * 结算下单
      * 
-     * 【Redis 功能】
-     * 创建订单后，添加超时任务到 Redis 延迟队列
+     * 【Redis 功能�?
+     * 创建订单后，添加超时任务�?Redis 延迟队列
      * 30分钟未支付将自动取消订单
      */
     @PostMapping("/checkout")
@@ -97,7 +97,7 @@ public class CartItemController {
         OrderVO orderVO = orderService.createOrder(account.getUsername(),checkoutRequest);
         
         // 【Redis】添加订单超时任务到延迟队列
-        // 订单创建后30分钟未支付，将自动取消
+        // 订单创建�?0分钟未支付，将自动取�?
         if (orderVO != null && orderVO.getOrderId() > 0) {
             delayQueueService.addOrderTimeoutTask(orderVO.getOrderId(), ORDER_TIMEOUT_MINUTES);
         }

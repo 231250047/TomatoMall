@@ -28,15 +28,15 @@ public class FavoriteServiceImpl implements FavoriteService {
     @Transactional
     public Response<String> addFavorite(Integer accountId, Integer productId) {
         try {
-            // 检查商品是否存在
+            // 检查商品是否存�?
             Optional<Product> productOptional = productRepository.findById(productId);
             if (!productOptional.isPresent()) {
                 return Response.buildFailure("商品不存在", "404");
             }
 
-            // 检查是否已经收藏
+            // 检查是否已经收�?
             if (favoriteRepository.existsByAccountIdAndProductId(accountId, productId)) {
-                return Response.buildFailure("商品已在收藏列表中", "400");
+                return Response.buildFailure("商品已在收藏列表", "400");
             }
 
             // 添加收藏
@@ -45,7 +45,7 @@ public class FavoriteServiceImpl implements FavoriteService {
 
             return Response.buildSuccess("收藏成功");
         } catch (Exception e) {
-            return Response.buildFailure("收藏失败：" + e.getMessage(), "500");
+            return Response.buildFailure("收藏失败" + e.getMessage(), "500");
         }
     }
 
@@ -53,7 +53,7 @@ public class FavoriteServiceImpl implements FavoriteService {
     @Transactional
     public Response<String> removeFavorite(Integer accountId, Integer productId) {
         try {
-            // 检查收藏记录是否存在
+            // 检查收藏记录是否存�?
             if (!favoriteRepository.existsByAccountIdAndProductId(accountId, productId)) {
                 return Response.buildFailure("收藏记录不存在", "404");
             }
@@ -63,7 +63,7 @@ public class FavoriteServiceImpl implements FavoriteService {
 
             return Response.buildSuccess("取消收藏成功");
         } catch (Exception e) {
-            return Response.buildFailure("取消收藏失败：" + e.getMessage(), "500");
+            return Response.buildFailure("取消收藏失败"+ e.getMessage(), "500");
         }
     }
 
@@ -98,7 +98,7 @@ public class FavoriteServiceImpl implements FavoriteService {
 
             return Response.buildSuccess(favoriteVOList);
         } catch (Exception e) {
-            return Response.buildFailure("获取收藏列表失败：" + e.getMessage(), "500");
+            return Response.buildFailure("获取收藏列表失败" + e.getMessage(), "500");
         }
     }
 
@@ -108,7 +108,7 @@ public class FavoriteServiceImpl implements FavoriteService {
             boolean isFavorited = favoriteRepository.existsByAccountIdAndProductId(accountId, productId);
             return Response.buildSuccess(isFavorited);
         } catch (Exception e) {
-            return Response.buildFailure("查询失败：" + e.getMessage(), "500");
+            return Response.buildFailure("查询失败" + e.getMessage(), "500");
         }
     }
 
@@ -118,7 +118,7 @@ public class FavoriteServiceImpl implements FavoriteService {
             Integer count = favoriteRepository.countByAccountId(accountId);
             return Response.buildSuccess(count);
         } catch (Exception e) {
-            return Response.buildFailure("获取收藏数量失败：" + e.getMessage(), "500");
+            return Response.buildFailure("获取收藏数量失败" + e.getMessage(), "500");
         }
     }
 }

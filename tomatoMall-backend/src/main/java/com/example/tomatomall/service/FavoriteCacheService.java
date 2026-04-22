@@ -6,40 +6,40 @@ import java.util.Set;
  * 收藏缓存服务接口
  * 
  * 【Redis 数据结构选型】Set
- * 选择 Set 的原因：
- * 1. 收藏记录天然具有唯一性（同一用户不能重复收藏同一商品）
- * 2. 需要快速判断某商品是否已被收藏（SISMEMBER O(1)）
- * 3. 不需要排序（如需要按时间排序，考虑 ZSet）
+ * 选择 Set 的原因:
+ * 1. 收藏记录天然具有唯一性(同一用户不能重复收藏同一商品�?
+ * 2. 需要快速判断某商品是否已被收藏(SISMEMBER O(1)�?
+ * 3. 不需要排序(如需要按时间排序，考虑 ZSet�?
  * 
- * 【缓存 Key 设计】
- * - 用户收藏集合：favorite:user:{userId}
+ * 【缓�?Key 设计�?
+ * - 用户收藏集合:favorite:user:{userId}
  * 
- * 【面试要点】
- * - Set 的去重特性
- * - SISMEMBER 的高效性
- * - Set 与 ZSet 的选择依据
+ * 【面试要点�?
+ * - Set 的去重特�?
+ * - SISMEMBER 的高效�?
+ * - Set �?ZSet 的选择依据
  */
 public interface FavoriteCacheService {
     
     /**
-     * 添加收藏到缓存
+     * 添加收藏到缓�?
      * @param userId 用户ID
      * @param productId 商品ID
      */
     void addFavoriteToCache(Integer userId, Integer productId);
     
     /**
-     * 从缓存移除收藏
+     * 从缓存移除收�?
      * @param userId 用户ID
      * @param productId 商品ID
      */
     void removeFavoriteFromCache(Integer userId, Integer productId);
     
     /**
-     * 判断商品是否已被收藏（优先缓存）
+     * 判断商品是否已被收藏(优先缓存)
      * @param userId 用户ID
      * @param productId 商品ID
-     * @return 是否已收藏
+     * @return 是否已收�?
      */
     Boolean isFavorited(Integer userId, Integer productId);
     
@@ -58,7 +58,7 @@ public interface FavoriteCacheService {
     Long getFavoriteCount(Integer userId);
     
     /**
-     * 同步用户收藏到缓存
+     * 同步用户收藏到缓�?
      * @param userId 用户ID
      */
     void syncUserFavorites(Integer userId);

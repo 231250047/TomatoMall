@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mvn clean:*)",
+      "Bash(mysql:*)",
+      "Bash(/d/JDK/jdk-17/bin/java:*)"
+    ]
+  }
+}

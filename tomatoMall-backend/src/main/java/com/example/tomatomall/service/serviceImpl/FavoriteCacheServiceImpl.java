@@ -21,21 +21,21 @@ import java.util.stream.Collectors;
  * Key: favorite:user:{userId}
  * Value: 商品ID集合
  * 
- * 【Set 特性应用】
- * 1. 自动去重：同一商品只会存储一次
- * 2. O(1) 判断：SISMEMBER 快速判断是否已收藏
- * 3. 高效统计：SCARD 快速获取收藏数量
+ * 【Set 特性应用�?
+ * 1. 自动去重:同一商品只会存储一�?
+ * 2. O(1) 判断:SISMEMBER 快速判断是否已收藏
+ * 3. 高效统计:SCARD 快速获取收藏数�?
  * 
- * 【面试亮点】
- * - Set 的去重和快速判断特性
- * - 缓存与数据库的一致性保证
+ * 【面试亮点�?
+ * - Set 的去重和快速判断特�?
+ * - 缓存与数据库的一致性保�?
  */
 @Service
 public class FavoriteCacheServiceImpl implements FavoriteCacheService {
     
     // 收藏缓存 Key 前缀
     private static final String FAVORITE_CACHE_PREFIX = "favorite:user:";
-    // 缓存时间（2小时）
+    // 缓存时间�?小时�?
     private static final long CACHE_TTL_MINUTES = 120;
     
     @Autowired
@@ -45,10 +45,10 @@ public class FavoriteCacheServiceImpl implements FavoriteCacheService {
     private FavoriteRepository favoriteRepository;
     
     /**
-     * 添加收藏到缓存
+     * 添加收藏到缓�?
      * 
-     * 【Set 特性】
-     * SADD 操作：如果元素已存在，不会重复添加
+     * 【Set 特性�?
+     * SADD 操作:如果元素已存在，不会重复添�?
      */
     @Override
     public void addFavoriteToCache(Integer userId, Integer productId) {
@@ -60,10 +60,10 @@ public class FavoriteCacheServiceImpl implements FavoriteCacheService {
     }
     
     /**
-     * 从缓存移除收藏
+     * 从缓存移除收�?
      * 
-     * 【Set 特性】
-     * SREM 操作：移除指定元素，如果不存在则忽略
+     * 【Set 特性�?
+     * SREM 操作:移除指定元素，如果不存在则忽略
      */
     @Override
     public void removeFavoriteFromCache(Integer userId, Integer productId) {
@@ -72,10 +72,10 @@ public class FavoriteCacheServiceImpl implements FavoriteCacheService {
     }
     
     /**
-     * 判断商品是否已被收藏（优先缓存）
+     * 判断商品是否已被收藏(优先缓存)
      * 
-     * 【Set 特性】
-     * SISMEMBER 操作：O(1) 时间复杂度判断元素是否存在
+     * 【Set 特性�?
+     * SISMEMBER 操作:O(1) 时间复杂度判断元素是否存�?
      * 这是 Set 的核心优势之一
      */
     @Override
@@ -87,7 +87,7 @@ public class FavoriteCacheServiceImpl implements FavoriteCacheService {
             return redisService.sIsMember(cacheKey, productId.toString());
         }
         
-        // 缓存不存在，从数据库加载并缓存
+        // 缓存不存在，从数据库加载并缓�?
         syncUserFavorites(userId);
         return redisService.sIsMember(cacheKey, productId.toString());
     }
@@ -95,14 +95,14 @@ public class FavoriteCacheServiceImpl implements FavoriteCacheService {
     /**
      * 获取用户收藏的商品ID集合
      * 
-     * 【Set 特性】
-     * SMEMBERS 操作：获取集合所有成员
+     * 【Set 特性�?
+     * SMEMBERS 操作:获取集合所有成�?
      */
     @Override
     public Set<Integer> getUserFavorites(Integer userId) {
         String cacheKey = FAVORITE_CACHE_PREFIX + userId;
         
-        // 如果缓存不存在，先同步
+        // 如果缓存不存在，先同�?
         if (!redisService.hasKey(cacheKey)) {
             syncUserFavorites(userId);
         }
@@ -120,14 +120,14 @@ public class FavoriteCacheServiceImpl implements FavoriteCacheService {
     /**
      * 获取用户收藏数量
      * 
-     * 【Set 特性】
-     * SCARD 操作：O(1) 时间复杂度获取集合大小
+     * 【Set 特性�?
+     * SCARD 操作:O(1) 时间复杂度获取集合大�?
      */
     @Override
     public Long getFavoriteCount(Integer userId) {
         String cacheKey = FAVORITE_CACHE_PREFIX + userId;
         
-        // 如果缓存不存在，先同步
+        // 如果缓存不存在，先同�?
         if (!redisService.hasKey(cacheKey)) {
             syncUserFavorites(userId);
         }
@@ -137,9 +137,9 @@ public class FavoriteCacheServiceImpl implements FavoriteCacheService {
     }
     
     /**
-     * 同步用户收藏到缓存
+     * 同步用户收藏到缓�?
      * 
-     * 【数据同步策略】
+     * 【数据同步策略�?
      * 从数据库加载用户所有收藏，批量写入 Redis Set
      */
     @Override
@@ -149,7 +149,7 @@ public class FavoriteCacheServiceImpl implements FavoriteCacheService {
         // 从数据库加载
         List<Favorite> favorites = favoriteRepository.findByAccountIdOrderByCreateTimeDesc(userId);
         
-        // 删除旧缓存
+        // 删除旧缓�?
         redisService.delete(cacheKey);
         
         // 如果有收藏，写入缓存
@@ -159,7 +159,7 @@ public class FavoriteCacheServiceImpl implements FavoriteCacheService {
                     .toArray();
             redisService.sAdd(cacheKey, productIds);
             
-            // 设置过期时间（加随机值防止雪崩）
+            // 设置过期时间(加随机值防止雪崩)
             redisService.expire(cacheKey, CACHE_TTL_MINUTES + new Random().nextInt(30), TimeUnit.MINUTES);
         }
     }

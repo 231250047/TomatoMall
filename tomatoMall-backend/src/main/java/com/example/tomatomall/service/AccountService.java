@@ -10,9 +10,9 @@ public interface AccountService {
 
     PartAccountVO getUser();
 
-    PartAccountVO getUser(String username); // 新增：根据 username 获取部分用户信息
+    PartAccountVO getUser(String username); // 新增:根�?username 获取部分用户信息
 
-    PartAccountVO getUserByName(String name); // 新增：根据 name 获取部分用户信息
+    PartAccountVO getUserByName(String name); // 新增:根�?name 获取部分用户信息
 
     String updateUser(AccountVO accountVO);
 }

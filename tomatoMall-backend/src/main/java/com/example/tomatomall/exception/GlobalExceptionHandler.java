@@ -11,10 +11,10 @@ import org.springframework.web.client.RestClientException;
 /**
  * @Author: DingXiaoyu
  * @Date: 0:26 2023/11/26
- * 这个类能够接住项目中所有抛出的异常，
- * 使用了RestControllerAdvice切面完成，
- * 表示所有异常出现后都会通过这里。
- * 这个类将异常信息封装到ResultVO中进行返回。
+ * 这个类能够接住项目中所有抛出的异常�?
+ * 使用了RestControllerAdvice切面完成�?
+ * 表示所有异常出现后都会通过这里�?
+ * 这个类将异常信息封装到ResultVO中进行返回�?
  */
 
 @RestControllerAdvice
@@ -26,7 +26,7 @@ public class GlobalExceptionHandler {
         return Response.buildFailure(e.getMessage(), e.getCode());
     }
 
-    // 处理数据库访问类异常（包含乐观锁、死锁、锁等待等），统一返回并发冲突提示
+    // 处理数据库访问类异常(包含乐观锁、死锁、锁等待等)，统一返回并发冲突提示
     @ExceptionHandler(value = DataAccessException.class)
     @ResponseStatus(HttpStatus.CONFLICT)
     public Response<String> handleDataAccessException(DataAccessException e) {
@@ -35,7 +35,7 @@ public class GlobalExceptionHandler {
         return Response.buildFailure(te.getMessage(), te.getCode());
     }
 
-    // 处理调用外部 AI 服务等产生的 RestClientException，将其转换为统一的 AI 错误返回
+    // 处理调用外部 AI 服务等产生的 RestClientException，将其转换为统一�?AI 错误返回
     @ExceptionHandler(value = RestClientException.class)
     @ResponseStatus(HttpStatus.BAD_GATEWAY)
     public Response<String> handleRestClientException(RestClientException e) {

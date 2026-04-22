@@ -43,7 +43,7 @@ public class AliPayServiceImpl implements AliPayService {
         AlipayClient alipayClient = new DefaultAlipayClient(serverUrl, appId,
                 privateKey, FORMAT, charset, alipayPublicKey, signType);
         // 2. 创建 Request并设置Request参数
-        AlipayTradePagePayRequest request = new AlipayTradePagePayRequest();  // 发送请求的 Request类
+        AlipayTradePagePayRequest request = new AlipayTradePagePayRequest();  // 发送请求的 Request�?
         request.setNotifyUrl(notifyUrl);
         request.setReturnUrl(returnUrl);
         if(!orderRepository.existsById(orderId)){
@@ -51,18 +51,18 @@ public class AliPayServiceImpl implements AliPayService {
         }
         Order order = orderRepository.findById(orderId).orElseThrow(TomatoMallException::orderNotExist);
         JSONObject bizContent = new JSONObject();
-        bizContent.put("out_trade_no", order.getOrderId());  // 我们自己生成的订单编号
-        bizContent.put("total_amount", order.getTotalAmount()); // 订单的总金额
-        bizContent.put("subject", "订单");   // 支付的名称
+        bizContent.put("out_trade_no", order.getOrderId());  // 我们自己生成的订单编�?
+        bizContent.put("total_amount", order.getTotalAmount()); // 订单的总金�?
+        bizContent.put("subject", "订单");   // 支付的名�?
         bizContent.put("product_code", "FAST_INSTANT_TRADE_PAY");  // 固定配置
         request.setBizContent(bizContent.toString());
-        // 执行请求，拿到响应的结果，返回给浏览器
+        // 执行请求，拿到响应的结果，返回给浏览�?
         String form = "";
         try {
             form = alipayClient.pageExecute(request).getBody(); // 调用SDK生成表单
         } catch (AlipayApiException e) {
-            // 支付失败时彻底回滚订单相关数据并释放锁定的库存
-            // 使用 OrderServiceImpl 的 cancelOrder 做回滚（释放 frozen、删除 relations 与订单）
+            // 支付失败时彻底回滚订单相关数据并释放锁定的库�?
+            // 使用 OrderServiceImpl �?cancelOrder 做回滚(释放 frozen、删�?relations 与订单)
             orderService.cancelOrder(orderId.toString());
             throw TomatoMallException.aliPayError();
         }

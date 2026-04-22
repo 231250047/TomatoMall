@@ -14,19 +14,19 @@ public class TomatoMallException extends RuntimeException {
     }
 
     public static TomatoMallException notLogin(){
-        return new TomatoMallException("未登录!", "401");
+        return new TomatoMallException("未登�?", "401");
     }
 
     public static TomatoMallException usernameAlreadyExists(){
-        return new TomatoMallException("用户已存在!", "400");
+        return new TomatoMallException("用户已存�?", "400");
     }
 
     public static TomatoMallException usernameError(){
-        return new TomatoMallException("用户未注册!", "400");
+        return new TomatoMallException("用户未注�?", "400");
     }
 
     public static TomatoMallException passwordError(){
-        return new TomatoMallException("密码不正确!", "400");
+        return new TomatoMallException("密码不正�?", "400");
     }
 
     public static TomatoMallException cartItemNotExist(){
@@ -34,7 +34,7 @@ public class TomatoMallException extends RuntimeException {
     }
 
     public  static TomatoMallException stockpileNotExist(){
-        return new TomatoMallException("库存不存在!", "400");
+        return new TomatoMallException("库存不存�?", "400");
     }
 
     public static TomatoMallException stockpileNotEnough(){
@@ -47,19 +47,19 @@ public class TomatoMallException extends RuntimeException {
     }
 
     public static TomatoMallException advertisementNotExist(){
-        return new TomatoMallException("广告不存在!", "400");
+        return new TomatoMallException("广告不存�?", "400");
     }
 
 
     public static TomatoMallException commentNotExist(){
-        return new TomatoMallException("评论不存在!", "400");
+        return new TomatoMallException("评论不存�?", "400");
     }
 
     public static TomatoMallException deleteCommentError(){
         return new TomatoMallException("删除评论失败!", "400");
     }
     public static TomatoMallException discountTooMuch(){
-        return new TomatoMallException("折扣不合理!", "400");
+        return new TomatoMallException("折扣不合�?", "400");
     }
 
     public static TomatoMallException concurrentUpdate() {

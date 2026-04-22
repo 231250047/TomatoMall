@@ -19,7 +19,7 @@ public class OrderVO {
     private String paymentMethod;
     private Date createTime;
     private String status;
-    private Date paymentTime;  // 新增：支付时间
+    private Date paymentTime;  // 新增:支付时�?
 
     // 收货信息
     private String receiverName;

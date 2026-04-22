@@ -16,7 +16,7 @@ public interface OrderService {
     List<ProductVO> getPurchasedProducts(Integer userId);
 
     /**
-     * 获取用户的订单列表
+     * 获取用户的订单列�?
      */
     List<OrderVO> getOrderList(Integer userId);
 

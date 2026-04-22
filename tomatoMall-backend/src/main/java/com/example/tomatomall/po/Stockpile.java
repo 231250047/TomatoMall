@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Getter
 @Setter
@@ -25,7 +25,7 @@ public class Stockpile {
 
     @Basic
     @Column(name = "amount", nullable = false)
-    private Integer amount=400;//默认为400
+    private Integer amount=400;//默认�?00
 
     @Basic
     @Column(name = "frozen", nullable = false)

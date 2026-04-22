@@ -20,7 +20,7 @@ public class SecurityConfig {
 //                .authorizeHttpRequests(auth -> auth
 //                        .anyRequest().permitAll()  // 允许所有请求，无需springboot身份认证
 //                )
-//                .csrf(csrf -> csrf.disable());  // 禁用 CSRF 防护（如果需要）
+//                .csrf(csrf -> csrf.disable());  // 禁用 CSRF 防护(如果需要)
 //
 //        return http.build();
 //    }

@@ -19,7 +19,7 @@ public class OssController {
     @PostMapping
     public ResultUtil uploadOssFile(@RequestParam MultipartFile file){
 
-        /**返回上传到oss的路径*/
+        /**返回上传到oss的路**/
         String url = ossService.uploadFileAvatar(file);
 
         return ResultUtil.success(url);

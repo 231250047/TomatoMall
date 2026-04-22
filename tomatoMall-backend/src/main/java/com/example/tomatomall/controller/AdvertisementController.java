@@ -7,7 +7,7 @@ import com.example.tomatomall.vo.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.List;
 
 /**
@@ -29,14 +29,14 @@ public class AdvertisementController {
     private AdvertisementCacheService advertisementCacheService;
 
     /**
-     * 获取所有广告
+     * 获取所有广�?
      * 
-     * 【Redis 功能】
-     * 优先从 Redis List 缓存获取，缓存未命中则从数据库加载
+     * 【Redis 功能�?
+     * 优先�?Redis List 缓存获取，缓存未命中则从数据库加�?
      */
     @GetMapping
     public Response<List<AdvertisementVO>> getAllAds() {
-        // 【Redis】使用缓存获取广告列表
+        // 【Redis】使用缓存获取广告列�?
         List<AdvertisementVO> ads = advertisementCacheService.getAdsWithCache();
         return Response.buildSuccess(ads);
     }
@@ -44,8 +44,8 @@ public class AdvertisementController {
     /**
      * 创建广告
      * 
-     * 【Redis 功能】
-     * 创建后刷新缓存
+     * 【Redis 功能�?
+     * 创建后刷新缓�?
      */
      @PostMapping
      public Response<AdvertisementVO> createAd(@RequestBody AdvertisementVO advertisementVO) {
@@ -55,7 +55,7 @@ public class AdvertisementController {
             System.out.println("Image URL"+advertisementVO.getImgUrl());
          AdvertisementVO result = advertisementService.createAd(advertisementVO);
          
-         // 【Redis】刷新广告缓存
+         // 【Redis】刷新广告缓�?
          advertisementCacheService.refreshAdsCache();
          
          return Response.buildSuccess(result);
@@ -64,14 +64,14 @@ public class AdvertisementController {
     /**
      * 更新广告
      * 
-     * 【Redis 功能】
-     * 更新后刷新缓存
+     * 【Redis 功能�?
+     * 更新后刷新缓�?
      */
     @PutMapping
     public Response<String> updateAd(@RequestBody AdvertisementVO advertisementVO) {
         String result = advertisementService.updateAd(advertisementVO);
         
-        // 【Redis】刷新广告缓存
+        // 【Redis】刷新广告缓�?
         advertisementCacheService.refreshAdsCache();
         
         return Response.buildSuccess(result);
@@ -80,14 +80,14 @@ public class AdvertisementController {
     /**
      * 删除广告
      * 
-     * 【Redis 功能】
-     * 删除后刷新缓存
+     * 【Redis 功能�?
+     * 删除后刷新缓�?
      */
     @DeleteMapping("/{id}")
     public Response<String> deleteAd(@PathVariable Integer id) {
         String result = advertisementService.deleteAd(id);
         
-        // 【Redis】刷新广告缓存
+        // 【Redis】刷新广告缓�?
         advertisementCacheService.refreshAdsCache();
         
         return Response.buildSuccess(result);

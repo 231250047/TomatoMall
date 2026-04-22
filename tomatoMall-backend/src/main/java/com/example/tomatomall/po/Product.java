@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Date;
@@ -16,7 +16,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "products") // 映射数据库表名
+@Table(name = "products") // 映射数据库表�?
 public class Product {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,7 +33,7 @@ public class Product {
     private BigDecimal price;
 
     @Basic
-    @Column(name = "rate", nullable = false) // 最低0分，最高10分需业务逻辑校验
+    @Column(name = "rate", nullable = false) // 最�?分，最�?0分需业务逻辑校验
     private Double rate;
 
     @Basic
@@ -53,7 +53,7 @@ public class Product {
     private String tag;
 
     @Basic
-    @Column(name = "create_time") // 补充示例中未包含的字段
+    @Column(name = "create_time") // 补充示例中未包含的字�?
     private Date createTime;
 
     @Basic
@@ -64,7 +64,7 @@ public class Product {
     @Column(name = "status", nullable = false, columnDefinition = "VARCHAR(20) DEFAULT 'available'")
     private String status = "available";
 
-    // 新增：商品成色（字符串，限定为枚举值）
+    // 新增:商品成色(字符串，限定为枚举值)
     @Basic
     @Column(name = "product_condition", nullable = false, columnDefinition = "VARCHAR(10) DEFAULT '10_NEW'")
     private String condition = "10_NEW";
@@ -74,17 +74,17 @@ public class Product {
 
     public void setRate(Double rate) {
         if (rate == null) {
-            throw new IllegalArgumentException("商品评分不能为 null");
+            throw new IllegalArgumentException("商品评分不能�?null");
         }
         if (rate < 0.0 || rate > 10.0) {
-            throw new IllegalArgumentException("商品评分必须在 0 到 10 之间");
+            throw new IllegalArgumentException("商品评分必须�?0 �?10 之间");
         }
         this.rate = rate;
     }
 
     public void setPrice(BigDecimal price) {
         if (price.doubleValue() < 0.0) {
-            throw new IllegalArgumentException("商品价格最低为0元");
+            throw new IllegalArgumentException("商品价格最低为0");
         }
         this.price = price;
     }
@@ -101,14 +101,14 @@ public class Product {
         this.tag = tag;
     }
 
-    // 校验允许的枚举值
+    // 校验允许的枚举�?
     private static final Set<String> ALLOWED_CONDITIONS = new HashSet<>(
             Arrays.asList("10_NEW","9_NEW", "8_NEW", "5_NEW", "4_NEW", "OLD")
     );
 
     public void setCondition(String condition) {
         if (condition == null || !ALLOWED_CONDITIONS.contains(condition)) {
-            throw new IllegalArgumentException("商品成色不合法，必须为: 10_NEW, 8_NEW, 5_NEW, 4_NEW, OLD 之一");
+            throw new IllegalArgumentException("商品成色不合法，必须�? 10_NEW, 8_NEW, 5_NEW, 4_NEW, OLD 之一");
         }
         this.condition = condition;
     }
@@ -126,7 +126,7 @@ public class Product {
         productVO.setTag(this.tag);
         productVO.setSellerId(this.sellerId);
         productVO.setStatus(this.status);
-        // 新增：成色
+        // 新增:成�?
         productVO.setCondition(this.condition);
         return productVO;
     }

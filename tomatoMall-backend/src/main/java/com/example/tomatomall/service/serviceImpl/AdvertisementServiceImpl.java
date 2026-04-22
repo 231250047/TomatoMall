@@ -25,7 +25,7 @@ public class AdvertisementServiceImpl implements AdvertisementService {
     private ProductRepository productRepository;
 
     /**
-     * 查询所有广告（只读事务）
+     * 查询所有广告(只读事务)
      */
     @Override
     @Transactional(readOnly = true)
@@ -37,7 +37,7 @@ public class AdvertisementServiceImpl implements AdvertisementService {
     }
 
     /**
-     * 创建广告（事务，发生异常回滚）
+     * 创建广告(事务，发生异常回滚�?
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -52,7 +52,7 @@ public class AdvertisementServiceImpl implements AdvertisementService {
     }
 
     /**
-     * 更新广告（部分更新，事务，发生异常回滚）
+     * 更新广告(部分更新，事务，发生异常回滚)
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -79,7 +79,7 @@ public class AdvertisementServiceImpl implements AdvertisementService {
     }
 
     /**
-     * 删除广告（先查询，再删除，事务，发生异常回滚）
+     * 删除广告(先查询，再删除，事务，发生异常回滚�?
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
