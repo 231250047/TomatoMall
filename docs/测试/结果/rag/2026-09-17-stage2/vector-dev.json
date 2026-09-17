@@ -1,0 +1,293 @@
+[
+  {
+    "query_id": "q01",
+    "fixture_keys": [
+      "rag-v1-001",
+      "rag-v1-041",
+      "rag-v1-002",
+      "rag-v1-003",
+      "rag-v1-004"
+    ],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 375
+  },
+  {
+    "query_id": "q02",
+    "fixture_keys": [
+      "rag-v1-002",
+      "rag-v1-001",
+      "rag-v1-021",
+      "rag-v1-005",
+      "rag-v1-004"
+    ],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 193
+  },
+  {
+    "query_id": "q03",
+    "fixture_keys": [
+      "rag-v1-003"
+    ],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 173
+  },
+  {
+    "query_id": "q04",
+    "fixture_keys": [],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 173
+  },
+  {
+    "query_id": "q05",
+    "fixture_keys": [
+      "rag-v1-005"
+    ],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 232
+  },
+  {
+    "query_id": "q06",
+    "fixture_keys": [
+      "rag-v1-006"
+    ],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 151
+  },
+  {
+    "query_id": "q07",
+    "fixture_keys": [],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 168
+  },
+  {
+    "query_id": "q08",
+    "fixture_keys": [
+      "rag-v1-045",
+      "rag-v1-009",
+      "rag-v1-008",
+      "rag-v1-010"
+    ],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 156
+  },
+  {
+    "query_id": "q09",
+    "fixture_keys": [
+      "rag-v1-010",
+      "rag-v1-009",
+      "rag-v1-008",
+      "rag-v1-046",
+      "rag-v1-045"
+    ],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 186
+  },
+  {
+    "query_id": "q10",
+    "fixture_keys": [
+      "rag-v1-011"
+    ],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 311
+  },
+  {
+    "query_id": "q11",
+    "fixture_keys": [
+      "rag-v1-013"
+    ],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 974
+  },
+  {
+    "query_id": "q12",
+    "fixture_keys": [
+      "rag-v1-014"
+    ],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 163
+  },
+  {
+    "query_id": "q13",
+    "fixture_keys": [
+      "rag-v1-015"
+    ],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 175
+  },
+  {
+    "query_id": "q14",
+    "fixture_keys": [
+      "rag-v1-016",
+      "rag-v1-014",
+      "rag-v1-013"
+    ],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 167
+  },
+  {
+    "query_id": "q15",
+    "fixture_keys": [
+      "rag-v1-017",
+      "rag-v1-047"
+    ],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 158
+  },
+  {
+    "query_id": "q16",
+    "fixture_keys": [],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 298
+  },
+  {
+    "query_id": "q17",
+    "fixture_keys": [
+      "rag-v1-020",
+      "rag-v1-017",
+      "rag-v1-019",
+      "rag-v1-018"
+    ],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 185
+  },
+  {
+    "query_id": "q18",
+    "fixture_keys": [
+      "rag-v1-021"
+    ],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 191
+  },
+  {
+    "query_id": "q19",
+    "fixture_keys": [
+      "rag-v1-023"
+    ],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 234
+  },
+  {
+    "query_id": "q20",
+    "fixture_keys": [
+      "rag-v1-024"
+    ],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 270
+  },
+  {
+    "query_id": "q21",
+    "fixture_keys": [
+      "rag-v1-025",
+      "rag-v1-048",
+      "rag-v1-030",
+      "rag-v1-027",
+      "rag-v1-011"
+    ],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 170
+  },
+  {
+    "query_id": "q22",
+    "fixture_keys": [
+      "rag-v1-026",
+      "rag-v1-011"
+    ],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 175
+  },
+  {
+    "query_id": "q23",
+    "fixture_keys": [
+      "rag-v1-027"
+    ],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 152
+  },
+  {
+    "query_id": "q24",
+    "fixture_keys": [
+      "rag-v1-039"
+    ],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 167
+  },
+  {
+    "query_id": "q25",
+    "fixture_keys": [
+      "rag-v1-017",
+      "rag-v1-040",
+      "rag-v1-047"
+    ],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 158
+  },
+  {
+    "query_id": "q26",
+    "fixture_keys": [
+      "rag-v1-065",
+      "rag-v1-066"
+    ],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 148
+  },
+  {
+    "query_id": "q27",
+    "fixture_keys": [
+      "rag-v1-073"
+    ],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 135
+  },
+  {
+    "query_id": "q28",
+    "fixture_keys": [
+      "rag-v1-078"
+    ],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 194
+  },
+  {
+    "query_id": "q29",
+    "fixture_keys": [
+      "rag-v1-090"
+    ],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 156
+  },
+  {
+    "query_id": "q30",
+    "fixture_keys": [],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 150
+  }
+]

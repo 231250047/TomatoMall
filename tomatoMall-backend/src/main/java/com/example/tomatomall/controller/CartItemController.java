@@ -21,7 +21,7 @@ import java.util.Map;
  * 
  * 【Redis 集成说明】
  * 1. 购物车数据同步:操作后同步 Redis Hash 缓存
- * 2. 下单后添加超时任务到延迟队列
+ * 2. 下单事务内保存超时 Outbox 事件
  */
 @RestController
 @RequestMapping("/api/cart")
@@ -40,11 +40,7 @@ public class CartItemController {
     @Autowired
     private CartCacheService cartCacheService;
     
-    @Autowired
-    private DelayQueueService delayQueueService;
-    
-    // 订单超时时间(分钟)
-    private static final int ORDER_TIMEOUT_MINUTES = 30;
+
 
     /**
      * 添加商品到购物车
@@ -85,7 +81,7 @@ public class CartItemController {
      * 结算下单
      * 
      * 【Redis 功能�?
-     * 创建订单后，添加超时任务�?Redis 延迟队列
+     * 订单事务内保存超时事件，由 MQ 触发、数据库扫描兜底
      * 30分钟未支付将自动取消订单
      */
     @PostMapping("/checkout")
@@ -96,11 +92,6 @@ public class CartItemController {
 //        String username = authentication.getName();
         OrderVO orderVO = orderService.createOrder(account.getUsername(),checkoutRequest);
         
-        // 【Redis】添加订单超时任务到延迟队列
-        // 订单创建�?0分钟未支付，将自动取�?
-        if (orderVO != null && orderVO.getOrderId() > 0) {
-            delayQueueService.addOrderTimeoutTask(orderVO.getOrderId(), ORDER_TIMEOUT_MINUTES);
-        }
         return Response.buildSuccess(orderVO);
     }
 }

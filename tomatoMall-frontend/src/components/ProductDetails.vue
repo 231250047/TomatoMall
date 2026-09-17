@@ -118,7 +118,7 @@ const productDetail = ref({
 
 // 添加到购物车（带 409 并发冲突重试提示）
 const tryAddCart = (productId, quantity, retries = 1) => {
-  if (quantity > stockpile.value.amount) {
+  if (quantity > availableStock.value) {
     ElMessage({ message: "库存不足！", type: 'error', center: true })
     return
   }
@@ -163,6 +163,7 @@ const tryAddCart = (productId, quantity, retries = 1) => {
 // 卖家 & 库存信息
 const sellerInfo = ref({ id: null, name: '' })
 const stockpile = ref({ amount: 0, frozen: 0 })
+const availableStock = computed(() => Math.max(0, stockpile.value.amount - stockpile.value.frozen))
 
 // 加载商品详情的函数
 const loadProductDetail = async () => {
@@ -390,14 +391,14 @@ const startChat = (sellerName = '') => {
       <div class="cart-bar-content">
         <div class="cart-info">
           <div class="cart-price">{{ formatPrice(productDetail.price) }}</div>
-          <div class="cart-stock">库存：{{ stockpile.amount }}</div>
+          <div class="cart-stock">可售库存：{{ availableStock }}</div>
         </div>
         <div class="cart-actions">
           <el-input-number
               v-model="cart_quantity"
               :min="1"
-              :max="Math.max(1, stockpile.amount)"
-              :disabled="stockpile.amount === 0"
+              :max="Math.max(1, availableStock)"
+              :disabled="availableStock === 0"
               size="large"
               class="quantity-input"
           />
@@ -406,10 +407,10 @@ const startChat = (sellerName = '') => {
             type="primary" 
             size="large" 
             class="add-cart-btn"
-            :disabled="stockpile.amount === 0"
+            :disabled="availableStock === 0"
           >
             <el-icon style="margin-right: 8px;"><ShoppingCart /></el-icon>
-            {{ stockpile.amount === 0 ? '已售罄' : '加入购物车' }}
+            {{ availableStock === 0 ? '已售罄' : '加入购物车' }}
           </el-button>
 
           <!-- 收藏按钮 -->
@@ -435,7 +436,7 @@ const startChat = (sellerName = '') => {
       <div>
         <p>当前库存数量: <strong>{{ stockpile.amount }}</strong></p>
         <p>冻结数量: <strong>{{ stockpile.frozen }}</strong></p>
-        <el-input-number v-model="stockpile.amount" :min="0" label="修改库存数量" style="width: 100%;" />
+        <el-input-number v-model="stockpile.amount" :min="stockpile.frozen" label="修改库存总量" style="width: 100%;" />
       </div>
       <span slot="footer" class="dialog-footer">
         <el-button @click="dialogVisible = false">取消</el-button>

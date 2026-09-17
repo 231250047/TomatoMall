@@ -1,0 +1,116 @@
+[
+  {
+    "query_id": "q01",
+    "query": "Java完全没学过，先看哪本基础书？",
+    "response": {
+      "data": "1. 《Java第一步（合成测试）》 ￥39.90，商品编号 1\n   商品介绍依据：书名：Java第一步（合成测试）\n分类：science\n简介：合成测试图书，主题：Java；难度：入门。内容：变量、循环与面向对象基础。\n"
+    },
+    "elapsed_seconds": 3.11,
+    "diagnostics": [
+      "chat_call callId=fdf4379e-46f8-4ba8-b519-ac9c5dcfb3ac outcome=SUCCESS requestedModel=deepseek-v4-flash responseModel=deepseek-flash finishReason=stop httpStatus=200 promptTokens=1336 completionTokens=499 totalTokens=1835 reasoningTokens=447 hasReasoning=true elapsedMs=2899",
+      "rag_selection outcome=SELECTED candidates=10 selected=1"
+    ]
+  },
+  {
+    "query_id": "q03",
+    "query": "想看Java虚拟机垃圾回收和字节码源码",
+    "response": {
+      "data": "1. 《Java虚拟机源码研读（合成测试）》 ￥99.00，商品编号 3\n   商品介绍依据：内容：垃圾回收、字节码与虚拟机源码。\n"
+    },
+    "elapsed_seconds": 2.55,
+    "diagnostics": [
+      "chat_call callId=95d21ab4-1fcd-452d-9e96-dd1353ca11dd outcome=SUCCESS requestedModel=deepseek-v4-flash responseModel=deepseek-flash finishReason=stop httpStatus=200 promptTokens=1228 completionTokens=377 totalTokens=1605 reasoningTokens=352 hasReasoning=true elapsedMs=2349",
+      "rag_selection outcome=SELECTED candidates=9 selected=1"
+    ]
+  },
+  {
+    "query_id": "q07",
+    "query": "MySQL并发读写为什么会读到不同版本？",
+    "response": {
+      "data": "1. 《MySQL事务与隔离（合成测试）》 ￥78.00，商品编号 8\n   商品介绍依据：内容：事务隔离、MVCC与并发读写。\n"
+    },
+    "elapsed_seconds": 2.63,
+    "diagnostics": [
+      "chat_call callId=8fd5679a-42b5-4e58-afc8-f6f244acf519 outcome=SUCCESS requestedModel=deepseek-v4-flash responseModel=deepseek-flash finishReason=stop httpStatus=200 promptTokens=987 completionTokens=404 totalTokens=1391 reasoningTokens=379 hasReasoning=true elapsedMs=2435",
+      "rag_selection outcome=SELECTED candidates=7 selected=1"
+    ]
+  },
+  {
+    "query_id": "q12",
+    "query": "想学Redis常用字符串哈希列表命令",
+    "response": {
+      "data": "1. 《Redis数据结构入门（合成测试）》 ￥42.00，商品编号 14\n   商品介绍依据：内容：字符串、哈希、列表与基础命令。\n"
+    },
+    "elapsed_seconds": 2.16,
+    "diagnostics": [
+      "chat_call callId=b1044af9-85df-4494-91c4-fe69c08b09eb outcome=SUCCESS requestedModel=deepseek-v4-flash responseModel=deepseek-flash finishReason=stop httpStatus=200 promptTokens=976 completionTokens=399 totalTokens=1375 reasoningTokens=374 hasReasoning=true elapsedMs=1937",
+      "rag_selection outcome=SELECTED candidates=7 selected=1"
+    ]
+  },
+  {
+    "query_id": "q24",
+    "query": "怎么核验支付回调并处理重复通知？",
+    "response": {
+      "data": "1. 《支付回调可靠处理（合成测试）》 ￥79.00，商品编号 39\n   商品介绍依据：书名：支付回调可靠处理（合成测试）\n分类：science\n简介：合成测试图书，主题：支付；难度：进阶。内容：验签、金额校验与重复通知幂等。\n"
+    },
+    "elapsed_seconds": 4.15,
+    "diagnostics": [
+      "chat_call callId=7c259a6e-1cb7-4a45-996c-1ff229243658 outcome=SUCCESS requestedModel=deepseek-v4-flash responseModel=deepseek-flash finishReason=stop httpStatus=200 promptTokens=789 completionTokens=843 totalTokens=1632 reasoningTokens=786 hasReasoning=true elapsedMs=3943",
+      "rag_selection outcome=SELECTED candidates=5 selected=1"
+    ]
+  },
+  {
+    "query_id": "q30",
+    "query": "商品中有量子芯片制造工艺专著吗？",
+    "response": {
+      "data": "当前没有找到符合条件的在售商品。可以换个关键词试试。"
+    },
+    "elapsed_seconds": 0.19,
+    "diagnostics": []
+  },
+  {
+    "query_id": "q32",
+    "query": "执行计划优化的书严格低于80元",
+    "response": {
+      "data": "本次候选中没有找到足够匹配你需求的商品，可以调整条件再试。"
+    },
+    "elapsed_seconds": 2.27,
+    "diagnostics": [
+      "chat_call callId=e399e955-cfba-424b-a3dd-ab91d87ebfa7 outcome=SUCCESS requestedModel=deepseek-v4-flash responseModel=deepseek-flash finishReason=stop httpStatus=200 promptTokens=601 completionTokens=264 totalTokens=865 reasoningTokens=258 hasReasoning=true elapsedMs=2045",
+      "rag_selection outcome=NO_MATCH candidates=4"
+    ]
+  },
+  {
+    "query_id": "q35",
+    "query": "服务保存业务记录后崩溃，如何补发未投递事件？",
+    "response": {
+      "data": "1. 《可靠消息与幂等消费（合成测试）》 ￥69.00，商品编号 17\n   商品介绍依据：书名：可靠消息与幂等消费（合成测试）\n分类：science\n简介：合成测试图书，主题：消息队列；难度：进阶。内容：消息重复投递、业务幂等与失败重试。\n"
+    },
+    "elapsed_seconds": 6.31,
+    "diagnostics": [
+      "chat_call callId=5b15d19c-2402-443f-86c0-b05a7b7966fe outcome=SUCCESS requestedModel=deepseek-v4-flash responseModel=deepseek-flash finishReason=stop httpStatus=200 promptTokens=1246 completionTokens=1313 totalTokens=2559 reasoningTokens=1251 hasReasoning=true elapsedMs=6087",
+      "rag_selection outcome=SELECTED candidates=9 selected=1"
+    ]
+  },
+  {
+    "query_id": "q43",
+    "query": "面试时讲不清自己的项目，想练表达和复盘",
+    "response": {
+      "data": "1. 《计算机面试表达训练（合成测试）》 ￥49.00，商品编号 54\n   商品介绍依据：内容：项目介绍、复盘与沟通表达。\n"
+    },
+    "elapsed_seconds": 2.82,
+    "diagnostics": [
+      "chat_call callId=ca8af402-4177-4737-a216-3a61fc7a59ca outcome=SUCCESS requestedModel=deepseek-v4-flash responseModel=deepseek-flash finishReason=stop httpStatus=200 promptTokens=962 completionTokens=458 totalTokens=1420 reasoningTokens=434 hasReasoning=true elapsedMs=2578",
+      "rag_selection outcome=SELECTED candidates=7 selected=1"
+    ]
+  },
+  {
+    "query_id": "q50",
+    "query": "20元以下有没有可以买到的书？",
+    "response": {
+      "data": "当前没有找到符合条件的在售商品。可以换个关键词试试。"
+    },
+    "elapsed_seconds": 0.22,
+    "diagnostics": []
+  }
+]

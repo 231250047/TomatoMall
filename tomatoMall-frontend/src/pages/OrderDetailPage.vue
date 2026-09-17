@@ -1,4 +1,5 @@
 <script setup>
+import { orderStatusLabel, cancelOrder } from "@/api/order";
 import NavigationBar from "@/components/NavigationBar.vue";
 import { ref, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
@@ -59,14 +60,23 @@ const handlePay = async () => {
   }
 };
 
+const handleCancel = async (id) => {
+  try {
+    await ElMessageBox.confirm('确认取消订单？如正在支付，将先核实支付结果。', '取消订单');
+    await cancelOrder(id);
+    ElMessage.success('取消申请已提交');
+    fetchOrderDetail();
+  } catch (error) { if (error !== 'cancel') ElMessage.error('取消未完成，请刷新订单状态后重试'); }
+};
+
 const handleDelete = async () => {
   try {
-    await ElMessageBox.confirm('确认删除该订单？', '提示', {
+    await ElMessageBox.confirm('确认隐藏该订单？交易记录会保留。', '提示', {
       confirmButtonText: '确认',
       cancelButtonText: '取消'
     });
     await deleteOrder(order.value.orderId); // 调用后端删除订单接口
-    ElMessage.success('订单删除成功');
+    ElMessage.success('订单已隐藏');
     router.push('/orders'); // 删除成功后跳转到订单列表页
   } catch (e) {
     // 用户取消操作或请求失败
@@ -98,7 +108,7 @@ onMounted(fetchOrderDetail);
             <div class="info-item">
               <span class="label">订单状态</span>
               <el-tag :type="order.status === 'SUCCESS' ? 'success' : 'warning'">
-                {{ order.status === 'SUCCESS' ? '已支付' : '待支付' }}
+                {{ orderStatusLabel(order.status) }}
               </el-tag>
             </div>
             <div class="info-item">
@@ -170,9 +180,11 @@ onMounted(fetchOrderDetail);
         </div>
 
         <!-- 操作按钮 -->
-        <div class="action-buttons" v-if="order.status !== 'SUCCESS'">
-          <el-button type="danger" @click="handlePay">去支付</el-button>
-          <el-button type="danger" @click="handleDelete">删除订单</el-button>
+        <div class="action-buttons">
+          <el-button v-if="order.status === 'PENDING'" @click="handleCancel(order.orderId)">取消订单</el-button>
+          <el-button v-if="order.status === 'PENDING'" type="danger" @click="handlePay">去支付</el-button>
+          <el-button v-if="['SUCCESS', 'TIMEOUT', 'FAILED', 'CANCELLED'].includes(order.status)" @click="handleDelete">隐藏订单</el-button>
+          <span v-if="order.status === 'CLOSING'">正在确认支付结果，请稍后刷新。</span>
         </div>
       </div>
     </div>

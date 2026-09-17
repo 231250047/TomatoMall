@@ -1,0 +1,98 @@
+[
+  {
+    "query_id": "q01",
+    "selected_fixture_keys": [
+      "rag-v1-001"
+    ],
+    "target_hit_and_no_forbidden": true,
+    "extra_unlabeled_keys": [],
+    "elapsed_seconds": 8.47
+  },
+  {
+    "query_id": "q03",
+    "selected_fixture_keys": [
+      "rag-v1-003"
+    ],
+    "target_hit_and_no_forbidden": true,
+    "extra_unlabeled_keys": [],
+    "elapsed_seconds": 2.14
+  },
+  {
+    "query_id": "q07",
+    "selected_fixture_keys": [
+      "rag-v1-008"
+    ],
+    "target_hit_and_no_forbidden": true,
+    "extra_unlabeled_keys": [],
+    "elapsed_seconds": 2.91
+  },
+  {
+    "query_id": "q12",
+    "selected_fixture_keys": [
+      "rag-v1-014"
+    ],
+    "target_hit_and_no_forbidden": true,
+    "extra_unlabeled_keys": [],
+    "elapsed_seconds": 2.66
+  },
+  {
+    "query_id": "q24",
+    "selected_fixture_keys": [
+      "rag-v1-017",
+      "rag-v1-039",
+      "rag-v1-047"
+    ],
+    "target_hit_and_no_forbidden": true,
+    "extra_unlabeled_keys": [
+      "rag-v1-017",
+      "rag-v1-047"
+    ],
+    "elapsed_seconds": 14.73
+  },
+  {
+    "query_id": "q30",
+    "selected_fixture_keys": [],
+    "target_hit_and_no_forbidden": true,
+    "extra_unlabeled_keys": [],
+    "elapsed_seconds": 1.89
+  },
+  {
+    "query_id": "q32",
+    "selected_fixture_keys": [
+      "rag-v1-045"
+    ],
+    "target_hit_and_no_forbidden": true,
+    "extra_unlabeled_keys": [],
+    "elapsed_seconds": 4.47
+  },
+  {
+    "query_id": "q35",
+    "selected_fixture_keys": [
+      "rag-v1-017",
+      "rag-v1-040",
+      "rag-v1-047"
+    ],
+    "target_hit_and_no_forbidden": true,
+    "extra_unlabeled_keys": [
+      "rag-v1-017",
+      "rag-v1-047"
+    ],
+    "elapsed_seconds": 9.19
+  },
+  {
+    "query_id": "q43",
+    "selected_fixture_keys": [
+      "rag-v1-054"
+    ],
+    "target_hit_and_no_forbidden": true,
+    "extra_unlabeled_keys": [],
+    "elapsed_seconds": 7.28
+  },
+  {
+    "query_id": "q50",
+    "selected_fixture_keys": [],
+    "target_hit_and_no_forbidden": true,
+    "extra_unlabeled_keys": [],
+    "elapsed_seconds": 0.22
+  }
+]

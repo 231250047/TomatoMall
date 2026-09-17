@@ -17,10 +17,10 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
     // 根据分类标签查找商品
     List<Product> findByTag(String tag);
 
-    // 查找评分最高的�?0个商�?
+    // 查找评分最高的�?0个商�?
     List<Product> findTop10ByOrderByRateDesc();
 
-    // 根据分类标签查找评分最高的�?0个商�?
+    // 根据分类标签查找评分最高的�?0个商�?
     List<Product> findTop10ByTagOrderByRateDesc(String tag);
 
     // 根据sellerId查找商品

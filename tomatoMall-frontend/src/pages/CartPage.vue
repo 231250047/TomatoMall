@@ -105,7 +105,7 @@ const handleChangeQuantity = (cartItemId, quantity,productId,item) => {
   console.log("quantity: "+quantity);
   getStockpile(productId).then(res=>{
     if(res.code === "200") {
-      stockAmount.value=res.data.amount;
+      stockAmount.value=Math.max(0, res.data.amount - res.data.frozen);
     }
     console.log("stock: "+stockAmount.value)
     if(quantity > stockAmount.value) {

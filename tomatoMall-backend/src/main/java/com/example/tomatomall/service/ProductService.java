@@ -32,7 +32,7 @@ public interface ProductService {
     List<ProductVO> getProductsBySellerId(Integer sellerId);
 
     /**
-     * 获取近两个月上新的商品列�?
+     * 获取近两个月上新的商品列�?
      * @return List<ProductVO>
      */
     List<ProductVO> getNewArrivals();

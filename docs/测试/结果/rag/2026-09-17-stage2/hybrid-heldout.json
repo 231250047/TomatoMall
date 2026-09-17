@@ -1,0 +1,228 @@
+[
+  {
+    "query_id": "q31",
+    "fixture_keys": [
+      "rag-v1-002",
+      "rag-v1-004",
+      "rag-v1-001",
+      "rag-v1-005",
+      "rag-v1-018"
+    ],
+    "degraded": false,
+    "strategy": "hybrid",
+    "elapsed_ms": 208
+  },
+  {
+    "query_id": "q32",
+    "fixture_keys": [
+      "rag-v1-045"
+    ],
+    "degraded": false,
+    "strategy": "hybrid",
+    "elapsed_ms": 181
+  },
+  {
+    "query_id": "q33",
+    "fixture_keys": [
+      "rag-v1-045",
+      "rag-v1-010",
+      "rag-v1-048",
+      "rag-v1-023",
+      "rag-v1-008"
+    ],
+    "degraded": false,
+    "strategy": "hybrid",
+    "elapsed_ms": 184
+  },
+  {
+    "query_id": "q34",
+    "fixture_keys": [
+      "rag-v1-039",
+      "rag-v1-047",
+      "rag-v1-018",
+      "rag-v1-017"
+    ],
+    "degraded": false,
+    "strategy": "hybrid",
+    "elapsed_ms": 238
+  },
+  {
+    "query_id": "q35",
+    "fixture_keys": [
+      "rag-v1-007",
+      "rag-v1-017",
+      "rag-v1-047",
+      "rag-v1-035",
+      "rag-v1-036"
+    ],
+    "degraded": false,
+    "strategy": "hybrid",
+    "elapsed_ms": 185
+  },
+  {
+    "query_id": "q36",
+    "fixture_keys": [
+      "rag-v1-048",
+      "rag-v1-027",
+      "rag-v1-007",
+      "rag-v1-018",
+      "rag-v1-030"
+    ],
+    "degraded": false,
+    "strategy": "hybrid",
+    "elapsed_ms": 176
+  },
+  {
+    "query_id": "q37",
+    "fixture_keys": [
+      "rag-v1-030",
+      "rag-v1-036",
+      "rag-v1-001",
+      "rag-v1-002",
+      "rag-v1-003"
+    ],
+    "degraded": false,
+    "strategy": "hybrid",
+    "elapsed_ms": 191
+  },
+  {
+    "query_id": "q38",
+    "fixture_keys": [
+      "rag-v1-011",
+      "rag-v1-026"
+    ],
+    "degraded": false,
+    "strategy": "hybrid",
+    "elapsed_ms": 226
+  },
+  {
+    "query_id": "q39",
+    "fixture_keys": [
+      "rag-v1-035",
+      "rag-v1-007",
+      "rag-v1-036"
+    ],
+    "degraded": false,
+    "strategy": "hybrid",
+    "elapsed_ms": 171
+  },
+  {
+    "query_id": "q40",
+    "fixture_keys": [
+      "rag-v1-036",
+      "rag-v1-019",
+      "rag-v1-027",
+      "rag-v1-031"
+    ],
+    "degraded": false,
+    "strategy": "hybrid",
+    "elapsed_ms": 199
+  },
+  {
+    "query_id": "q41",
+    "fixture_keys": [
+      "rag-v1-032"
+    ],
+    "degraded": false,
+    "strategy": "hybrid",
+    "elapsed_ms": 266
+  },
+  {
+    "query_id": "q42",
+    "fixture_keys": [
+      "rag-v1-037",
+      "rag-v1-014",
+      "rag-v1-006",
+      "rag-v1-020",
+      "rag-v1-029"
+    ],
+    "degraded": false,
+    "strategy": "hybrid",
+    "elapsed_ms": 217
+  },
+  {
+    "query_id": "q43",
+    "fixture_keys": [
+      "rag-v1-054",
+      "rag-v1-059"
+    ],
+    "degraded": false,
+    "strategy": "hybrid",
+    "elapsed_ms": 198
+  },
+  {
+    "query_id": "q44",
+    "fixture_keys": [
+      "rag-v1-080",
+      "rag-v1-077",
+      "rag-v1-079",
+      "rag-v1-082"
+    ],
+    "degraded": false,
+    "strategy": "hybrid",
+    "elapsed_ms": 191
+  },
+  {
+    "query_id": "q45",
+    "fixture_keys": [
+      "rag-v1-064",
+      "rag-v1-062",
+      "rag-v1-061",
+      "rag-v1-063",
+      "rag-v1-069"
+    ],
+    "degraded": false,
+    "strategy": "hybrid",
+    "elapsed_ms": 192
+  },
+  {
+    "query_id": "q46",
+    "fixture_keys": [
+      "rag-v1-094",
+      "rag-v1-092"
+    ],
+    "degraded": false,
+    "strategy": "hybrid",
+    "elapsed_ms": 179
+  },
+  {
+    "query_id": "q47",
+    "fixture_keys": [
+      "rag-v1-091",
+      "rag-v1-092",
+      "rag-v1-095"
+    ],
+    "degraded": false,
+    "strategy": "hybrid",
+    "elapsed_ms": 221
+  },
+  {
+    "query_id": "q48",
+    "fixture_keys": [
+      "rag-v1-100",
+      "rag-v1-098"
+    ],
+    "degraded": false,
+    "strategy": "hybrid",
+    "elapsed_ms": 188
+  },
+  {
+    "query_id": "q49",
+    "fixture_keys": [
+      "rag-v1-098",
+      "rag-v1-097",
+      "rag-v1-099",
+      "rag-v1-096"
+    ],
+    "degraded": false,
+    "strategy": "hybrid",
+    "elapsed_ms": 258
+  },
+  {
+    "query_id": "q50",
+    "fixture_keys": [],
+    "degraded": false,
+    "strategy": "hybrid",
+    "elapsed_ms": 197
+  }
+]

@@ -52,14 +52,17 @@ const loadSelectedItems = () => {
 
 // 提交订单
 const discount = sessionStorage.getItem('discount') || "0";
+const submitting = ref(false);
 const submitOrder = async () => {
+  if (submitting.value) return;
   if (!validateForm()) return;
+  submitting.value = true;
   const loading = ElLoading.service({
     lock: true,
     text: '正在提交订单...',
   });
   try {
-    const orderData: CheckoutRequest = {
+    const orderData = {
       cartItemIds: selectedItems.value.map(String), // string[]
       shoppingAddress: shoppingForm.value,
       paymentMethod: paymentMethod.value,
@@ -67,7 +70,13 @@ const submitOrder = async () => {
     };
     console.log('提交订单参数:', JSON.stringify(orderData, null, 2));
 
-    const orderInfo = await checkout(orderData);
+    // Keep the same key across timeouts and reloads for the same checkout payload.
+    const payload = JSON.stringify(orderData);
+    const saved = JSON.parse(sessionStorage.getItem('checkoutAttempt') || 'null');
+    const requestId = saved?.payload === payload ? saved.requestId : crypto.randomUUID();
+    sessionStorage.setItem('checkoutAttempt', JSON.stringify({ payload, requestId }));
+    const orderInfo = await checkout({ ...orderData, requestId });
+    sessionStorage.removeItem('checkoutAttempt');
     console.log('订单信息:', JSON.stringify(orderInfo, null, 2));
 
     ElMessage.success('订单提交成功');
@@ -102,6 +111,7 @@ const submitOrder = async () => {
     ElMessage.error(`提交失败: '未知错误'`);
   } finally {
     loading.close();
+    submitting.value = false;
   }
 };
 

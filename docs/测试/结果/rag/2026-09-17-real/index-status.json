@@ -1,0 +1,11 @@
+{
+  "lastReconcile": "SUCCESS",
+  "processed": 100,
+  "reconciling": false,
+  "index": {
+    "documents": 99,
+    "dimensions": 1024,
+    "status": "UP",
+    "store": "pgvector"
+  }
+}

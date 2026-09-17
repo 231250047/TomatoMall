@@ -18,3 +18,7 @@ tomatoMall-backend/src/main/resources/application.yml
 tomatoMall-frontend/node_modules/
 
 **/application.yml
+
+# Python validation helpers
+__pycache__/
+*.pyc

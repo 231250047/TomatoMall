@@ -2,7 +2,7 @@ import { axios } from '../utils/request'
 import { ElMessage } from "element-plus";
 
 // 订单状态类型
-export type OrderStatus = 'PENDING' | 'SUCCESS' | 'FAILED' | 'TIMEOUT';
+export type OrderStatus = 'PENDING' | 'SUCCESS' | 'FAILED' | 'TIMEOUT' | 'CLOSING' | 'CANCELLED';
 
 
 
@@ -13,6 +13,7 @@ export interface OrderInfo {
     totalAmount: string;
     paymentMethod: string;
     createTime: string;
+    expiresAt: string;
     status: OrderStatus;
 }
 
@@ -33,6 +34,7 @@ export interface ShoppingAddress {
 }
 // 提交订单参数
 export interface CheckoutRequest {
+    requestId: string;
     cartItemIds: string[];
     shoppingAddress: ShoppingAddress; // 保持原拼写
     paymentMethod: string;
@@ -126,3 +128,9 @@ export const deleteOrder = (orderId: string) => {
         });
 };
 
+
+export const orderStatusLabel = (status: string) => ({
+    PENDING: '待支付', SUCCESS: '已支付', CLOSING: '关单确认中', TIMEOUT: '已超时', FAILED: '已关闭', CANCELLED: '已取消'
+}[status] || status);
+
+export const cancelOrder = (orderId: string) => axios.post(`http://localhost:8080/api/orders/${orderId}/cancel`);

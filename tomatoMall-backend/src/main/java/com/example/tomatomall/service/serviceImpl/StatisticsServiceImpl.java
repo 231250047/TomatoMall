@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * PV/UV 统计服务实现
  * 
- * 【Redis 数据结构�?
+ * 【Redis 数据结构�?
  * 
  * PV 统计:String + INCR
  * Key: stats:pv:{pageKey}
@@ -26,46 +26,46 @@ import java.util.concurrent.TimeUnit;
  * Key: stats:uv:{pageKey}
  * Value: HyperLogLog 数据结构
  * 
- * 【PV 统计原理�?
+ * 【PV 统计原理�?
  * ```
  * // 每次页面访问
  * INCR stats:pv:homepage
  * INCR stats:pv:product:100
  * 
- * // INCR 是原子操作，高并发下也能保证准确�?
+ * // INCR 是原子操作，高并发下也能保证准确�?
  * ```
  * 
- * 【UV 统计原理 - HyperLogLog�?
+ * 【UV 统计原理 - HyperLogLog�?
  * ```
  * // 记录用户访问
  * PFADD stats:uv:homepage user:123
  * PFADD stats:uv:homepage user:456
  * PFADD stats:uv:homepage user:123  // 重复添加不会增加计数
  * 
- * // 获取独立访客�?
- * PFCOUNT stats:uv:homepage  // 返回 2(去重后�?
+ * // 获取独立访客�?
+ * PFCOUNT stats:uv:homepage  // 返回 2(去重后�?
  * ```
  * 
- * 【HyperLogLog 核心特性�?
- * 1. 空间效率:固�?12KB 存储，不随数据量增加
- * 2. 去重能力:自动去重，同一元素多次添加只计数一�?
+ * 【HyperLogLog 核心特性�?
+ * 1. 空间效率:固�?12KB 存储，不随数据量增加
+ * 2. 去重能力:自动去重，同一元素多次添加只计数一�?
  * 3. 误差率:标准误差 0.81%
  * 4. 合并能力:PFMERGE 可以合并多个 HyperLogLog
  * 
- * 【按天统计设计�?
+ * 【按天统计设计�?
  * Key: stats:pv:{pageKey}:20240115
  * 使用日期后缀实现按天统计
  * 设置过期时间自动清理历史数据
  * 
- * 【面试深度解析�?
- * Q: 为什�?HyperLogLog 只占 12KB�?
- * A: 内部使用 16384 �?6bit 的桶�?2KB = 16384 * 6 / 8�?
+ * 【面试深度解析�?
+ * Q: 为什�?HyperLogLog 只占 12KB�?
+ * A: 内部使用 16384 �?6bit 的桶�?2KB = 16384 * 6 / 8�?
  * 
- * Q: 如何实现精确 UV 统计�?
+ * Q: 如何实现精确 UV 统计�?
  * A: 使用 Set(SADD + SCARD)，但会占用更多内存
  * 
  * Q: HyperLogLog 适合什么场景?
- * A: 大规模去重计数，允许小误差，�?UV、DAU 统计
+ * A: 大规模去重计数，允许小误差，�?UV、DAU 统计
  */
 @Service
 public class StatisticsServiceImpl implements StatisticsService {
@@ -136,7 +136,7 @@ public class StatisticsServiceImpl implements StatisticsService {
      * 记录页面 UV
      * 
      * 【Redis 命令】PFADD
-     * �?HyperLogLog 添加元素
+     * �?HyperLogLog 添加元素
      * 如果元素已存在，不会增加计数
      */
     @Override
@@ -160,7 +160,7 @@ public class StatisticsServiceImpl implements StatisticsService {
      * 获取页面 UV
      * 
      * 【Redis 命令】PFCOUNT
-     * 返回 HyperLogLog 的基数估算�?
+     * 返回 HyperLogLog 的基数估算�?
      * 误差率约 0.81%
      */
     @Override
@@ -185,8 +185,8 @@ public class StatisticsServiceImpl implements StatisticsService {
     /**
      * 增加今日 PV
      * 
-     * 【设计说明�?
-     * Key 包含日期，自动按天分�?
+     * 【设计说明�?
+     * Key 包含日期，自动按天分�?
      * 设置 30 天过期，自动清理历史数据
      */
     @Override

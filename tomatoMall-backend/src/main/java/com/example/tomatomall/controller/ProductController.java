@@ -167,8 +167,7 @@ public class ProductController {
             Integer amountInt = Integer.valueOf(stockpile.getAmount());
             productService.updateStockpile(productId, amountInt);
             
-            // 【Redis】同步库存到 Redis
-            stockCacheService.syncStock(Integer.parseInt(productId));
+            // Cache invalidation is durably queued in the stock transaction.
         } catch (TomatoMallException e) {
             return Response.buildFailure(e.getMessage(), "400");
         }

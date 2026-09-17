@@ -1,0 +1,122 @@
+[
+  {
+    "query_id": "s201",
+    "fixture_keys": [
+      "rag-v1-001",
+      "rag-v1-034",
+      "rag-v1-049",
+      "rag-v1-071"
+    ],
+    "degraded": false,
+    "strategy": "keyword",
+    "elapsed_ms": 60
+  },
+  {
+    "query_id": "s202",
+    "fixture_keys": [
+      "rag-v1-004",
+      "rag-v1-033"
+    ],
+    "degraded": false,
+    "strategy": "keyword",
+    "elapsed_ms": 65
+  },
+  {
+    "query_id": "s203",
+    "fixture_keys": [
+      "rag-v1-008",
+      "rag-v1-027",
+      "rag-v1-001",
+      "rag-v1-002",
+      "rag-v1-003"
+    ],
+    "degraded": false,
+    "strategy": "keyword",
+    "elapsed_ms": 59
+  },
+  {
+    "query_id": "s204",
+    "fixture_keys": [
+      "rag-v1-014",
+      "rag-v1-064"
+    ],
+    "degraded": false,
+    "strategy": "keyword",
+    "elapsed_ms": 60
+  },
+  {
+    "query_id": "s205",
+    "fixture_keys": [
+      "rag-v1-022"
+    ],
+    "degraded": false,
+    "strategy": "exact",
+    "elapsed_ms": 31
+  },
+  {
+    "query_id": "s206",
+    "fixture_keys": [
+      "rag-v1-045"
+    ],
+    "degraded": false,
+    "strategy": "exact",
+    "elapsed_ms": 28
+  },
+  {
+    "query_id": "s207",
+    "fixture_keys": [
+      "rag-v1-039",
+      "rag-v1-047",
+      "rag-v1-017",
+      "rag-v1-019",
+      "rag-v1-018"
+    ],
+    "degraded": false,
+    "strategy": "keyword",
+    "elapsed_ms": 59
+  },
+  {
+    "query_id": "s208",
+    "fixture_keys": [
+      "rag-v1-040",
+      "rag-v1-015"
+    ],
+    "degraded": false,
+    "strategy": "keyword",
+    "elapsed_ms": 58
+  },
+  {
+    "query_id": "s209",
+    "fixture_keys": [
+      "rag-v1-054",
+      "rag-v1-052",
+      "rag-v1-055",
+      "rag-v1-051",
+      "rag-v1-053"
+    ],
+    "degraded": false,
+    "strategy": "keyword",
+    "elapsed_ms": 58
+  },
+  {
+    "query_id": "s210",
+    "fixture_keys": [],
+    "degraded": false,
+    "strategy": "keyword",
+    "elapsed_ms": 58
+  },
+  {
+    "query_id": "s211",
+    "fixture_keys": [],
+    "degraded": false,
+    "strategy": "keyword",
+    "elapsed_ms": 57
+  },
+  {
+    "query_id": "s212",
+    "fixture_keys": [],
+    "degraded": false,
+    "strategy": "exact",
+    "elapsed_ms": 31
+  }
+]

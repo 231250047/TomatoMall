@@ -35,7 +35,7 @@ public class ChatController {
 
         try {
             String userMessage = request.get("message");
-            log.info("📝 请求参数: message = {}", userMessage);
+            log.info("收到聊天请求");
 
             if (userMessage == null || userMessage.trim().isEmpty()) {
                 log.warn("⚠️  警告：message参数为空");
@@ -85,7 +85,7 @@ public class ChatController {
 
         try {
             String userQuery = request.get("query");
-            log.info("📝 请求参数: query = {}", userQuery);
+            log.info("收到推荐请求");
 
             if (userQuery == null || userQuery.trim().isEmpty()) {
                 log.warn("⚠️  警告：query参数为空");

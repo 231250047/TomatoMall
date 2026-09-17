@@ -1,226 +1,106 @@
 package com.example.tomatomall.service.serviceImpl;
 
 import com.example.tomatomall.service.DeepSeekService;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.client.*;
+import java.net.SocketTimeoutException;
+import java.util.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
-/**
- * DeepSeek API直接调用实现
- * 不依赖Spring AI的OpenAI适配器
- */
+/** Direct DeepSeek adapter. Logs metadata only, never prompts, answers, or provider error bodies. */
 @Slf4j
 @Service
 public class DeepSeekServiceImpl implements DeepSeekService {
+    @Value("${spring.ai.openai.api-key}") private String apiKey;
+    @Value("${spring.ai.openai.base-url:https://api.deepseek.com}") private String baseUrl;
+    @Value("${spring.ai.openai.chat.options.model:deepseek-v4-flash}") private String model;
+    private final RestTemplate restTemplate = new RestTemplate(new org.springframework.http.client.SimpleClientHttpRequestFactory() {{
+        setConnectTimeout(5000); setReadTimeout(30000);
+    }});
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
-    @Value("${spring.ai.openai.api-key}")
-    private String apiKey;
+    @Override public String chat(String message) { return complete(message,false); }
+    @Override public String chatWithPrompt(String prompt) { return complete(prompt,true); }
 
-    private static final String API_URL = "https://api.deepseek.com/v1/chat/completions";
-    private static final String MODEL = "deepseek-chat";
+    public static final class ModelCallException extends RuntimeException {
+        private final String reason;
+        ModelCallException(String reason) { super("Chat model unavailable: " + reason); this.reason=reason; }
+        public String reason() { return reason; }
+    }
 
-    private final RestTemplate restTemplate = new RestTemplate();
-
-    // 配置ObjectMapper忽略未知字段
-    private final ObjectMapper objectMapper = new ObjectMapper() {{
-        configure(com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-    }};
-
-    @Override
-    public String chat(String message) {
-        log.info("╔════════════════════════════════════════════════════════════╗");
-        log.info("║           💬 DeepSeek直接调用（简单对话）                    ║");
-        log.info("╚════════════════════════════════════════════════════════════╝");
-        log.info("📝 用户消息: {}", message);
-        log.info("🔗 API URL: {}", API_URL);
-        log.info("🤖 模型: {}", MODEL);
-
+    private String complete(String prompt,boolean selection) {
+        long started=System.nanoTime();
+        String callId=UUID.randomUUID().toString(), outcome="INTERNAL_ERROR";
+        String responseModel="unknown", finishReason="unknown";
+        Long promptTokens=null, completionTokens=null, totalTokens=null, reasoningTokens=null;
+        int httpStatus=0;
+        boolean hasReasoning=false;
         try {
-            // 构建请求体
-            ChatRequest request = new ChatRequest();
-            request.model = MODEL;
-            request.messages = new ArrayList<>();
-            request.messages.add(new Message("user", message));
-            request.max_tokens = 2000;
-            request.temperature = 0.7;
-
-            // 发送请求
-            String responseJson = sendRequest(request);
-
-            // 解析响应
-            ChatResponse response = objectMapper.readValue(responseJson, ChatResponse.class);
-
-            if (response.choices == null || response.choices.isEmpty()) {
-                throw new RuntimeException("DeepSeek返回空响应");
-            }
-
-            String content = response.choices.get(0).message.content;
-            log.info("✅ DeepSeek调用成功");
-            log.info("🤖 AI回复: {}", content);
-            log.info("╚════════════════════════════════════════════════════════════╝");
-
-            return content;
-
-        } catch (Exception e) {
-            log.error("╔════════════════════════════════════════════════════════════╗");
-            log.error("║           ❌ DeepSeek调用失败                               ║");
-            log.error("╚════════════════════════════════════════════════════════════╝");
-            log.error("❌ 错误类型: {}", e.getClass().getName());
-            log.error("❌ 错误消息: {}", e.getMessage());
-            log.error("❌ 堆栈跟踪:", e);
-            throw new RuntimeException("DeepSeek调用失败: " + e.getMessage(), e);
+            if(apiKey==null || apiKey.isBlank() || apiKey.contains("your-") || apiKey.contains("placeholder"))
+                throw new ModelCallException("NOT_CONFIGURED");
+            if(prompt==null || prompt.isBlank()) throw new ModelCallException("INVALID_INPUT");
+            var request=new HashMap<String,Object>(Map.of("model",model,"messages",List.of(Map.of("role","user","content",prompt)),
+                    "max_tokens",selection?4096:2000,"temperature",0.7));
+            var headers=new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON); headers.setBearerAuth(apiKey);
+            var response=restTemplate.exchange(apiUrl(),HttpMethod.POST,
+                    new HttpEntity<>(objectMapper.writeValueAsString(request),headers),String.class);
+            httpStatus=response.getStatusCode().value();
+            if(!response.getStatusCode().is2xxSuccessful()) throw new ModelCallException("HTTP_ERROR");
+            if(response.getBody()==null || response.getBody().isBlank()) throw new ModelCallException("EMPTY_RESPONSE");
+            JsonNode root=objectMapper.readTree(response.getBody());
+            if(root==null || !root.isObject()) throw new ModelCallException("INVALID_RESPONSE");
+            responseModel=safe(root.path("model").asText("unknown"));
+            JsonNode usage=root.path("usage");
+            promptTokens=count(usage.path("prompt_tokens")); completionTokens=count(usage.path("completion_tokens"));
+            totalTokens=count(usage.path("total_tokens"));
+            reasoningTokens=count(usage.path("completion_tokens_details").path("reasoning_tokens"));
+            JsonNode choices=root.path("choices");
+            if(!choices.isArray() || choices.isEmpty()) throw new ModelCallException("EMPTY_CHOICES");
+            JsonNode choice=choices.get(0), message=choice.path("message");
+            finishReason=safe(choice.path("finish_reason").asText("unknown"));
+            hasReasoning=message.path("reasoning_content").isTextual() && !message.path("reasoning_content").asText().isBlank();
+            JsonNode content=message.path("content");
+            if(content.isMissingNode() || content.isNull() || (content.isTextual() && content.asText().isBlank()))
+                throw new ModelCallException("EMPTY_CONTENT");
+            if(!content.isTextual()) throw new ModelCallException("INVALID_RESPONSE");
+            if("length".equals(finishReason)) throw new ModelCallException("TRUNCATED");
+            if(!Set.of("stop","unknown").contains(finishReason)) throw new ModelCallException("UNSUPPORTED_FINISH");
+            outcome="SUCCESS";
+            return content.asText();
+        } catch(ModelCallException e) {
+            outcome=e.reason(); throw e;
+        } catch(RestClientResponseException e) {
+            httpStatus=e.getStatusCode().value(); outcome="HTTP_ERROR";
+            throw new ModelCallException(outcome);
+        } catch(ResourceAccessException e) {
+            outcome=isTimeout(e)?"TIMEOUT":"TRANSPORT_ERROR";
+            throw new ModelCallException(outcome);
+        } catch(JsonProcessingException e) {
+            outcome="INVALID_RESPONSE"; throw new ModelCallException(outcome);
+        } catch(RuntimeException e) {
+            outcome="CLIENT_ERROR"; throw new ModelCallException(outcome);
+        } finally {
+            log.info("chat_call callId={} outcome={} requestedModel={} responseModel={} finishReason={} httpStatus={} promptTokens={} completionTokens={} totalTokens={} reasoningTokens={} hasReasoning={} elapsedMs={}",
+                    callId,outcome,safe(model),responseModel,finishReason,httpStatus,promptTokens,completionTokens,totalTokens,
+                    reasoningTokens,hasReasoning,(System.nanoTime()-started)/1_000_000);
         }
     }
-
-    @Override
-    public String chatWithPrompt(String prompt) {
-        log.info("╔════════════════════════════════════════════════════════════╗");
-        log.info("║           💬 DeepSeek直接调用（带Prompt）                   ║");
-        log.info("╚════════════════════════════════════════════════════════════╝");
-        log.info("📝 Prompt长度: {} 字符", prompt.length());
-        log.info("🔗 API URL: {}", API_URL);
-        log.info("🤖 模型: {}", MODEL);
-
-        try {
-            // 构建请求体
-            ChatRequest request = new ChatRequest();
-            request.model = MODEL;
-            request.messages = new ArrayList<>();
-            request.messages.add(new Message("user", prompt));
-            request.max_tokens = 2000;
-            request.temperature = 0.7;
-
-            // 发送请求
-            String responseJson = sendRequest(request);
-
-            // 解析响应
-            ChatResponse response = objectMapper.readValue(responseJson, ChatResponse.class);
-
-            if (response.choices == null || response.choices.isEmpty()) {
-                throw new RuntimeException("DeepSeek返回空响应");
-            }
-
-            String content = response.choices.get(0).message.content;
-            log.info("✅ DeepSeek调用成功");
-            log.info("🤖 AI回复: {}", content);
-            log.info("╚════════════════════════════════════════════════════════════╝");
-
-            return content;
-
-        } catch (Exception e) {
-            log.error("╔════════════════════════════════════════════════════════════╗");
-            log.error("║           ❌ DeepSeek调用失败                               ║");
-            log.error("╚════════════════════════════════════════════════════════════╝");
-            log.error("❌ 错误类型: {}", e.getClass().getName());
-            log.error("❌ 错误消息: {}", e.getMessage());
-            log.error("❌ 堆栈跟踪:", e);
-            throw new RuntimeException("DeepSeek调用失败: " + e.getMessage(), e);
-        }
+    private static Long count(JsonNode node) { return node.isIntegralNumber() && node.canConvertToLong() && node.asLong()>=0 ? node.asLong() : null; }
+    private static String safe(String value) {
+        return value!=null && value.matches("[A-Za-z0-9_.:-]{1,100}") ? value : "unknown";
     }
-
-    /**
-     * 发送HTTP请求到DeepSeek API
-     */
-    private String sendRequest(ChatRequest request) throws Exception {
-        log.info("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
-        log.info("📤 发送HTTP请求到DeepSeek...");
-
-        // 序列化请求
-        objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-        String requestJson = objectMapper.writeValueAsString(request);
-        log.debug("📄 请求体: {}", requestJson);
-
-        // 设置请求头
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        headers.setBearerAuth(apiKey);
-
-        HttpEntity<String> entity = new HttpEntity<>(requestJson, headers);
-
-        log.info("🔗 目标URL: {}", API_URL);
-        log.info("🔑 API Key: {}...{}",
-            apiKey.substring(0, Math.min(8, apiKey.length())),
-            apiKey.length() > 4 ? apiKey.substring(apiKey.length() - 4) : "");
-
-        // 发送请求
-        ResponseEntity<String> response = restTemplate.exchange(
-            API_URL,
-            HttpMethod.POST,
-            entity,
-            String.class
-        );
-
-        log.info("📥 HTTP状态码: {}", response.getStatusCode());
-
-        if (response.getStatusCode() == HttpStatus.OK) {
-            log.debug("📄 响应体: {}", response.getBody());
-            return response.getBody();
-        } else {
-            throw new RuntimeException("DeepSeek API返回错误: " + response.getStatusCode());
-        }
+    private static boolean isTimeout(Throwable error) {
+        for(Throwable cause=error;cause!=null;cause=cause.getCause()) if(cause instanceof SocketTimeoutException) return true;
+        return false;
     }
-
-    // ==================== 数据模型 ====================
-
-    @Data
-    private static class ChatRequest {
-        String model;
-        List<Message> messages;
-        @JsonProperty("max_tokens")
-        Integer max_tokens;
-        Double temperature;
-    }
-
-    @Data
-    private static class Message {
-        String role;
-        String content;
-
-        // 默认构造函数（用于JSON反序列化）
-        Message() {}
-
-        Message(String role, String content) {
-            this.role = role;
-            this.content = content;
-        }
-    }
-
-    @Data
-    private static class ChatResponse {
-        String id;
-        String object;
-        Long created;
-        String model;
-        List<Choice> choices;
-        Usage usage;
-    }
-
-    @Data
-    private static class Choice {
-        Integer index;
-        Message message;
-        @JsonProperty("finish_reason")
-        String finish_reason;
-        Object logprobs;  // DeepSeek返回的logprobs字段（可能是null或对象）
-    }
-
-    @Data
-    private static class Usage {
-        @JsonProperty("prompt_tokens")
-        Integer prompt_tokens;
-        @JsonProperty("completion_tokens")
-        Integer completion_tokens;
-        @JsonProperty("total_tokens")
-        Integer total_tokens;
+    private String apiUrl() {
+        String base=baseUrl.replaceAll("/+$", "");
+        return base+(base.endsWith("/v1")?"":"/v1")+"/chat/completions";
     }
 }

@@ -1,0 +1,866 @@
+[
+  {
+    "query_id": "q01",
+    "split": "dev",
+    "query": "Java完全没学过，先看哪本基础书？",
+    "constraints": {
+      "in_stock": true,
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-001"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-003",
+      "rag-v1-005"
+    ],
+    "rationale": "001明确无前置要求并讲变量循环；003与005是源码级内容",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q02",
+    "split": "dev",
+    "query": "学完Java基础，想做商城项目，单本不超过80元",
+    "constraints": {
+      "in_stock": true,
+      "max_price": "80",
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-002"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-041",
+      "rag-v1-042",
+      "rag-v1-043",
+      "rag-v1-044"
+    ],
+    "rationale": "002是项目实践且79.90元；041超预算，042售罄，043下架，044库存全冻结",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q03",
+    "split": "dev",
+    "query": "想看Java虚拟机垃圾回收和字节码源码",
+    "constraints": {
+      "in_stock": true,
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-003"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-001",
+      "rag-v1-002"
+    ],
+    "rationale": "003明确覆盖垃圾回收、字节码及源码",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q04",
+    "split": "dev",
+    "query": "线程池执行的任务如何安全取消？",
+    "constraints": {
+      "in_stock": true,
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-004"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-001"
+    ],
+    "rationale": "004描述明确包含线程池、线程安全与任务取消",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q05",
+    "split": "dev",
+    "query": "想看HashMap为什么扩容",
+    "constraints": {
+      "in_stock": true,
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-005"
+    ],
+    "forbidden_fixture_keys": [],
+    "rationale": "005学习目标明确为HashMap扩容",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q06",
+    "split": "dev",
+    "query": "不太会编程，想用Python清洗表格和画统计图",
+    "constraints": {
+      "in_stock": true,
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-006"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-007"
+    ],
+    "rationale": "006无需前置，覆盖清洗统计可视化；007侧重接口",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q07",
+    "split": "dev",
+    "query": "MySQL并发读写为什么会读到不同版本？",
+    "constraints": {
+      "in_stock": true,
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-008"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-009"
+    ],
+    "rationale": "008覆盖MVCC与事务隔离；009侧重索引",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q08",
+    "split": "dev",
+    "query": "找执行计划和联合索引调优的书，每本最多80元",
+    "constraints": {
+      "in_stock": true,
+      "max_price": "80",
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-009",
+      "rag-v1-045"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-046"
+    ],
+    "rationale": "009价格80.00，045价格79.99，046价格80.01超过预算",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q09",
+    "split": "dev",
+    "query": "完全不会SQL，想学表连接与分组聚合",
+    "constraints": {
+      "in_stock": true,
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-010"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-012"
+    ],
+    "rationale": "010无前置且覆盖连接聚合；012是高级理论",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q10",
+    "split": "dev",
+    "query": "想用PostgreSQL存储文本向量",
+    "constraints": {
+      "in_stock": true,
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-011"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-012"
+    ],
+    "rationale": "011明确包含pgvector与语义检索",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q11",
+    "split": "dev",
+    "query": "数据库更新后缓存还是旧值，想学怎么处理",
+    "constraints": {
+      "in_stock": true,
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-013"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-014",
+      "rag-v1-064"
+    ],
+    "rationale": "013覆盖旁路缓存与一致性；064是虚构小说",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q12",
+    "split": "dev",
+    "query": "想学Redis常用字符串哈希列表命令",
+    "constraints": {
+      "in_stock": true,
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-014"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-016"
+    ],
+    "rationale": "014是基础命令入门；016要求C语言",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q13",
+    "split": "dev",
+    "query": "如何用Lua原子扣减秒杀库存并补偿失败？",
+    "constraints": {
+      "in_stock": true,
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-015"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-082"
+    ],
+    "rationale": "015覆盖Lua预占与补偿；082是经营库存管理",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q14",
+    "split": "dev",
+    "query": "想读Redis内存编码实现源码",
+    "constraints": {
+      "in_stock": true,
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-016"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-014"
+    ],
+    "rationale": "016学习目标为内存分配和编码，要求C语言",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q15",
+    "split": "dev",
+    "query": "消费者同一条消息执行两遍怎么避免？",
+    "constraints": {
+      "in_stock": true,
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-017",
+      "rag-v1-047"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-063",
+      "rag-v1-080"
+    ],
+    "rationale": "017与047覆盖幂等消费；063小说、080管理沟通均非消息队列",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q16",
+    "split": "dev",
+    "query": "订单半小时没付款如何通过消息自动关闭？",
+    "constraints": {
+      "in_stock": true,
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-018"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-019"
+    ],
+    "rationale": "018覆盖订单超时与支付竞争；019是流处理",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q17",
+    "split": "dev",
+    "query": "刚接触MQ，生产者和消费者是什么？",
+    "constraints": {
+      "in_stock": true,
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-020"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-019"
+    ],
+    "rationale": "020无前置且覆盖生产消费与发布订阅",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q18",
+    "split": "dev",
+    "query": "想写Vue商品列表和购物车",
+    "constraints": {
+      "in_stock": true,
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-021"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-023"
+    ],
+    "rationale": "021明确覆盖商品卡片与购物车交互",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q19",
+    "split": "dev",
+    "query": "TypeScript泛型和联合类型怎么组织？",
+    "constraints": {
+      "in_stock": true,
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-023"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-022"
+    ],
+    "rationale": "023学习目标包含泛型与联合类型",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q20",
+    "split": "dev",
+    "query": "网页为什么布局和绘制很慢？",
+    "constraints": {
+      "in_stock": true,
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-024"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-021"
+    ],
+    "rationale": "024覆盖渲染流程与性能分析",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q21",
+    "split": "dev",
+    "query": "怎么做有商品证据和离线评测的RAG推荐？",
+    "constraints": {
+      "in_stock": true,
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-025"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-029",
+      "rag-v1-094"
+    ],
+    "rationale": "025商品检索与证据引用；029只有提示词，094讲伦理",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q22",
+    "split": "dev",
+    "query": "不懂文本向量，想学相似度与语义搜索入门",
+    "constraints": {
+      "in_stock": true,
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-026"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-028"
+    ],
+    "rationale": "026是向量搜索入门；028需要微积分并侧重数学",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q23",
+    "split": "dev",
+    "query": "Agent执行工具前怎么校验参数和确认权限？",
+    "constraints": {
+      "in_stock": true,
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-027"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-094"
+    ],
+    "rationale": "027覆盖工具权限与用户确认；094不是API开发",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q24",
+    "split": "dev",
+    "query": "怎么核验支付回调并处理重复通知？",
+    "constraints": {
+      "in_stock": true,
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-039"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-018"
+    ],
+    "rationale": "039覆盖验签、金额检查及重复通知幂等",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q25",
+    "split": "dev",
+    "query": "写完数据库怎样保证消息最终发出去？",
+    "constraints": {
+      "in_stock": true,
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-040"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-020"
+    ],
+    "rationale": "040明确覆盖Outbox与最终一致性；020仅基础概念",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q26",
+    "split": "dev",
+    "query": "想读诗歌意象和节奏赏析，50元以内",
+    "constraints": {
+      "in_stock": true,
+      "max_price": "50",
+      "category": "literature"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-065"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-066"
+    ],
+    "rationale": "065是阅读赏析且39元；066侧重创作",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q27",
+    "split": "dev",
+    "query": "手机拍照不知道怎么构图",
+    "constraints": {
+      "in_stock": true,
+      "category": "art"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-073"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-072"
+    ],
+    "rationale": "073讲手机摄影光线与构图；072是素描",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q28",
+    "split": "dev",
+    "query": "想看电商转化率和复购怎么分析",
+    "constraints": {
+      "in_stock": true,
+      "category": "management"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-078"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-082"
+    ],
+    "rationale": "078覆盖转化复购经营分析；082侧重补货",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q29",
+    "split": "dev",
+    "query": "想了解港口商路和海上贸易制度",
+    "constraints": {
+      "in_stock": true,
+      "category": "history"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-090"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-086"
+    ],
+    "rationale": "090明确讲港口商路制度",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q30",
+    "split": "dev",
+    "query": "商品中有量子芯片制造工艺专著吗？",
+    "constraints": {
+      "in_stock": true,
+      "category": "science"
+    },
+    "relevant_fixture_keys": [],
+    "forbidden_fixture_keys": [],
+    "rationale": "所有商品均未覆盖芯片制造工艺，应返回无匹配",
+    "expected_behavior": "no_match"
+  },
+  {
+    "query_id": "q31",
+    "split": "heldout",
+    "query": "预算80元以内，Java项目实战想买一本有现货的",
+    "constraints": {
+      "in_stock": true,
+      "max_price": "80",
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-002"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-041",
+      "rag-v1-042",
+      "rag-v1-043",
+      "rag-v1-044"
+    ],
+    "rationale": "002满足项目与预算；其余版本分别超价售罄下架冻结",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q32",
+    "split": "heldout",
+    "query": "执行计划优化的书严格低于80元",
+    "constraints": {
+      "in_stock": true,
+      "max_price": "79.99",
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-045"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-009",
+      "rag-v1-046"
+    ],
+    "rationale": "045为79.99元；009为80元不满足严格低于",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q33",
+    "split": "heldout",
+    "query": "我只有79.99元，想学联合索引和慢查询",
+    "constraints": {
+      "in_stock": true,
+      "max_price": "79.99",
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-045"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-009",
+      "rag-v1-046"
+    ],
+    "rationale": "045恰好满足预算；009与046超价",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q34",
+    "split": "heldout",
+    "query": "多次收到扣款通知，如何防止订单被重复更新？",
+    "constraints": {
+      "in_stock": true,
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-039"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-063"
+    ],
+    "rationale": "039支付回调幂等；063只是含消息关键词的小说",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q35",
+    "split": "heldout",
+    "query": "服务保存业务记录后崩溃，如何补发未投递事件？",
+    "constraints": {
+      "in_stock": true,
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-040"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-020"
+    ],
+    "rationale": "040涵盖Outbox与补偿；020不涉及该进阶机制",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q36",
+    "split": "heldout",
+    "query": "召回服务调用模型超时，能否退回关键词查商品？",
+    "constraints": {
+      "in_stock": true,
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-048"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-029"
+    ],
+    "rationale": "048明确包含模型超时与关键词降级",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q37",
+    "split": "heldout",
+    "query": "推荐回答花钱多少、等待多久，如何做指标和评测？",
+    "constraints": {
+      "in_stock": true,
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-030"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-025"
+    ],
+    "rationale": "030明确覆盖成本、延迟与离线评测",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q38",
+    "split": "heldout",
+    "query": "查到同义句不一定有相同字词，怎么学向量搜索？",
+    "constraints": {
+      "in_stock": true,
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-026"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-022"
+    ],
+    "rationale": "026覆盖语义检索与向量相似度",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q39",
+    "split": "heldout",
+    "query": "怎么让应用打包进容器并把多个服务联网？",
+    "constraints": {
+      "in_stock": true,
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-035"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-034"
+    ],
+    "rationale": "035覆盖容器网络与编排；034是命令起步",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q40",
+    "split": "heldout",
+    "query": "线上请求报错，想用日志指标和调用链排查",
+    "constraints": {
+      "in_stock": true,
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-036"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-035"
+    ],
+    "rationale": "036明确覆盖追踪、指标和故障定位",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q41",
+    "split": "heldout",
+    "query": "不了解证书链和TLS握手，读什么？",
+    "constraints": {
+      "in_stock": true,
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-032"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-031"
+    ],
+    "rationale": "032明确包含证书链与TLS；031是HTTP入门",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q42",
+    "split": "heldout",
+    "query": "树链表和哈希表的图解入门书，不超过50元",
+    "constraints": {
+      "in_stock": true,
+      "max_price": "50",
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-037"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-038"
+    ],
+    "rationale": "037价格49且为图解入门；038高级证明",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q43",
+    "split": "heldout",
+    "query": "面试时讲不清自己的项目，想练表达和复盘",
+    "constraints": {
+      "in_stock": true,
+      "category": "education"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-054"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-059"
+    ],
+    "rationale": "054是项目沟通表达；059是技术知识复习",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q44",
+    "split": "heldout",
+    "query": "团队开会如何传递信息，想要管理类书",
+    "constraints": {
+      "in_stock": true,
+      "category": "management"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-080"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-017",
+      "rag-v1-047"
+    ],
+    "rationale": "080为管理沟通；017与047是技术消息队列",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q45",
+    "split": "heldout",
+    "query": "找一本标题叫缓存的记忆的小说",
+    "constraints": {
+      "in_stock": true,
+      "category": "literature"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-064"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-013"
+    ],
+    "rationale": "064书名精确匹配且为文学，013是技术缓存",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q46",
+    "split": "heldout",
+    "query": "对AI伦理公平和责任感兴趣，不想学接口开发",
+    "constraints": {
+      "in_stock": true,
+      "category": "philosophy"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-094"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-027"
+    ],
+    "rationale": "094涵盖公平责任社会影响；027侧重工具开发",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q47",
+    "split": "heldout",
+    "query": "想学命题论证，识别日常逻辑谬误",
+    "constraints": {
+      "in_stock": true,
+      "category": "philosophy"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-091"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-093"
+    ],
+    "rationale": "091明确覆盖命题论证与谬误",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q48",
+    "split": "heldout",
+    "query": "怎样辨别健康资讯是否有可靠证据？",
+    "constraints": {
+      "in_stock": true,
+      "category": "health"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-100"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-096"
+    ],
+    "rationale": "100覆盖信息来源与证据辨识",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q49",
+    "split": "heldout",
+    "query": "想记录作息改善睡眠习惯，40元以内",
+    "constraints": {
+      "in_stock": true,
+      "max_price": "40",
+      "category": "health"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-098"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-097"
+    ],
+    "rationale": "098是睡眠习惯且39元；097是饮食记录",
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "q50",
+    "split": "heldout",
+    "query": "20元以下有没有可以买到的书？",
+    "constraints": {
+      "in_stock": true,
+      "max_price": "20"
+    },
+    "relevant_fixture_keys": [],
+    "forbidden_fixture_keys": [],
+    "rationale": "测试集最低价格25元，预算内没有商品",
+    "expected_behavior": "no_match"
+  }
+]

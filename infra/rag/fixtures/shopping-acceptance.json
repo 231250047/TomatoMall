@@ -1,0 +1,18 @@
+[
+  {"id":"b01","query":"Java入门书，50块以下","route":"search_books","maxPrice":"50.00","targets":["rag-v1-001"]},
+  {"id":"b02","query":"我最近工作挺忙，晚上才有空，想从变量和循环学Java，推荐每本50元以下的书。","route":"search_books","maxPrice":"50.00","targets":["rag-v1-001"]},
+  {"id":"b03","query":"MySQL索引调优书，低于80元","route":"search_books","maxPrice":"79.99","targets":["rag-v1-045"]},
+  {"id":"b04","query":"《Java第一步（合成测试）》多少钱？","route":"lookup_books","targets":["rag-v1-001"]},
+  {"id":"b05","query":"《Java第一步（合成测试）》有货吗，50元以下","route":"lookup_books","maxPrice":"50.00","targets":["rag-v1-001"]},
+  {"id":"b06","query":"《Java第一步（合成测试）》30元以下有吗","route":"lookup_books","maxPrice":"30.00","expected":"no_match"},
+  {"id":"b07","query":"《不存在的月球散文集》多少钱","route":"lookup_books","expected":"no_match"},
+  {"id":"b08","query":"想学水彩配色和湿画法，50元以下","route":"search_books","maxPrice":"50.00","targets":["rag-v1-071"]},
+  {"id":"b09","query":"想读未来城市与伦理相关的科幻小说，50元以内","route":"search_books","maxPrice":"50.00","targets":["rag-v1-068"]},
+  {"id":"b10","query":"只要余华写的书，50元以下","route":"lookup_books","maxPrice":"50.00","expected":"no_match"},
+  {"id":"b11","query":"喜欢余华风格，想看描写普通人生活的小说，50元以下","route":"search_books","maxPrice":"50.00","expected":"semantic_route"},
+  {"id":"b12","query":"Java书，50元左右","route":"clarify","expected":"clarify"},
+  {"id":"b13","query":"两本Java书总共50元","route":"clarify","expected":"clarify"},
+  {"id":"b14","query":"你好","route":"greeting","expected":"greeting"},
+  {"id":"b15","query":"50块以下的书有哪些","route":"search_books","maxPrice":"50.00","expected":"price_list"},
+  {"id":"b16","query":"再便宜一点","route":"clarify","expected":"clarify"}
+]

@@ -3,379 +3,164 @@ package com.example.tomatomall.config;
 import com.alibaba.dashscope.embeddings.TextEmbedding;
 import com.alibaba.dashscope.embeddings.TextEmbeddingParam;
 import com.alibaba.dashscope.embeddings.TextEmbeddingResult;
-import com.alibaba.dashscope.exception.ApiException;
-import com.alibaba.dashscope.exception.NoApiKeyException;
-import lombok.extern.slf4j.Slf4j;
+import com.alibaba.dashscope.protocol.ConnectionConfigurations;
+import com.alibaba.dashscope.utils.Constants;
 import org.springframework.ai.document.Document;
+import org.springframework.ai.embedding.Embedding;
 import org.springframework.ai.embedding.EmbeddingModel;
 import org.springframework.ai.embedding.EmbeddingRequest;
 import org.springframework.ai.embedding.EmbeddingResponse;
-import org.springframework.ai.embedding.Embedding;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
+import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.Locale;
 
-/**
- * 阿里云DashScope Embedding模型配置
- * 用于替代OpenAI的Embedding服务
- */
-@Slf4j
+/** DashScope SDK 2.16.7 adapter for Spring AI 1.0.0-M4. */
 @Component
 public class DashScopeEmbeddingModelConfig {
-
-    @Value("${aliyun.dashscope.api-key}")
+    @Value("${aliyun.dashscope.api-key:}")
     private String apiKey;
-
     @Value("${aliyun.dashscope.embedding.model:text-embedding-v4}")
     private String model;
-
     @Value("${aliyun.dashscope.embedding.dimensions:1024}")
     private int dimensions;
+    @Value("${aliyun.dashscope.embedding.connect-timeout-seconds:5}")
+    private int connectTimeoutSeconds;
+    @Value("${aliyun.dashscope.embedding.read-timeout-seconds:20}")
+    private int readTimeoutSeconds;
+    @Value("${aliyun.dashscope.embedding.response-timeout-seconds:30}")
+    private int responseTimeoutSeconds;
 
-    /**
-     * 创建阿里云DashScope的EmbeddingModel Bean
-     * 使用@Primary让它优先于OpenAI的默认实现
-     */
     @Bean
     @Primary
     public EmbeddingModel embeddingModel() {
-        log.info("╔════════════════════════════════════════════════════════════╗");
-        log.info("║           🔧 初始化阿里云DashScope Embedding模型               ║");
-        log.info("╚════════════════════════════════════════════════════════════╝");
-        log.info("📌 API Key: {}", maskApiKey(apiKey));
-        log.info("📌 模型: {}", model);
-        log.info("📌 向量维度: {}", dimensions);
-        log.info("📌 提供商: 阿里云DashScope");
-        log.info("📌 用途: 文本向量化（用于RAG检索）");
-        log.info("╚════════════════════════════════════════════════════════════╝");
-
-        return new DashScopeEmbeddingModel(model, dimensions, apiKey);
-    }
-
-    /**
-     * 遮蔽API Key的中间部分
-     */
-    private String maskApiKey(String apiKey) {
-        if (apiKey == null || apiKey.length() < 10) {
-            return "***";
+        if (connectTimeoutSeconds <= 0 || readTimeoutSeconds <= 0 || responseTimeoutSeconds <= 0) {
+            throw new IllegalArgumentException("Embedding timeouts must be positive");
         }
-        return apiKey.substring(0, 8) + "****" + apiKey.substring(apiKey.length() - 4);
+        // SDK 2.16.7 uses process-wide connection settings. Configure before creating its client;
+        // these timeouts also apply to other DashScope SDK clients in this JVM.
+        Constants.connectionConfigurations = ConnectionConfigurations.builder()
+                .connectTimeout(Duration.ofSeconds(connectTimeoutSeconds))
+                .readTimeout(Duration.ofSeconds(readTimeoutSeconds))
+                .responseTimeout(Duration.ofSeconds(responseTimeoutSeconds))
+                .build();
+        return new DashScopeEmbeddingModel(model, dimensions, apiKey);
     }
 }
 
-/**
- * 阿里云DashScope Embedding模型实现
- * 实现Spring AI的EmbeddingModel接口
- */
-@Slf4j
 class DashScopeEmbeddingModel implements EmbeddingModel {
-
     private final String model;
     private final int dimensions;
     private final String apiKey;
 
     public DashScopeEmbeddingModel(String model, int dimensions, String apiKey) {
+        if (model == null || model.isBlank() || dimensions <= 0) {
+            throw new IllegalArgumentException("Embedding model and positive dimensions are required");
+        }
         this.model = model;
         this.dimensions = dimensions;
-        this.apiKey = apiKey;
-
-        // 设置DashScope API Key到系统环境变量
-        if (System.getenv("DASHSCOPE_API_KEY") == null) {
-            System.setProperty("dashscope.api.key", apiKey);
-            log.info("✅ 已设置DashScope API Key到系统属性");
-        }
+        this.apiKey = apiKey == null ? "" : apiKey.trim();
     }
 
     @Override
     public EmbeddingResponse call(EmbeddingRequest request) {
-        try {
-            // 获取输入文本列表
-            List<String> inputs = request.getInstructions();
-            log.info("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
-            log.info("🚀 开始调用DashScope Embedding API");
-            log.info("📊 输入文本数量: {}", inputs.size());
-            log.info("🔧 使用模型: {}", model);
-            log.info("📐 期望向量维度: {}", dimensions);
-
-            // 打印输入文本预览（前50字符）
-            for (int i = 0; i < inputs.size(); i++) {
-                String preview = inputs.get(i);
-                if (preview.length() > 50) {
-                    preview = preview.substring(0, 50) + "...";
-                }
-                log.info("📝 输入[{}]: {}", i, preview);
-            }
-
-            // 调用DashScope API
-            log.info("⏳ 正在请求DashScope API...");
-            List<Embedding> embeddings = new java.util.ArrayList<>();
-
-            for (int i = 0; i < inputs.size(); i++) {
-                String text = inputs.get(i);
-
-                // 创建TextEmbedding实例
-                TextEmbedding textEmbedding = new TextEmbedding();
-
-                // 构建单个文本的embedding请求
-                TextEmbeddingParam param = TextEmbeddingParam.builder()
-                        .model(model)
-                        .text(text)  // 单个文本
-                        .apiKey(apiKey)  // 设置API Key
-                        .build();
-
-                // 调用API返回单个结果
-                TextEmbeddingResult result = textEmbedding.call(param);
-
-                // 提取向量
-                float[] vector = extractEmbedding(result);
-
-                log.info("📦 向量[{}] - 维度: {}, 前5个值: [{}, {}, {}, {}, {}]",
-                    i,
-                    vector.length,
-                    String.format("%.4f", vector[0]),
-                    String.format("%.4f", vector[1]),
-                    String.format("%.4f", vector[2]),
-                    String.format("%.4f", vector[3]),
-                    String.format("%.4f", vector[4])
-                );
-
-                // 验证向量维度
-                if (vector.length != dimensions) {
-                    log.warn("⚠️ 向量维度不匹配！期望: {}，实际: {}", dimensions, vector.length);
-                } else {
-                    log.info("✓ 向量维度验证通过");
-                }
-
-                // 创建Spring AI的Embedding对象
-                embeddings.add(new Embedding(vector, i));
-            }
-
-            log.info("✅ DashScope API调用成功！返回结果数: {}", embeddings.size());
-            log.info("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
-            return new EmbeddingResponse(embeddings);
-
-        } catch (NoApiKeyException e) {
-            log.error("❌ 阿里云DashScope API Key未配置");
-            log.error("错误详情: {}", e.getMessage());
-            log.error("请检查application.yml中的 aliyun.dashscope.api-key 配置");
-            throw new RuntimeException("阿里云DashScope API Key未配置，请在application.yml中配置 aliyun.dashscope.api-key", e);
-        } catch (ApiException e) {
-            log.error("❌ DashScope API调用失败 - ApiException");
-            log.error("错误消息: {}", e.getMessage());
-            log.error("错误详情: {}", e.toString());
-            throw new RuntimeException("调用DashScope Embedding API失败: " + e.getMessage(), e);
-        } catch (RuntimeException e) {
-            // 捕获所有其他运行时异常（包括InputRequiredException）
-            log.error("❌ DashScope API调用失败 - {}", e.getClass().getSimpleName());
-            log.error("错误消息: {}", e.getMessage());
-            throw new RuntimeException("调用DashScope Embedding API失败: " + e.getMessage(), e);
+        if (request == null) {
+            throw new IllegalArgumentException("Embedding request is required");
         }
-    }
-
-    /**
-     * 从TextEmbeddingResult中提取向量
-     * 兼容不同版本的DashScope SDK
-     */
-    private float[] extractEmbedding(TextEmbeddingResult result) {
-        try {
-            // 尝试不同的方法名
-            try {
-                // 方法1: getOutput().getEmbeddings()
-                var output = result.getOutput();
-                if (output != null) {
-                    var embeddings = output.getEmbeddings();
-                    if (embeddings != null && !embeddings.isEmpty()) {
-                        // getEmbedding() 返回 List<Double>，需要转换为 float[]
-                        List<Double> embeddingList = embeddings.get(0).getEmbedding();
-                        float[] embedding = new float[embeddingList.size()];
-                        for (int i = 0; i < embeddingList.size(); i++) {
-                            embedding[i] = embeddingList.get(i).floatValue();
-                        }
-                        return embedding;
-                    }
-                }
-            } catch (Exception e1) {
-                log.debug("方法1失败: {}", e1.getMessage());
-            }
-
-            // 方法2: 直接尝试获取embedding
-            try {
-                // 尝试反射调用
-                java.lang.reflect.Field embeddingField = result.getClass().getDeclaredField("embedding");
-                embeddingField.setAccessible(true);
-                Object embeddingObj = embeddingField.get(result);
-
-                if (embeddingObj instanceof List) {
-                    @SuppressWarnings("unchecked")
-                    List<Number> embeddingList = (List<Number>) embeddingObj;
-                    float[] embedding = new float[embeddingList.size()];
-                    for (int i = 0; i < embeddingList.size(); i++) {
-                        Number num = embeddingList.get(i);
-                        embedding[i] = num.floatValue();
-                    }
-                    return embedding;
-                } else if (embeddingObj instanceof float[]) {
-                    return (float[]) embeddingObj;
-                } else if (embeddingObj instanceof double[]) {
-                    double[] dblArray = (double[]) embeddingObj;
-                    float[] embedding = new float[dblArray.length];
-                    for (int i = 0; i < dblArray.length; i++) {
-                        embedding[i] = (float) dblArray[i];
-                    }
-                    return embedding;
-                }
-            } catch (Exception e2) {
-                log.debug("方法2失败: {}", e2.getMessage());
-            }
-
-            // 方法3: 从结果对象中提取
-            Map<String, Object> resultMap = parseResult(result);
-            if (resultMap.containsKey("embedding")) {
-                return convertToFloatArray(resultMap.get("embedding"));
-            }
-
-            throw new RuntimeException("无法从TextEmbeddingResult中提取向量数据");
-
-        } catch (Exception e) {
-            log.error("❌ 提取向量失败", e);
-            throw new RuntimeException("提取向量失败: " + e.getMessage(), e);
+        List<float[]> vectors = embed(request.getInstructions());
+        List<Embedding> embeddings = new ArrayList<>(vectors.size());
+        for (int i = 0; i < vectors.size(); i++) {
+            embeddings.add(new Embedding(vectors.get(i), i));
         }
-    }
-
-    /**
-     * 解析TextEmbeddingResult为Map
-     */
-    @SuppressWarnings("unchecked")
-    private Map<String, Object> parseResult(TextEmbeddingResult result) {
-        try {
-            // 尝试通过toString解析
-            String resultStr = result.toString();
-            if (resultStr.contains("embedding")) {
-                // 简单的解析逻辑
-                Map<String, Object> map = new HashMap<>();
-                // 这里需要根据实际的返回格式进行解析
-                return map;
-            }
-        } catch (Exception e) {
-            log.debug("解析result失败: {}", e.getMessage());
-        }
-        return new HashMap<>();
-    }
-
-    /**
-     * 转换为float数组
-     */
-    @SuppressWarnings("unchecked")
-    private float[] convertToFloatArray(Object obj) {
-        if (obj instanceof float[]) {
-            return (float[]) obj;
-        } else if (obj instanceof List) {
-            List<?> list = (List<?>) obj;
-            float[] array = new float[list.size()];
-            for (int i = 0; i < list.size(); i++) {
-                Object item = list.get(i);
-                if (item instanceof Number) {
-                    array[i] = ((Number) item).floatValue();
-                } else {
-                    throw new RuntimeException("列表元素不是数字类型: " + item.getClass());
-                }
-            }
-            return array;
-        } else if (obj instanceof double[]) {
-            double[] dblArray = (double[]) obj;
-            float[] array = new float[dblArray.length];
-            for (int i = 0; i < dblArray.length; i++) {
-                array[i] = (float) dblArray[i];
-            }
-            return array;
-        }
-        throw new RuntimeException("无法转换为float数组: " + obj.getClass());
+        return new EmbeddingResponse(embeddings);
     }
 
     @Override
     public float[] embed(Document document) {
-        try {
-            log.info("📄 单个文档向量化: {}",
-                document.getContent().length() > 50 ?
-                document.getContent().substring(0, 50) + "..." :
-                document.getContent());
-
-            TextEmbedding textEmbedding = new TextEmbedding();
-            TextEmbeddingParam param = TextEmbeddingParam.builder()
-                    .model(model)
-                    .text(document.getContent())
-                    .apiKey(apiKey)  // 设置API Key
-                    .build();
-
-            TextEmbeddingResult result = textEmbedding.call(param);
-            float[] embedding = extractEmbedding(result);
-
-            log.info("✅ 文档向量化成功，维度: {}", embedding.length);
-            return embedding;
-
-        } catch (Exception e) {
-            log.error("❌ 文档向量化失败", e);
-            throw new RuntimeException("文档向量化失败: " + e.getMessage(), e);
+        if (document == null) {
+            throw new IllegalArgumentException("Embedding document is required");
         }
+        // Metadata contains identifiers and live business attributes, not semantic content.
+        return embed(document.getContent());
     }
 
     @Override
     public float[] embed(String text) {
-        try {
-            log.info("📝 单个文本向量化: {}",
-                text.length() > 50 ? text.substring(0, 50) + "..." : text);
-
-            TextEmbedding textEmbedding = new TextEmbedding();
-            TextEmbeddingParam param = TextEmbeddingParam.builder()
-                    .model(model)
-                    .text(text)
-                    .apiKey(apiKey)  // 设置API Key
-                    .build();
-
-            TextEmbeddingResult result = textEmbedding.call(param);
-            float[] embedding = extractEmbedding(result);
-
-            log.info("✅ 文本向量化成功，维度: {}", embedding.length);
-            return embedding;
-
-        } catch (Exception e) {
-            log.error("❌ 文本向量化失败", e);
-            throw new RuntimeException("文本向量化失败: " + e.getMessage(), e);
+        validateCredentials();
+        if (text == null || text.isBlank()) {
+            throw new IllegalArgumentException("Embedding text must not be blank");
         }
+        TextEmbeddingParam param = TextEmbeddingParam.builder()
+                .model(model)
+                .text(text)
+                .apiKey(apiKey)
+                .parameter("dimension", dimensions)
+                .build();
+        TextEmbeddingResult result;
+        try {
+            result = new TextEmbedding().call(param);
+        } catch (Exception failure) {
+            // SDK exception bodies may contain credentials or input. Do not propagate/log them.
+            throw new IllegalStateException("DashScope embedding request failed");
+        }
+        return extractEmbedding(result);
     }
 
     @Override
     public List<float[]> embed(List<String> texts) {
-        try {
-            log.info("📚 批量文本向量化，数量: {}", texts.size());
-
-            List<float[]> embeddings = new java.util.ArrayList<>();
-
-            for (int i = 0; i < texts.size(); i++) {
-                String text = texts.get(i);
-                float[] embedding = embed(text);
-                embeddings.add(embedding);
-
-                log.info("✅ [{}/{}] 向量化完成", i + 1, texts.size());
-            }
-
-            log.info("✅ 批量向量化完成，总计: {}", embeddings.size());
-            return embeddings;
-
-        } catch (Exception e) {
-            log.error("❌ 批量文本向量化失败", e);
-            throw new RuntimeException("批量文本向量化失败: " + e.getMessage(), e);
+        validateCredentials();
+        if (texts == null || texts.isEmpty() || texts.stream().anyMatch(t -> t == null || t.isBlank())) {
+            throw new IllegalArgumentException("Embedding texts must not be empty or blank");
         }
+        List<float[]> vectors = new ArrayList<>(texts.size());
+        for (String text : texts) {
+            vectors.add(embed(text));
+        }
+        return vectors;
+    }
+
+    private void validateCredentials() {
+        String key = apiKey.toLowerCase(Locale.ROOT);
+        if (key.isBlank() || key.contains("placeholder") || key.startsWith("your-")
+                || key.startsWith("your_") || key.equals("changeme") || key.startsWith("${")) {
+            // Keep the bean available for keyword fallback; fail before constructing an SDK client.
+            throw new IllegalStateException("DashScope embedding credentials are not configured");
+        }
+    }
+
+    private float[] extractEmbedding(TextEmbeddingResult result) {
+        if (result == null || result.getOutput() == null || result.getOutput().getEmbeddings() == null
+                || result.getOutput().getEmbeddings().size() != 1
+                || result.getOutput().getEmbeddings().get(0) == null) {
+            throw new IllegalStateException("DashScope returned missing or unexpected embedding output");
+        }
+        List<Double> values = result.getOutput().getEmbeddings().get(0).getEmbedding();
+        if (values == null || values.size() != dimensions) {
+            throw new IllegalStateException("DashScope embedding dimension does not match configuration");
+        }
+        float[] vector = new float[dimensions];
+        boolean nonzero = false;
+        for (int i = 0; i < dimensions; i++) {
+            Double value = values.get(i);
+            if (value == null || !Double.isFinite(value) || !Float.isFinite(value.floatValue())) {
+                throw new IllegalStateException("DashScope returned a non-finite embedding value");
+            }
+            vector[i] = value.floatValue();
+            nonzero |= vector[i] != 0;
+        }
+        if (!nonzero) {
+            throw new IllegalStateException("DashScope returned a zero embedding vector");
+        }
+        return vector;
     }
 
     @Override
     public int dimensions() {
-        return this.dimensions;
+        return dimensions;
     }
 }

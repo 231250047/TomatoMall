@@ -1,119 +1,52 @@
 package com.example.tomatomall.controller;
 
-import com.example.tomatomall.service.RagService;
+import com.example.tomatomall.Util.SecurityUtil;
+import com.example.tomatomall.retrieval.*;
+import com.example.tomatomall.service.ChatService;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.ai.document.Document;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
+import java.math.BigDecimal;
+import java.util.*;
 
-import java.util.List;
-import java.util.Map;
-
-/**
- * 向量数据库测试控制器
- * 用于验证Chroma连接和RAG功能
- */
-@Slf4j
-@RestController
-@RequestMapping("/api/test/vectorstore")
-@RequiredArgsConstructor
+/** Legacy URL retained; all retrieval now uses the same production service. */
+@RestController @RequestMapping("/api/test/vectorstore") @RequiredArgsConstructor
 public class VectorStoreTestController {
-
-    private final RagService ragService;
-
-    /**
-     * 测试Chroma连接状态
-     */
-    @GetMapping("/status")
-    public ResponseEntity<Map<String, Object>> getStatus() {
+    private final ProductRetrievalService retrieval;
+    private final ProductIndexMaintenance maintenance;
+    private final ChatService chat;
+    private final SecurityUtil security;
+    @GetMapping("/status") public Map<String,Object> status() { requireAdmin();return maintenance.status(); }
+    @PostMapping("/build") public Map<String,Object> build() { requireAdmin();return maintenance.reconcile(); }
+    @PostMapping("/search") public ProductRetrievalService.Result search(@RequestBody Map<String,Object> body) {
         try {
-            Map<String, Object> status = Map.of(
-                "status", "UP",
-                "message", "Chroma向量数据库正在运行",
-                "service", "Chroma Vector Store",
-                "address", "localhost:8000"
-            );
-            return ResponseEntity.ok(status);
-        } catch (Exception e) {
-            return ResponseEntity.status(500).body(Map.of(
-                "status", "DOWN",
-                "error", e.getMessage()
-            ));
-        }
+            Set<String> fields=Set.of("query","tag","minPrice","maxPrice","inStockOnly","topK","mode","level","excludedTopics");
+            for(String key:body.keySet()) if(!fields.contains(key)) throw new IllegalArgumentException("不支持的检索参数："+key);
+            if(!(body.get("query") instanceof String)
+                || (body.get("tag")!=null && !(body.get("tag") instanceof String))
+                || (body.get("level")!=null && !(body.get("level") instanceof String))
+                || (body.get("mode")!=null && !(body.get("mode") instanceof String))
+                || (body.get("inStockOnly")!=null && !(body.get("inStockOnly") instanceof Boolean)))
+                throw new IllegalArgumentException("检索参数类型不合法");
+            return retrieval.search(new ProductSearchQuery((String)body.get("query"),(String)body.get("tag"),
+                decimal(body.get("minPrice")),decimal(body.get("maxPrice")),
+                !Boolean.FALSE.equals(body.get("inStockOnly")),Integer.parseInt(body.get("topK")==null?"5":body.get("topK").toString()),
+                body.get("mode")==null?"hybrid":body.get("mode").toString(),(String)body.get("level"),topics(body.get("excludedTopics"))));
+        } catch(IllegalArgumentException e) { throw e; }
     }
-
-    /**
-     * 构建向量知识�?
-     */
-    @PostMapping("/build")
-    public ResponseEntity<Map<String, String>> buildVectorKnowledgeBase() {
-        try {
-            ragService.buildVectorKnowledgeBase();
-            return ResponseEntity.ok(Map.of(
-                "code", "200",
-                "message", "向量知识库构建成",
-                "details", "商品数据已向量化并存储到Chroma"
-            ));
-        } catch (Exception e) {
-            log.error("向量知识库构建失败");
-            return ResponseEntity.status(500).body(Map.of(
-                "code", "500",
-                "message", "向量知识库构建失败: " + e.getMessage()
-            ));
-        }
+    @PostMapping("/recommend") public Map<String,String> recommend(@RequestBody Map<String,String> body) {
+        return Map.of("data",chat.recommendBooks(body.get("query")));
     }
-
-    /**
-     * 测试向量检索
-     */
-    @PostMapping("/search")
-    public ResponseEntity<Map<String, Object>> testSearch(@RequestBody Map<String, String> request) {
-        try {
-            String query = request.get("query");
-            int topK = request.getOrDefault("topK", "5").toString().equals("5") ? 5 : Integer.parseInt(request.get("topK").toString());
-
-            log.info("测试向量检索，查询:{}，topK:{}", query, topK);
-
-            List<Document> documents = ragService.retrieveDocuments(query, topK);
-
-            return ResponseEntity.ok(Map.of(
-                "code", "200",
-                "message", "向量检索成功",
-                "query", query,
-                "count", documents.size(),
-                "results", documents
-            ));
-        } catch (Exception e) {
-            log.error("向量检索失败");
-            return ResponseEntity.status(500).body(Map.of(
-                "code", "500",
-                "message", "向量检索失�? " + e.getMessage()
-            ));
-        }
+    private List<String> topics(Object value) {
+        if(value==null) return List.of();
+        if(!(value instanceof List<?> list) || list.stream().anyMatch(v->!(v instanceof String)))
+            throw new IllegalArgumentException("excludedTopics必须为字符串数组");
+        return ((List<?>)value).stream().map(String.class::cast).toList();
     }
-
-    /**
-     * 测试增强推荐
-     */
-    @PostMapping("/recommend")
-    public ResponseEntity<Map<String, String>> testRecommendation(@RequestBody Map<String, String> request) {
-        try {
-            String query = request.get("query");
-            String recommendation = ragService.getEnhancedRecommendation(query);
-
-            return ResponseEntity.ok(Map.of(
-                "code", "200",
-                "message", "推荐成功",
-                "query", query,
-                "recommendation", recommendation
-            ));
-        } catch (Exception e) {
-            log.error("推荐失败", e);
-            return ResponseEntity.status(500).body(Map.of(
-                "code", "500",
-                "message", "推荐失败: " + e.getMessage()
-            ));
-        }
+    private BigDecimal decimal(Object value) { return value==null?null:new BigDecimal(value.toString()); }
+    private void requireAdmin() {
+        var user=security.getCurrentAccount();
+        if(user==null || !"admin".equalsIgnoreCase(user.getRole())) throw new org.springframework.security.access.AccessDeniedException("需要管理员权限");
     }
 }

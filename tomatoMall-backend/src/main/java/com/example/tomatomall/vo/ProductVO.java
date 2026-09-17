@@ -28,12 +28,12 @@ public class ProductVO {
     private String sellerName;
     private String status;
 
-    // 新增:商品成�?
+    // 新增:商品成�?
     private String condition;
 
     public Product toProductPO() {
         Product product = new Product();
-        // 转换 id(假设前端传递的 id 为字符串，需转为 Integer�?
+        // 转换 id(假设前端传递的 id 为字符串，需转为 Integer�?
         if (this.id != null && !this.id.isEmpty()) {
             try {
                 product.setId(Integer.parseInt(this.id));
@@ -49,14 +49,14 @@ public class ProductVO {
         product.setDetail(this.detail);
         product.setTag(this.tag);
         product.setSellerId(this.sellerId);
-        // 新增:传递成色(允许后端校验抛错�?
+        // 新增:传递成色(允许后端校验抛错�?
         if (this.condition != null && !this.condition.isEmpty()) {
             product.setCondition(this.condition);
         }
         return product;
     }
 
-    // �?Specification[] 转换�?List<Specification> 并关联到 Product
+    // �?Specification[] 转换�?List<Specification> 并关联到 Product
     public Specification[] toSpecificationsPO() {
         List<Specification> specList = new ArrayList<>();
         if (this.specifications != null) {

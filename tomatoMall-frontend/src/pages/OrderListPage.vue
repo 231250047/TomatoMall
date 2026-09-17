@@ -1,4 +1,5 @@
 <script setup>
+import { orderStatusLabel, cancelOrder } from "@/api/order";
 import NavigationBar from "@/components/NavigationBar.vue";
 import { ref, onMounted, computed } from 'vue';
 import { useRouter } from 'vue-router';
@@ -53,14 +54,23 @@ const handleShowDetails = (orderId) => {
 //   }
 // };
 
+const handleCancel = async (id) => {
+  try {
+    await ElMessageBox.confirm('确认取消订单？如正在支付，将先核实支付结果。', '取消订单');
+    await cancelOrder(id);
+    ElMessage.success('取消申请已提交');
+    fetchOrders();
+  } catch (error) { if (error !== 'cancel') ElMessage.error('取消未完成，请刷新订单状态后重试'); }
+};
+
 const handleDelete = async (orderId) => {
   try {
-    await ElMessageBox.confirm('确认删除该订单？', '提示', {
+    await ElMessageBox.confirm('确认隐藏该订单？交易记录会保留。', '提示', {
       confirmButtonText: '确认',
       cancelButtonText: '取消'
     });
     await deleteOrder(orderId); // 调用后端删除订单接口
-    ElMessage.success('订单删除成功');
+    ElMessage.success('订单已隐藏');
     fetchOrders(); // 刷新订单列表
   } catch (e) {
     // 用户取消操作或请求失败
@@ -99,7 +109,7 @@ onMounted(fetchOrders);
           <el-table-column label="状态" width="120">
             <template #default="{ row }">
               <el-tag :type="row.status === 'SUCCESS' ? 'success' : 'warning'">
-                {{ row.status === 'SUCCESS' ? '已支付' : '待支付' }}
+                {{ orderStatusLabel(row.status) }}
               </el-tag>
             </template>
           </el-table-column>
@@ -121,8 +131,9 @@ onMounted(fetchOrders);
               >
                 查看详情
               </el-button>
+              <el-button v-if="row.status === 'PENDING'" size="small" @click="handleCancel(row.orderId)">取消订单</el-button>
 <!--              <el-button-->
-<!--                  v-if="row.status !== 'SUCCESS'"-->
+<!--                  v-if="['SUCCESS', 'TIMEOUT', 'FAILED', 'CANCELLED'].includes(row.status)"-->
 <!--                  type="danger"-->
 <!--                  size="small"-->
 <!--                  @click="handlePay(row.orderId)"-->
@@ -131,12 +142,12 @@ onMounted(fetchOrders);
 <!--                去支付-->
 <!--              </el-button>-->
               <el-button
-                  v-if="row.status !== 'SUCCESS'"
+                  v-if="['SUCCESS', 'TIMEOUT', 'FAILED', 'CANCELLED'].includes(row.status)"
                   size="small"
                   @click="handleDelete(row.orderId)"
                   style="margin-left: 8px"
               >
-                取消订单
+                隐藏订单
               </el-button>
             </template>
           </el-table-column>
