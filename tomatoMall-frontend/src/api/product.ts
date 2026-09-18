@@ -14,7 +14,7 @@ export interface Stockpile {
     id: string;
     amount: number; // 库存数量(可以销售)
     frozen: number; // 冻结数量（不可销售）
-    // （有点奇怪的定义我就把库存总量算为：amount + frozen 了）
+    // amount 是未售总量，可售数量为 amount - frozen。
     productId: string;
 }
 

@@ -1,0 +1,110 @@
+{
+  "keyword-dev": {
+    "queries": 30,
+    "k": 5,
+    "labeled_precision_at_k": 0.2138,
+    "labeled_recall_at_k": 1.0,
+    "hard_constraint_violating_queries": 0,
+    "forbidden_result_queries": 11,
+    "unknown_id_queries": 0,
+    "no_match_queries": 1,
+    "no_match_correct": 1,
+    "degraded_queries": 0
+  },
+  "keyword-heldout": {
+    "queries": 20,
+    "k": 5,
+    "labeled_precision_at_k": 0.1895,
+    "labeled_recall_at_k": 0.9474,
+    "hard_constraint_violating_queries": 0,
+    "forbidden_result_queries": 2,
+    "unknown_id_queries": 0,
+    "no_match_queries": 1,
+    "no_match_correct": 1,
+    "degraded_queries": 0
+  },
+  "keyword-acceptance": {
+    "queries": 12,
+    "k": 5,
+    "labeled_precision_at_k": 0.2,
+    "labeled_recall_at_k": 1.0,
+    "hard_constraint_violating_queries": 0,
+    "forbidden_result_queries": 0,
+    "unknown_id_queries": 0,
+    "no_match_queries": 3,
+    "no_match_correct": 3,
+    "degraded_queries": 0
+  },
+  "vector-dev": {
+    "queries": 30,
+    "k": 5,
+    "labeled_precision_at_k": 0.1931,
+    "labeled_recall_at_k": 0.8966,
+    "hard_constraint_violating_queries": 0,
+    "forbidden_result_queries": 4,
+    "unknown_id_queries": 0,
+    "no_match_queries": 1,
+    "no_match_correct": 1,
+    "degraded_queries": 0
+  },
+  "vector-heldout": {
+    "queries": 20,
+    "k": 5,
+    "labeled_precision_at_k": 0.1684,
+    "labeled_recall_at_k": 0.8421,
+    "hard_constraint_violating_queries": 0,
+    "forbidden_result_queries": 0,
+    "unknown_id_queries": 0,
+    "no_match_queries": 1,
+    "no_match_correct": 1,
+    "degraded_queries": 0
+  },
+  "vector-acceptance": {
+    "queries": 12,
+    "k": 5,
+    "labeled_precision_at_k": 0.2,
+    "labeled_recall_at_k": 1.0,
+    "hard_constraint_violating_queries": 0,
+    "forbidden_result_queries": 1,
+    "unknown_id_queries": 0,
+    "no_match_queries": 3,
+    "no_match_correct": 2,
+    "degraded_queries": 0
+  },
+  "hybrid-dev": {
+    "queries": 30,
+    "k": 5,
+    "labeled_precision_at_k": 0.2138,
+    "labeled_recall_at_k": 1.0,
+    "hard_constraint_violating_queries": 0,
+    "forbidden_result_queries": 11,
+    "unknown_id_queries": 0,
+    "no_match_queries": 1,
+    "no_match_correct": 1,
+    "degraded_queries": 0
+  },
+  "hybrid-heldout": {
+    "queries": 20,
+    "k": 5,
+    "labeled_precision_at_k": 0.1895,
+    "labeled_recall_at_k": 0.9474,
+    "hard_constraint_violating_queries": 0,
+    "forbidden_result_queries": 2,
+    "unknown_id_queries": 0,
+    "no_match_queries": 1,
+    "no_match_correct": 1,
+    "degraded_queries": 0
+  },
+  "hybrid-acceptance": {
+    "queries": 12,
+    "k": 5,
+    "labeled_precision_at_k": 0.2,
+    "labeled_recall_at_k": 1.0,
+    "hard_constraint_violating_queries": 0,
+    "forbidden_result_queries": 0,
+    "unknown_id_queries": 0,
+    "no_match_queries": 3,
+    "no_match_correct": 3,
+    "degraded_queries": 0
+  }
+}

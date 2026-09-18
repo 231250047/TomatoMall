@@ -1,0 +1,852 @@
+[
+  {
+    "query_id": "q31",
+    "response": {
+      "items": [
+        {
+          "product": {
+            "id": 2,
+            "title": "Java商城项目实践（合成测试）",
+            "price": 79.9,
+            "tag": "science",
+            "description": "合成测试图书，主题：Java；难度：进阶。内容：REST接口、分层架构与商城项目实现。",
+            "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：REST接口、分层架构与商城项目实现。前置知识：Java基础。",
+            "status": "available",
+            "availableStock": 20,
+            "specifications": [
+              "主题：Java",
+              "前置知识：Java基础",
+              "学习目标：REST接口、分层架构与商城项目实现",
+              "适用难度：进阶"
+            ],
+            "level": "进阶"
+          },
+          "score": 0.01639344262295082,
+          "evidence": "书名：Java商城项目实践（合成测试）\n分类：science\n简介：合成测试图书，主题：Java；难度：进阶。内容：REST接口、分层架构与商城项目实现。\n详情：本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：REST接口、分层架构与商城项目实现。前置知识：Java基础。\n规格：主题：Java；前置知识：Java基础；学习目标：REST接口、分层架构与商城项目实现；适用难度：进阶",
+          "vectorSimilarity": 0.6677626967430115
+        },
+        {
+          "product": {
+            "id": 4,
+            "title": "Java并发任务实战（合成测试）",
+            "price": 69.0,
+            "tag": "science",
+            "description": "合成测试图书，主题：Java；难度：进阶。内容：线程池、线程安全与任务取消。",
+            "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：线程池、线程安全与任务取消。前置知识：Java基础。",
+            "status": "available",
+            "availableStock": 20,
+            "specifications": [
+              "主题：Java",
+              "前置知识：Java基础",
+              "学习目标：线程池、线程安全与任务取消",
+              "适用难度：进阶"
+            ],
+            "level": "进阶"
+          },
+          "score": 0.016129032258064516,
+          "evidence": "书名：Java并发任务实战（合成测试）\n分类：science\n简介：合成测试图书，主题：Java；难度：进阶。内容：线程池、线程安全与任务取消。\n详情：本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：线程池、线程安全与任务取消。前置知识：Java基础。\n规格：主题：Java；前置知识：Java基础；学习目标：线程池、线程安全与任务取消；适用难度：进阶",
+          "vectorSimilarity": 0.618664413690567
+        },
+        {
+          "product": {
+            "id": 1,
+            "title": "Java第一步（合成测试）",
+            "price": 39.9,
+            "tag": "science",
+            "description": "合成测试图书，主题：Java；难度：入门。内容：变量、循环与面向对象基础。",
+            "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：变量、循环与面向对象基础。前置知识：无。",
+            "status": "available",
+            "availableStock": 20,
+            "specifications": [
+              "主题：Java",
+              "前置知识：无",
+              "学习目标：变量、循环与面向对象基础",
+              "适用难度：入门"
+            ],
+            "level": "入门"
+          },
+          "score": 0.015873015873015872,
+          "evidence": "书名：Java第一步（合成测试）\n分类：science\n简介：合成测试图书，主题：Java；难度：入门。内容：变量、循环与面向对象基础。\n详情：本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：变量、循环与面向对象基础。前置知识：无。\n规格：主题：Java；前置知识：无；学习目标：变量、循环与面向对象基础；适用难度：入门",
+          "vectorSimilarity": 0.6183359920978546
+        },
+        {
+          "product": {
+            "id": 5,
+            "title": "Java集合源码分析（合成测试）",
+            "price": 65.0,
+            "tag": "science",
+            "description": "合成测试图书，主题：Java；难度：高级。内容：HashMap扩容与集合性能。",
+            "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合高级学习者。学习目标：HashMap扩容与集合性能。前置知识：Java基础。",
+            "status": "available",
+            "availableStock": 20,
+            "specifications": [
+              "主题：Java",
+              "前置知识：Java基础",
+              "学习目标：HashMap扩容与集合性能",
+              "适用难度：高级"
+            ],
+            "level": "高级"
+          },
+          "score": 0.015625,
+          "evidence": "书名：Java集合源码分析（合成测试）\n分类：science\n简介：合成测试图书，主题：Java；难度：高级。内容：HashMap扩容与集合性能。\n详情：本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合高级学习者。学习目标：HashMap扩容与集合性能。前置知识：Java基础。\n规格：主题：Java；前置知识：Java基础；学习目标：HashMap扩容与集合性能；适用难度：高级",
+          "vectorSimilarity": 0.5845174789428711
+        }
+      ],
+      "strategy": "vector",
+      "degraded": false,
+      "reason": "",
+      "elapsedMs": 212,
+      "outcome": "MATCHES",
+      "scoreType": "RRF"
+    }
+  },
+  {
+    "query_id": "q32",
+    "response": {
+      "items": [
+        {
+          "product": {
+            "id": 45,
+            "title": "MySQL索引调优边界版（合成测试）",
+            "price": 79.99,
+            "tag": "science",
+            "description": "合成测试图书，主题：数据库；难度：进阶。内容：执行计划、联合索引与慢查询。",
+            "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：执行计划、联合索引与慢查询。前置知识：SQL基础。",
+            "status": "available",
+            "availableStock": 20,
+            "specifications": [
+              "主题：数据库",
+              "前置知识：SQL基础",
+              "学习目标：执行计划、联合索引与慢查询",
+              "适用难度：进阶"
+            ],
+            "level": "进阶"
+          },
+          "score": 0.01639344262295082,
+          "evidence": "书名：MySQL索引调优边界版（合成测试）\n分类：science\n简介：合成测试图书，主题：数据库；难度：进阶。内容：执行计划、联合索引与慢查询。\n详情：本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：执行计划、联合索引与慢查询。前置知识：SQL基础。\n规格：主题：数据库；前置知识：SQL基础；学习目标：执行计划、联合索引与慢查询；适用难度：进阶",
+          "vectorSimilarity": 0.5760675966739655
+        }
+      ],
+      "strategy": "vector",
+      "degraded": false,
+      "reason": "",
+      "elapsedMs": 193,
+      "outcome": "MATCHES",
+      "scoreType": "RRF"
+    }
+  },
+  {
+    "query_id": "q33",
+    "response": {
+      "items": [
+        {
+          "product": {
+            "id": 45,
+            "title": "MySQL索引调优边界版（合成测试）",
+            "price": 79.99,
+            "tag": "science",
+            "description": "合成测试图书，主题：数据库；难度：进阶。内容：执行计划、联合索引与慢查询。",
+            "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：执行计划、联合索引与慢查询。前置知识：SQL基础。",
+            "status": "available",
+            "availableStock": 20,
+            "specifications": [
+              "主题：数据库",
+              "前置知识：SQL基础",
+              "学习目标：执行计划、联合索引与慢查询",
+              "适用难度：进阶"
+            ],
+            "level": "进阶"
+          },
+          "score": 0.01639344262295082,
+          "evidence": "书名：MySQL索引调优边界版（合成测试）\n分类：science\n简介：合成测试图书，主题：数据库；难度：进阶。内容：执行计划、联合索引与慢查询。\n详情：本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：执行计划、联合索引与慢查询。前置知识：SQL基础。\n规格：主题：数据库；前置知识：SQL基础；学习目标：执行计划、联合索引与慢查询；适用难度：进阶",
+          "vectorSimilarity": 0.691025972366333
+        },
+        {
+          "product": {
+            "id": 10,
+            "title": "SQL查询第一课（合成测试）",
+            "price": 35.0,
+            "tag": "science",
+            "description": "合成测试图书，主题：数据库；难度：入门。内容：查询、连接与聚合。",
+            "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：查询、连接与聚合。前置知识：无。",
+            "status": "available",
+            "availableStock": 20,
+            "specifications": [
+              "主题：数据库",
+              "前置知识：无",
+              "学习目标：查询、连接与聚合",
+              "适用难度：入门"
+            ],
+            "level": "入门"
+          },
+          "score": 0.016129032258064516,
+          "evidence": "书名：SQL查询第一课（合成测试）\n分类：science\n简介：合成测试图书，主题：数据库；难度：入门。内容：查询、连接与聚合。\n详情：本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：查询、连接与聚合。前置知识：无。\n规格：主题：数据库；前置知识：无；学习目标：查询、连接与聚合；适用难度：入门",
+          "vectorSimilarity": 0.6045253574848175
+        },
+        {
+          "product": {
+            "id": 48,
+            "title": "RAG检索故障演练（合成测试）",
+            "price": 79.0,
+            "tag": "science",
+            "description": "合成测试图书，主题：人工智能；难度：高级。内容：模型超时、索引损坏与关键词降级。",
+            "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合高级学习者。学习目标：模型超时、索引损坏与关键词降级。前置知识：RAG开发基础。",
+            "status": "available",
+            "availableStock": 20,
+            "specifications": [
+              "主题：人工智能",
+              "前置知识：RAG开发基础",
+              "学习目标：模型超时、索引损坏与关键词降级",
+              "适用难度：高级"
+            ],
+            "level": "高级"
+          },
+          "score": 0.015873015873015872,
+          "evidence": "书名：RAG检索故障演练（合成测试）\n分类：science\n简介：合成测试图书，主题：人工智能；难度：高级。内容：模型超时、索引损坏与关键词降级。\n详情：本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合高级学习者。学习目标：模型超时、索引损坏与关键词降级。前置知识：RAG开发基础。\n规格：主题：人工智能；前置知识：RAG开发基础；学习目标：模型超时、索引损坏与关键词降级；适用难度：高级",
+          "vectorSimilarity": 0.5655111074447632
+        },
+        {
+          "product": {
+            "id": 8,
+            "title": "MySQL事务与隔离（合成测试）",
+            "price": 78.0,
+            "tag": "science",
+            "description": "合成测试图书，主题：数据库；难度：进阶。内容：事务隔离、MVCC与并发读写。",
+            "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：事务隔离、MVCC与并发读写。前置知识：SQL基础。",
+            "status": "available",
+            "availableStock": 20,
+            "specifications": [
+              "主题：数据库",
+              "前置知识：SQL基础",
+              "学习目标：事务隔离、MVCC与并发读写",
+              "适用难度：进阶"
+            ],
+            "level": "进阶"
+          },
+          "score": 0.015625,
+          "evidence": "书名：MySQL事务与隔离（合成测试）\n分类：science\n简介：合成测试图书，主题：数据库；难度：进阶。内容：事务隔离、MVCC与并发读写。\n详情：本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：事务隔离、MVCC与并发读写。前置知识：SQL基础。\n规格：主题：数据库；前置知识：SQL基础；学习目标：事务隔离、MVCC与并发读写；适用难度：进阶",
+          "vectorSimilarity": 0.5619150102138519
+        },
+        {
+          "product": {
+            "id": 25,
+            "title": "RAG商品推荐实践（合成测试）",
+            "price": 79.0,
+            "tag": "science",
+            "description": "合成测试图书，主题：人工智能；难度：进阶。内容：商品检索、证据引用与检索评测。",
+            "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：商品检索、证据引用与检索评测。前置知识：Python与数据库基础。",
+            "status": "available",
+            "availableStock": 20,
+            "specifications": [
+              "主题：人工智能",
+              "前置知识：Python与数据库基础",
+              "学习目标：商品检索、证据引用与检索评测",
+              "适用难度：进阶"
+            ],
+            "level": "进阶"
+          },
+          "score": 0.015384615384615385,
+          "evidence": "书名：RAG商品推荐实践（合成测试）\n分类：science\n简介：合成测试图书，主题：人工智能；难度：进阶。内容：商品检索、证据引用与检索评测。\n详情：本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：商品检索、证据引用与检索评测。前置知识：Python与数据库基础。\n规格：主题：人工智能；前置知识：Python与数据库基础；学习目标：商品检索、证据引用与检索评测；适用难度：进阶",
+          "vectorSimilarity": 0.5416488647460938
+        }
+      ],
+      "strategy": "vector",
+      "degraded": false,
+      "reason": "",
+      "elapsedMs": 220,
+      "outcome": "MATCHES",
+      "scoreType": "RRF"
+    }
+  },
+  {
+    "query_id": "q34",
+    "response": {
+      "items": [
+        {
+          "product": {
+            "id": 39,
+            "title": "支付回调可靠处理（合成测试）",
+            "price": 79.0,
+            "tag": "science",
+            "description": "合成测试图书，主题：支付；难度：进阶。内容：验签、金额校验与重复通知幂等。",
+            "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：验签、金额校验与重复通知幂等。前置知识：数据库事务。",
+            "status": "available",
+            "availableStock": 20,
+            "specifications": [
+              "主题：支付",
+              "前置知识：数据库事务",
+              "学习目标：验签、金额校验与重复通知幂等",
+              "适用难度：进阶"
+            ],
+            "level": "进阶"
+          },
+          "score": 0.01639344262295082,
+          "evidence": "书名：支付回调可靠处理（合成测试）\n分类：science\n简介：合成测试图书，主题：支付；难度：进阶。内容：验签、金额校验与重复通知幂等。\n详情：本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：验签、金额校验与重复通知幂等。前置知识：数据库事务。\n规格：主题：支付；前置知识：数据库事务；学习目标：验签、金额校验与重复通知幂等；适用难度：进阶",
+          "vectorSimilarity": 0.5526726245880127
+        }
+      ],
+      "strategy": "vector",
+      "degraded": false,
+      "reason": "",
+      "elapsedMs": 166,
+      "outcome": "MATCHES",
+      "scoreType": "RRF"
+    }
+  },
+  {
+    "query_id": "q35",
+    "response": {
+      "items": [],
+      "strategy": "vector",
+      "degraded": false,
+      "reason": "NO_RELEVANT_ELIGIBLE_MATCH",
+      "elapsedMs": 163,
+      "outcome": "NO_MATCH",
+      "scoreType": "RRF"
+    }
+  },
+  {
+    "query_id": "q36",
+    "response": {
+      "items": [],
+      "strategy": "vector",
+      "degraded": false,
+      "reason": "NO_RELEVANT_ELIGIBLE_MATCH",
+      "elapsedMs": 160,
+      "outcome": "NO_MATCH",
+      "scoreType": "RRF"
+    }
+  },
+  {
+    "query_id": "q37",
+    "response": {
+      "items": [],
+      "strategy": "vector",
+      "degraded": false,
+      "reason": "NO_RELEVANT_ELIGIBLE_MATCH",
+      "elapsedMs": 444,
+      "outcome": "NO_MATCH",
+      "scoreType": "RRF"
+    }
+  },
+  {
+    "query_id": "q38",
+    "response": {
+      "items": [
+        {
+          "product": {
+            "id": 26,
+            "title": "Embedding语义搜索入门（合成测试）",
+            "price": 55.0,
+            "tag": "science",
+            "description": "合成测试图书，主题：人工智能；难度：入门。内容：文本向量、相似度与语义检索。",
+            "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：文本向量、相似度与语义检索。前置知识：编程基础。",
+            "status": "available",
+            "availableStock": 20,
+            "specifications": [
+              "主题：人工智能",
+              "前置知识：编程基础",
+              "学习目标：文本向量、相似度与语义检索",
+              "适用难度：入门"
+            ],
+            "level": "入门"
+          },
+          "score": 0.01639344262295082,
+          "evidence": "书名：Embedding语义搜索入门（合成测试）\n分类：science\n简介：合成测试图书，主题：人工智能；难度：入门。内容：文本向量、相似度与语义检索。\n详情：本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：文本向量、相似度与语义检索。前置知识：编程基础。\n规格：主题：人工智能；前置知识：编程基础；学习目标：文本向量、相似度与语义检索；适用难度：入门",
+          "vectorSimilarity": 0.6846284568309784
+        },
+        {
+          "product": {
+            "id": 11,
+            "title": "PostgreSQL向量检索实践（合成测试）",
+            "price": 89.0,
+            "tag": "science",
+            "description": "合成测试图书，主题：数据库；难度：进阶。内容：pgvector、语义搜索与向量索引。",
+            "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：pgvector、语义搜索与向量索引。前置知识：SQL与Python基础。",
+            "status": "available",
+            "availableStock": 20,
+            "specifications": [
+              "主题：数据库",
+              "前置知识：SQL与Python基础",
+              "学习目标：pgvector、语义搜索与向量索引",
+              "适用难度：进阶"
+            ],
+            "level": "进阶"
+          },
+          "score": 0.016129032258064516,
+          "evidence": "书名：PostgreSQL向量检索实践（合成测试）\n分类：science\n简介：合成测试图书，主题：数据库；难度：进阶。内容：pgvector、语义搜索与向量索引。\n详情：本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：pgvector、语义搜索与向量索引。前置知识：SQL与Python基础。\n规格：主题：数据库；前置知识：SQL与Python基础；学习目标：pgvector、语义搜索与向量索引；适用难度：进阶",
+          "vectorSimilarity": 0.6012269556522369
+        }
+      ],
+      "strategy": "vector",
+      "degraded": false,
+      "reason": "",
+      "elapsedMs": 187,
+      "outcome": "MATCHES",
+      "scoreType": "RRF"
+    }
+  },
+  {
+    "query_id": "q39",
+    "response": {
+      "items": [
+        {
+          "product": {
+            "id": 35,
+            "title": "Docker部署商城（合成测试）",
+            "price": 75.0,
+            "tag": "science",
+            "description": "合成测试图书，主题：运维；难度：进阶。内容：容器、网络与服务编排。",
+            "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：容器、网络与服务编排。前置知识：Linux基础。",
+            "status": "available",
+            "availableStock": 20,
+            "specifications": [
+              "主题：运维",
+              "前置知识：Linux基础",
+              "学习目标：容器、网络与服务编排",
+              "适用难度：进阶"
+            ],
+            "level": "进阶"
+          },
+          "score": 0.01639344262295082,
+          "evidence": "书名：Docker部署商城（合成测试）\n分类：science\n简介：合成测试图书，主题：运维；难度：进阶。内容：容器、网络与服务编排。\n详情：本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：容器、网络与服务编排。前置知识：Linux基础。\n规格：主题：运维；前置知识：Linux基础；学习目标：容器、网络与服务编排；适用难度：进阶",
+          "vectorSimilarity": 0.5408872067928314
+        }
+      ],
+      "strategy": "vector",
+      "degraded": false,
+      "reason": "",
+      "elapsedMs": 191,
+      "outcome": "MATCHES",
+      "scoreType": "RRF"
+    }
+  },
+  {
+    "query_id": "q40",
+    "response": {
+      "items": [
+        {
+          "product": {
+            "id": 36,
+            "title": "应用日志与可观测性（合成测试）",
+            "price": 82.0,
+            "tag": "science",
+            "description": "合成测试图书，主题：运维；难度：进阶。内容：链路追踪、指标与故障定位。",
+            "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：链路追踪、指标与故障定位。前置知识：服务开发基础。",
+            "status": "available",
+            "availableStock": 20,
+            "specifications": [
+              "主题：运维",
+              "前置知识：服务开发基础",
+              "学习目标：链路追踪、指标与故障定位",
+              "适用难度：进阶"
+            ],
+            "level": "进阶"
+          },
+          "score": 0.01639344262295082,
+          "evidence": "书名：应用日志与可观测性（合成测试）\n分类：science\n简介：合成测试图书，主题：运维；难度：进阶。内容：链路追踪、指标与故障定位。\n详情：本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：链路追踪、指标与故障定位。前置知识：服务开发基础。\n规格：主题：运维；前置知识：服务开发基础；学习目标：链路追踪、指标与故障定位；适用难度：进阶",
+          "vectorSimilarity": 0.5454866290092468
+        }
+      ],
+      "strategy": "vector",
+      "degraded": false,
+      "reason": "",
+      "elapsedMs": 168,
+      "outcome": "MATCHES",
+      "scoreType": "RRF"
+    }
+  },
+  {
+    "query_id": "q41",
+    "response": {
+      "items": [
+        {
+          "product": {
+            "id": 32,
+            "title": "HTTPS证书与握手（合成测试）",
+            "price": 69.0,
+            "tag": "science",
+            "description": "合成测试图书，主题：网络；难度：进阶。内容：TLS握手、证书链与身份验证。",
+            "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：TLS握手、证书链与身份验证。前置知识：HTTP基础。",
+            "status": "available",
+            "availableStock": 20,
+            "specifications": [
+              "主题：网络",
+              "前置知识：HTTP基础",
+              "学习目标：TLS握手、证书链与身份验证",
+              "适用难度：进阶"
+            ],
+            "level": "进阶"
+          },
+          "score": 0.01639344262295082,
+          "evidence": "书名：HTTPS证书与握手（合成测试）\n分类：science\n简介：合成测试图书，主题：网络；难度：进阶。内容：TLS握手、证书链与身份验证。\n详情：本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：TLS握手、证书链与身份验证。前置知识：HTTP基础。\n规格：主题：网络；前置知识：HTTP基础；学习目标：TLS握手、证书链与身份验证；适用难度：进阶",
+          "vectorSimilarity": 0.6790162622928619
+        }
+      ],
+      "strategy": "vector",
+      "degraded": false,
+      "reason": "",
+      "elapsedMs": 161,
+      "outcome": "MATCHES",
+      "scoreType": "RRF"
+    }
+  },
+  {
+    "query_id": "q42",
+    "response": {
+      "items": [
+        {
+          "product": {
+            "id": 37,
+            "title": "数据结构图解入门（合成测试）",
+            "price": 49.0,
+            "tag": "science",
+            "description": "合成测试图书，主题：算法；难度：入门。内容：链表、树与哈希表。",
+            "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：链表、树与哈希表。前置知识：编程基础。",
+            "status": "available",
+            "availableStock": 20,
+            "specifications": [
+              "主题：算法",
+              "前置知识：编程基础",
+              "学习目标：链表、树与哈希表",
+              "适用难度：入门"
+            ],
+            "level": "入门"
+          },
+          "score": 0.01639344262295082,
+          "evidence": "书名：数据结构图解入门（合成测试）\n分类：science\n简介：合成测试图书，主题：算法；难度：入门。内容：链表、树与哈希表。\n详情：本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：链表、树与哈希表。前置知识：编程基础。\n规格：主题：算法；前置知识：编程基础；学习目标：链表、树与哈希表；适用难度：入门",
+          "vectorSimilarity": 0.7686966806650162
+        },
+        {
+          "product": {
+            "id": 14,
+            "title": "Redis数据结构入门（合成测试）",
+            "price": 42.0,
+            "tag": "science",
+            "description": "合成测试图书，主题：Redis；难度：入门。内容：字符串、哈希、列表与基础命令。",
+            "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：字符串、哈希、列表与基础命令。前置知识：无。",
+            "status": "available",
+            "availableStock": 20,
+            "specifications": [
+              "主题：Redis",
+              "前置知识：无",
+              "学习目标：字符串、哈希、列表与基础命令",
+              "适用难度：入门"
+            ],
+            "level": "入门"
+          },
+          "score": 0.016129032258064516,
+          "evidence": "书名：Redis数据结构入门（合成测试）\n分类：science\n简介：合成测试图书，主题：Redis；难度：入门。内容：字符串、哈希、列表与基础命令。\n详情：本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：字符串、哈希、列表与基础命令。前置知识：无。\n规格：主题：Redis；前置知识：无；学习目标：字符串、哈希、列表与基础命令；适用难度：入门",
+          "vectorSimilarity": 0.573822021484375
+        }
+      ],
+      "strategy": "vector",
+      "degraded": false,
+      "reason": "",
+      "elapsedMs": 142,
+      "outcome": "MATCHES",
+      "scoreType": "RRF"
+    }
+  },
+  {
+    "query_id": "q43",
+    "response": {
+      "items": [
+        {
+          "product": {
+            "id": 54,
+            "title": "计算机面试表达训练（合成测试）",
+            "price": 49.0,
+            "tag": "education",
+            "description": "合成测试图书，主题：求职；难度：进阶。内容：项目介绍、复盘与沟通表达。",
+            "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：项目介绍、复盘与沟通表达。前置知识：项目经历。",
+            "status": "available",
+            "availableStock": 20,
+            "specifications": [
+              "主题：求职",
+              "前置知识：项目经历",
+              "学习目标：项目介绍、复盘与沟通表达",
+              "适用难度：进阶"
+            ],
+            "level": "进阶"
+          },
+          "score": 0.01639344262295082,
+          "evidence": "书名：计算机面试表达训练（合成测试）\n分类：education\n简介：合成测试图书，主题：求职；难度：进阶。内容：项目介绍、复盘与沟通表达。\n详情：本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：项目介绍、复盘与沟通表达。前置知识：项目经历。\n规格：主题：求职；前置知识：项目经历；学习目标：项目介绍、复盘与沟通表达；适用难度：进阶",
+          "vectorSimilarity": 0.6336425840854645
+        }
+      ],
+      "strategy": "vector",
+      "degraded": false,
+      "reason": "",
+      "elapsedMs": 145,
+      "outcome": "MATCHES",
+      "scoreType": "RRF"
+    }
+  },
+  {
+    "query_id": "q44",
+    "response": {
+      "items": [
+        {
+          "product": {
+            "id": 80,
+            "title": "管理者消息沟通（合成测试）",
+            "price": 35.0,
+            "tag": "management",
+            "description": "合成测试图书，主题：沟通；难度：入门。内容：会议与团队信息传递，不讲消息队列技术。",
+            "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：会议与团队信息传递，不讲消息队列技术。前置知识：无。",
+            "status": "available",
+            "availableStock": 20,
+            "specifications": [
+              "主题：沟通",
+              "前置知识：无",
+              "学习目标：会议与团队信息传递，不讲消息队列技术",
+              "适用难度：入门"
+            ],
+            "level": "入门"
+          },
+          "score": 0.01639344262295082,
+          "evidence": "书名：管理者消息沟通（合成测试）\n分类：management\n简介：合成测试图书，主题：沟通；难度：入门。内容：会议与团队信息传递，不讲消息队列技术。\n详情：本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：会议与团队信息传递，不讲消息队列技术。前置知识：无。\n规格：主题：沟通；前置知识：无；学习目标：会议与团队信息传递，不讲消息队列技术；适用难度：入门",
+          "vectorSimilarity": 0.7077012956142426
+        },
+        {
+          "product": {
+            "id": 77,
+            "title": "小团队任务协作（合成测试）",
+            "price": 49.0,
+            "tag": "management",
+            "description": "合成测试图书，主题：团队；难度：入门。内容：任务拆分、进度沟通与复盘。",
+            "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：任务拆分、进度沟通与复盘。前置知识：无。",
+            "status": "available",
+            "availableStock": 20,
+            "specifications": [
+              "主题：团队",
+              "前置知识：无",
+              "学习目标：任务拆分、进度沟通与复盘",
+              "适用难度：入门"
+            ],
+            "level": "入门"
+          },
+          "score": 0.016129032258064516,
+          "evidence": "书名：小团队任务协作（合成测试）\n分类：management\n简介：合成测试图书，主题：团队；难度：入门。内容：任务拆分、进度沟通与复盘。\n详情：本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：任务拆分、进度沟通与复盘。前置知识：无。\n规格：主题：团队；前置知识：无；学习目标：任务拆分、进度沟通与复盘；适用难度：入门",
+          "vectorSimilarity": 0.59532031416893
+        }
+      ],
+      "strategy": "vector",
+      "degraded": false,
+      "reason": "",
+      "elapsedMs": 189,
+      "outcome": "MATCHES",
+      "scoreType": "RRF"
+    }
+  },
+  {
+    "query_id": "q45",
+    "response": {
+      "items": [
+        {
+          "product": {
+            "id": 64,
+            "title": "缓存的记忆（合成测试）",
+            "price": 32.0,
+            "tag": "literature",
+            "description": "合成测试图书，主题：小说；难度：入门。内容：回忆与成长的虚构故事，不讲Redis技术。",
+            "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：回忆与成长的虚构故事，不讲Redis技术。前置知识：无。",
+            "status": "available",
+            "availableStock": 20,
+            "specifications": [
+              "主题：小说",
+              "前置知识：无",
+              "学习目标：回忆与成长的虚构故事，不讲Redis技术",
+              "适用难度：入门"
+            ],
+            "level": "入门"
+          },
+          "score": 0.01639344262295082,
+          "evidence": "书名：缓存的记忆（合成测试）\n分类：literature\n简介：合成测试图书，主题：小说；难度：入门。内容：回忆与成长的虚构故事，不讲Redis技术。\n详情：本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：回忆与成长的虚构故事，不讲Redis技术。前置知识：无。\n规格：主题：小说；前置知识：无；学习目标：回忆与成长的虚构故事，不讲Redis技术；适用难度：入门",
+          "vectorSimilarity": 0.6762256920337677
+        }
+      ],
+      "strategy": "vector",
+      "degraded": false,
+      "reason": "",
+      "elapsedMs": 152,
+      "outcome": "MATCHES",
+      "scoreType": "RRF"
+    }
+  },
+  {
+    "query_id": "q46",
+    "response": {
+      "items": [
+        {
+          "product": {
+            "id": 94,
+            "title": "人工智能伦理导读（合成测试）",
+            "price": 65.0,
+            "tag": "philosophy",
+            "description": "合成测试图书，主题：伦理；难度：进阶。内容：算法公平、责任与社会影响，不讲模型API开发。",
+            "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：算法公平、责任与社会影响，不讲模型API开发。前置知识：哲学基础。",
+            "status": "available",
+            "availableStock": 20,
+            "specifications": [
+              "主题：伦理",
+              "前置知识：哲学基础",
+              "学习目标：算法公平、责任与社会影响，不讲模型API开发",
+              "适用难度：进阶"
+            ],
+            "level": "进阶"
+          },
+          "score": 0.01639344262295082,
+          "evidence": "书名：人工智能伦理导读（合成测试）\n分类：philosophy\n简介：合成测试图书，主题：伦理；难度：进阶。内容：算法公平、责任与社会影响，不讲模型API开发。\n详情：本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：算法公平、责任与社会影响，不讲模型API开发。前置知识：哲学基础。\n规格：主题：伦理；前置知识：哲学基础；学习目标：算法公平、责任与社会影响，不讲模型API开发；适用难度：进阶",
+          "vectorSimilarity": 0.6863425374031067
+        },
+        {
+          "product": {
+            "id": 92,
+            "title": "日常伦理讨论（合成测试）",
+            "price": 45.0,
+            "tag": "philosophy",
+            "description": "合成测试图书，主题：伦理；难度：入门。内容：责任、公平与日常选择。",
+            "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：责任、公平与日常选择。前置知识：无。",
+            "status": "available",
+            "availableStock": 20,
+            "specifications": [
+              "主题：伦理",
+              "前置知识：无",
+              "学习目标：责任、公平与日常选择",
+              "适用难度：入门"
+            ],
+            "level": "入门"
+          },
+          "score": 0.016129032258064516,
+          "evidence": "书名：日常伦理讨论（合成测试）\n分类：philosophy\n简介：合成测试图书，主题：伦理；难度：入门。内容：责任、公平与日常选择。\n详情：本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：责任、公平与日常选择。前置知识：无。\n规格：主题：伦理；前置知识：无；学习目标：责任、公平与日常选择；适用难度：入门",
+          "vectorSimilarity": 0.5522940456867218
+        }
+      ],
+      "strategy": "vector",
+      "degraded": false,
+      "reason": "",
+      "elapsedMs": 168,
+      "outcome": "MATCHES",
+      "scoreType": "RRF"
+    }
+  },
+  {
+    "query_id": "q47",
+    "response": {
+      "items": [
+        {
+          "product": {
+            "id": 91,
+            "title": "逻辑推理入门（合成测试）",
+            "price": 39.0,
+            "tag": "philosophy",
+            "description": "合成测试图书，主题：逻辑；难度：入门。内容：命题、论证与常见谬误。",
+            "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：命题、论证与常见谬误。前置知识：无。",
+            "status": "available",
+            "availableStock": 20,
+            "specifications": [
+              "主题：逻辑",
+              "前置知识：无",
+              "学习目标：命题、论证与常见谬误",
+              "适用难度：入门"
+            ],
+            "level": "入门"
+          },
+          "score": 0.01639344262295082,
+          "evidence": "书名：逻辑推理入门（合成测试）\n分类：philosophy\n简介：合成测试图书，主题：逻辑；难度：入门。内容：命题、论证与常见谬误。\n详情：本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：命题、论证与常见谬误。前置知识：无。\n规格：主题：逻辑；前置知识：无；学习目标：命题、论证与常见谬误；适用难度：入门",
+          "vectorSimilarity": 0.6298379898071289
+        }
+      ],
+      "strategy": "vector",
+      "degraded": false,
+      "reason": "",
+      "elapsedMs": 154,
+      "outcome": "MATCHES",
+      "scoreType": "RRF"
+    }
+  },
+  {
+    "query_id": "q48",
+    "response": {
+      "items": [
+        {
+          "product": {
+            "id": 100,
+            "title": "健康信息辨识（合成测试）",
+            "price": 49.0,
+            "tag": "health",
+            "description": "合成测试图书，主题：健康；难度：进阶。内容：信息来源与证据辨识，不提供疾病治疗方案。",
+            "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：信息来源与证据辨识，不提供疾病治疗方案。前置知识：阅读基础。",
+            "status": "available",
+            "availableStock": 20,
+            "specifications": [
+              "主题：健康",
+              "前置知识：阅读基础",
+              "学习目标：信息来源与证据辨识，不提供疾病治疗方案",
+              "适用难度：进阶"
+            ],
+            "level": "进阶"
+          },
+          "score": 0.01639344262295082,
+          "evidence": "书名：健康信息辨识（合成测试）\n分类：health\n简介：合成测试图书，主题：健康；难度：进阶。内容：信息来源与证据辨识，不提供疾病治疗方案。\n详情：本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：信息来源与证据辨识，不提供疾病治疗方案。前置知识：阅读基础。\n规格：主题：健康；前置知识：阅读基础；学习目标：信息来源与证据辨识，不提供疾病治疗方案；适用难度：进阶",
+          "vectorSimilarity": 0.638482928276062
+        }
+      ],
+      "strategy": "vector",
+      "degraded": false,
+      "reason": "",
+      "elapsedMs": 180,
+      "outcome": "MATCHES",
+      "scoreType": "RRF"
+    }
+  },
+  {
+    "query_id": "q49",
+    "response": {
+      "items": [
+        {
+          "product": {
+            "id": 98,
+            "title": "睡眠习惯笔记（合成测试）",
+            "price": 39.0,
+            "tag": "health",
+            "description": "合成测试图书，主题：健康；难度：入门。内容：作息记录与睡眠卫生常识，不提供疾病治疗方案。",
+            "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：作息记录与睡眠卫生常识，不提供疾病治疗方案。前置知识：无。",
+            "status": "available",
+            "availableStock": 20,
+            "specifications": [
+              "主题：健康",
+              "前置知识：无",
+              "学习目标：作息记录与睡眠卫生常识，不提供疾病治疗方案",
+              "适用难度：入门"
+            ],
+            "level": "入门"
+          },
+          "score": 0.01639344262295082,
+          "evidence": "书名：睡眠习惯笔记（合成测试）\n分类：health\n简介：合成测试图书，主题：健康；难度：入门。内容：作息记录与睡眠卫生常识，不提供疾病治疗方案。\n详情：本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：作息记录与睡眠卫生常识，不提供疾病治疗方案。前置知识：无。\n规格：主题：健康；前置知识：无；学习目标：作息记录与睡眠卫生常识，不提供疾病治疗方案；适用难度：入门",
+          "vectorSimilarity": 0.6648367643356323
+        }
+      ],
+      "strategy": "vector",
+      "degraded": false,
+      "reason": "",
+      "elapsedMs": 175,
+      "outcome": "MATCHES",
+      "scoreType": "RRF"
+    }
+  },
+  {
+    "query_id": "q50",
+    "response": {
+      "items": [],
+      "strategy": "vector",
+      "degraded": false,
+      "reason": "NO_RELEVANT_ELIGIBLE_MATCH",
+      "elapsedMs": 183,
+      "outcome": "NO_MATCH",
+      "scoreType": "RRF"
+    }
+  }
+]

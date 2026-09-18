@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
- * 用于在用户登录成功后返回给前端的用户信息，隐藏部分敏感信�?
+ * 用于在用户登录成功后返回给前端的用户信息，隐藏部分敏感信�?
  */
 
 @Getter

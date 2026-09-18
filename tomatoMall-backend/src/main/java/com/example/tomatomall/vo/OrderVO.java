@@ -14,12 +14,13 @@ import java.util.List;
 @NoArgsConstructor
 public class OrderVO {
     private int orderId;
+    private Date expiresAt;
     private String username;//样例这么给的，sb样例
     private BigDecimal totalAmount;
     private String paymentMethod;
     private Date createTime;
     private String status;
-    private Date paymentTime;  // 新增:支付时�?
+    private Date paymentTime;  // 新增:支付时�?
 
     // 收货信息
     private String receiverName;

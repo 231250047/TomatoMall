@@ -1,0 +1,45 @@
+{
+  "date": "2026-09-17",
+  "git_head": "a83c1668fd972b00cc55d7199260c3052619e6c3",
+  "working_tree": "uncommitted changes; source hashes identify tested files",
+  "java": "17.0.20",
+  "spring_ai": "1.0.0-M4",
+  "embedding_model": "text-embedding-v4",
+  "dimensions": 1024,
+  "requested_chat_model": "deepseek-v4-flash",
+  "selection_max_tokens": 4096,
+  "temperature": 0.7,
+  "read_timeout_ms": 30000,
+  "default_package_tests": {
+    "tests": 103,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 7
+  },
+  "separate_pg_tests": {
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "note": "Earlier phase2 run with unchanged PG adapter; deterministic vectors, isolated tomatomall_rag_test"
+  },
+  "hashes": {
+    "tomatoMall-backend/src/main/java/com/example/tomatomall/retrieval/ProductSearchQuery.java": "de72248d0883c37eb9a26a45ba0e170932a368784e6ed475baaedea3d76be173",
+    "tomatoMall-backend/src/main/java/com/example/tomatomall/retrieval/ProductSnapshot.java": "f987d04b2d1c57860063d550789ddbd2cfa91b4a2616547a918be82765a5cff3",
+    "tomatoMall-backend/src/main/java/com/example/tomatomall/retrieval/ProductVectorIndex.java": "59c9d12e36690b66325bffd1aebe9ec2973678c461d00e4c89ecb03037ac913d",
+    "tomatoMall-backend/src/main/java/com/example/tomatomall/retrieval/PgProductVectorIndex.java": "a1b3a46db1300fe35a43b0a0d2b3d609f66a0b8c2e1d9642adbaae5ab07de312",
+    "tomatoMall-backend/src/main/java/com/example/tomatomall/retrieval/ProductText.java": "647e4b30948f958f3ce50eb42f5b1ad821d6d291b90cba8b0732a8e42c0eb2b5",
+    "tomatoMall-backend/src/main/java/com/example/tomatomall/retrieval/ProductRetrievalService.java": "bc645bfa3e63506c3ec390608da1a7a9d7bb8b6da138388472b1563fa608e8f1",
+    "tomatoMall-backend/src/main/java/com/example/tomatomall/retrieval/RocketMqProductTransport.java": "3925087e5d8f41ec6efaa5b9cff9b2a9474abd81ee53c2274fca1beb3315571f",
+    "tomatoMall-backend/src/main/java/com/example/tomatomall/retrieval/ProductIndexMaintenance.java": "19ab2bfb4b1a22cf6dfdfe1e098cbfd617c0402792ded7ef054bc1fb182437ad",
+    "tomatoMall-backend/src/main/java/com/example/tomatomall/retrieval/ProductCatalog.java": "8a236d6a3b61b7a03b20e942e7fb88a8d4c0064fd8122f083b5459f97aca09b1",
+    "tomatoMall-backend/src/main/java/com/example/tomatomall/retrieval/ProductChangedPublisher.java": "e31511cb8aec6dc3de7b32453aa831cb34c55009a0ffa24221d6a89a7e64014f",
+    "tomatoMall-backend/src/main/java/com/example/tomatomall/retrieval/ProductDocuments.java": "bb3e45dc66f61ae62db67884c5a15030b0027e856ce9835fc27ec8c335ac6a1f",
+    "tomatoMall-backend/src/main/java/com/example/tomatomall/service/serviceImpl/ChatServiceImpl.java": "f04e530bfa866f40bb4a2f4207f56d1b704b11aac8f8948209947e82462b9b96",
+    "tomatoMall-backend/src/main/java/com/example/tomatomall/service/serviceImpl/DeepSeekServiceImpl.java": "2bd88a6934b0acd1dc15c160e6349a96d3f6cf1336224f99e6e32052a84e98e9",
+    "tomatoMall-backend/src/main/java/com/example/tomatomall/controller/VectorStoreTestController.java": "c3dd46a61b5190ff39883f34ca3019e40b972d5cb3cf070466e26ca9c78c5f63",
+    "infra/rag/fixtures/stage2-acceptance.json": "f0c589c7a8d6adaf2b0c8d70831088263b567b3bc6b6d07e4bb0ebe4ad7ab5ae",
+    "infra/rag/fixtures/products.json": "b02f31d22f3ce9a717dcdaeb0d8b6ef4f9911f9952f3317d1481abf04d1893b6",
+    "infra/rag/fixtures/queries.json": "e7912528a0ffc2a2f171d460ebcd1fa08b019f3b3cc74ea2c1ac7773e321bf13"
+  },
+  "jar_sha256": "8386040744236317df10cd4ef337f16d7fbe8175959d30f52141301a91c7793c"
+}

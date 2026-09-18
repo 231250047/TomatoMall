@@ -1,0 +1,23 @@
+{
+  "date": "2026-09-17",
+  "scope": "stage1 handling and diagnostic fix; 10 known development queries",
+  "request_model": "deepseek-v4-flash",
+  "response_model": "deepseek-flash",
+  "max_tokens": 2000,
+  "temperature": 0.7,
+  "thinking": "not explicitly configured",
+  "default_tests": {
+    "tests": 91,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 7
+  },
+  "final_sha256": {
+    "infra/rag/fixtures/products.json": "b02f31d22f3ce9a717dcdaeb0d8b6ef4f9911f9952f3317d1481abf04d1893b6",
+    "infra/rag/fixtures/queries.json": "e7912528a0ffc2a2f171d460ebcd1fa08b019f3b3cc74ea2c1ac7773e321bf13",
+    "tomatoMall-backend/src/main/java/com/example/tomatomall/service/serviceImpl/ChatServiceImpl.java": "55164c110f30e00360db425c3a61a1316972d1fe85efdcb8168a8dde5a532de9",
+    "tomatoMall-backend/src/main/java/com/example/tomatomall/service/serviceImpl/DeepSeekServiceImpl.java": "587e76762f74f001b5f5d3c5ab97318e7b457f26075d72c5817375621d4a22ba",
+    "tomatoMall-backend/target/TomatoMall-0.0.1-SNAPSHOT.jar": "22ad5750d820ca5631c0fdf367c02f059c3839535dd9de2f8b2905f69fb92a95"
+  },
+  "live_test_note": "Live pilot used first stage1 package; final package additionally classifies unknown candidate as INVALID_SELECTION instead of CALL_FAILED. Full final regression passed."
+}

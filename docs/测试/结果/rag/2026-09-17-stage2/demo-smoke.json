@@ -1,0 +1,32 @@
+{
+  "search": {
+    "items": [
+      {
+        "product": {
+          "id": 1,
+          "title": "Java 编程入门",
+          "price": 59.0,
+          "tag": "science",
+          "description": "本地演示商品，用于体验购物车、下单与库存释放。",
+          "detail": "演示数据，非真实商品。",
+          "status": "available",
+          "availableStock": 19,
+          "specifications": [],
+          "level": null
+        },
+        "score": 0.01639344262295082,
+        "evidence": "书名：Java 编程入门\n分类：science\n简介：本地演示商品，用于体验购物车、下单与库存释放。\n详情：演示数据，非真实商品。\n规格：",
+        "vectorSimilarity": 0.5077925622463226
+      }
+    ],
+    "strategy": "hybrid",
+    "degraded": false,
+    "reason": "",
+    "elapsedMs": 2621,
+    "outcome": "MATCHES",
+    "scoreType": "RRF"
+  },
+  "recommend": {
+    "data": "1. 《Java 编程入门》 ￥59.00，商品编号 1\n   商品介绍依据：书名：Java 编程入门\n"
+  }
+}

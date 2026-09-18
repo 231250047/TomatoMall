@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 /**
  * @Author: DingXiaoyu
  * @Date: 0:28 2023/11/26
- * 你可以通过这个类的方法来获得当前用户的信息�?
+ * 你可以通过这个类的方法来获得当前用户的信息�?
  */
 @Component
 public class SecurityUtil {

@@ -9,6 +9,7 @@ import com.example.tomatomall.repository.SpecificationRepository;
 import com.example.tomatomall.repository.StockpileRepository;
 import com.example.tomatomall.service.ProductService;
 import com.example.tomatomall.po.Product;
+import com.example.tomatomall.po.OutboxEvent;
 import com.example.tomatomall.po.Specification;
 import com.example.tomatomall.vo.ProductVO;
 import com.example.tomatomall.vo.SpecificationVO;
@@ -32,7 +33,14 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     StockpileRepository stockpileRepository;
     @Autowired
+    com.example.tomatomall.repository.OutboxEventRepository stockOutbox;
+    @Autowired
     AccountRepository accountRepository;
+
+    private void productChanged(Integer productId) {
+        // Durable even while vector indexing or MQ is disabled; same MySQL transaction as the change.
+        stockOutbox.save(OutboxEvent.create(OutboxEvent.Kind.PRODUCT_CHANGED,productId,new Date()));
+    }
 
     /**
      * 填充商品VO的卖家信息(头像和姓名)
@@ -101,12 +109,13 @@ public class ProductServiceImpl implements ProductService {
             oldProduct.setDetail(product.getDetail());
         if (product.getTag() != null)
             oldProduct.setTag(product.getTag());
-        // 新增:更新成�?
+        // 新增:更新成�?
         if (product.getCondition() != null)
             oldProduct.setCondition(product.getCondition());
 
         try {
             productRepository.save(oldProduct);
+            productChanged(oldProduct.getId());
             return true;
         } catch (DataAccessException ex) {
             throw TomatoMallException.concurrentUpdate();
@@ -124,6 +133,7 @@ public class ProductServiceImpl implements ProductService {
                 Stockpile stockpile = new Stockpile();
                 stockpile.setProduct(saved);
                 stockpileRepository.save(stockpile);
+                productChanged(saved.getId());
                 return true;
             } catch (DataAccessException ex) {
                 throw TomatoMallException.concurrentUpdate();
@@ -138,7 +148,9 @@ public class ProductServiceImpl implements ProductService {
         Product product = productRepository.findById(Integer.parseInt(id))
                 .orElseThrow(TomatoMallException::productNotExist);
         try {
-            productRepository.delete(product);
+            product.setStatus("unavailable");
+            productRepository.save(product);
+            productChanged(product.getId());
             return true;
         } catch (DataAccessException ex) {
             throw TomatoMallException.concurrentUpdate();
@@ -151,22 +163,11 @@ public class ProductServiceImpl implements ProductService {
         Product product = productRepository.findById(Integer.parseInt(productId))
                 .orElseThrow(TomatoMallException::productNotExist);
 
-        Stockpile oldStockpile = stockpileRepository.findByProductId(product.getId());
-        try {
-            if (oldStockpile == null) {
-                Stockpile stockpile = new Stockpile();
-                stockpile.setProduct(product);
-                stockpile.setAmount(amount);
-                stockpile.setFrozen(0); // 默认�?
-                stockpileRepository.save(stockpile);
-                return true;
-            }
-            oldStockpile.setAmount(amount);
-            stockpileRepository.save(oldStockpile);
-            return true;
-        } catch (DataAccessException ex) {
-            throw TomatoMallException.concurrentUpdate();
-        }
+        if (amount == null || amount < 0) throw new IllegalArgumentException("库存不能为负");
+        if (stockpileRepository.changeAmount(product.getId(), amount) != 1)
+            throw new IllegalArgumentException("库存不存在，或调整后总库存小于已预占量");
+        stockOutbox.save(com.example.tomatomall.po.OutboxEvent.create(com.example.tomatomall.po.OutboxEvent.Kind.STOCK_INVALIDATE, product.getId(), new java.util.Date()));
+        return true;
     }
 
     @Override

@@ -1,0 +1,1902 @@
+[
+  {
+    "fixture_key": "rag-v1-001",
+    "title": "Java第一步（合成测试）",
+    "tag": "science",
+    "price": "39.90",
+    "rate": 7.1,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：Java；难度：入门。内容：变量、循环与面向对象基础。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：变量、循环与面向对象基础。前置知识：无。",
+    "specifications": {
+      "主题": "Java",
+      "适用难度": "入门",
+      "学习目标": "变量、循环与面向对象基础",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-002",
+    "title": "Java商城项目实践（合成测试）",
+    "tag": "science",
+    "price": "79.90",
+    "rate": 7.2,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：Java；难度：进阶。内容：REST接口、分层架构与商城项目实现。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：REST接口、分层架构与商城项目实现。前置知识：Java基础。",
+    "specifications": {
+      "主题": "Java",
+      "适用难度": "进阶",
+      "学习目标": "REST接口、分层架构与商城项目实现",
+      "前置知识": "Java基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-003",
+    "title": "Java虚拟机源码研读（合成测试）",
+    "tag": "science",
+    "price": "99.00",
+    "rate": 7.3,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：Java；难度：高级。内容：垃圾回收、字节码与虚拟机源码。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合高级学习者。学习目标：垃圾回收、字节码与虚拟机源码。前置知识：Java并发与JVM基础。",
+    "specifications": {
+      "主题": "Java",
+      "适用难度": "高级",
+      "学习目标": "垃圾回收、字节码与虚拟机源码",
+      "前置知识": "Java并发与JVM基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-004",
+    "title": "Java并发任务实战（合成测试）",
+    "tag": "science",
+    "price": "69.00",
+    "rate": 7.4,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：Java；难度：进阶。内容：线程池、线程安全与任务取消。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：线程池、线程安全与任务取消。前置知识：Java基础。",
+    "specifications": {
+      "主题": "Java",
+      "适用难度": "进阶",
+      "学习目标": "线程池、线程安全与任务取消",
+      "前置知识": "Java基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-005",
+    "title": "Java集合源码分析（合成测试）",
+    "tag": "science",
+    "price": "65.00",
+    "rate": 7.5,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：Java；难度：高级。内容：HashMap扩容与集合性能。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合高级学习者。学习目标：HashMap扩容与集合性能。前置知识：Java基础。",
+    "specifications": {
+      "主题": "Java",
+      "适用难度": "高级",
+      "学习目标": "HashMap扩容与集合性能",
+      "前置知识": "Java基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-006",
+    "title": "Python数据分析入门（合成测试）",
+    "tag": "science",
+    "price": "49.00",
+    "rate": 7.6,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：Python；难度：入门。内容：表格清洗、统计与数据可视化。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：表格清洗、统计与数据可视化。前置知识：无。",
+    "specifications": {
+      "主题": "Python",
+      "适用难度": "入门",
+      "学习目标": "表格清洗、统计与数据可视化",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-007",
+    "title": "Python接口服务实践（合成测试）",
+    "tag": "science",
+    "price": "75.00",
+    "rate": 7.7,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：Python；难度：进阶。内容：HTTP接口、参数校验与应用部署。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：HTTP接口、参数校验与应用部署。前置知识：Python基础。",
+    "specifications": {
+      "主题": "Python",
+      "适用难度": "进阶",
+      "学习目标": "HTTP接口、参数校验与应用部署",
+      "前置知识": "Python基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-008",
+    "title": "MySQL事务与隔离（合成测试）",
+    "tag": "science",
+    "price": "78.00",
+    "rate": 7.8,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：数据库；难度：进阶。内容：事务隔离、MVCC与并发读写。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：事务隔离、MVCC与并发读写。前置知识：SQL基础。",
+    "specifications": {
+      "主题": "数据库",
+      "适用难度": "进阶",
+      "学习目标": "事务隔离、MVCC与并发读写",
+      "前置知识": "SQL基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-009",
+    "title": "MySQL索引调优案例（合成测试）",
+    "tag": "science",
+    "price": "80.00",
+    "rate": 7.9,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：数据库；难度：进阶。内容：执行计划、联合索引与慢查询。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：执行计划、联合索引与慢查询。前置知识：SQL基础。",
+    "specifications": {
+      "主题": "数据库",
+      "适用难度": "进阶",
+      "学习目标": "执行计划、联合索引与慢查询",
+      "前置知识": "SQL基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-010",
+    "title": "SQL查询第一课（合成测试）",
+    "tag": "science",
+    "price": "35.00",
+    "rate": 8.0,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：数据库；难度：入门。内容：查询、连接与聚合。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：查询、连接与聚合。前置知识：无。",
+    "specifications": {
+      "主题": "数据库",
+      "适用难度": "入门",
+      "学习目标": "查询、连接与聚合",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-011",
+    "title": "PostgreSQL向量检索实践（合成测试）",
+    "tag": "science",
+    "price": "89.00",
+    "rate": 8.1,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：数据库；难度：进阶。内容：pgvector、语义搜索与向量索引。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：pgvector、语义搜索与向量索引。前置知识：SQL与Python基础。",
+    "specifications": {
+      "主题": "数据库",
+      "适用难度": "进阶",
+      "学习目标": "pgvector、语义搜索与向量索引",
+      "前置知识": "SQL与Python基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-012",
+    "title": "数据库原理推导（合成测试）",
+    "tag": "science",
+    "price": "92.00",
+    "rate": 8.2,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：数据库；难度：高级。内容：关系代数、范式与查询优化理论。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合高级学习者。学习目标：关系代数、范式与查询优化理论。前置知识：离散数学。",
+    "specifications": {
+      "主题": "数据库",
+      "适用难度": "高级",
+      "学习目标": "关系代数、范式与查询优化理论",
+      "前置知识": "离散数学"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-013",
+    "title": "Redis缓存一致性实践（合成测试）",
+    "tag": "science",
+    "price": "59.00",
+    "rate": 8.3,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：Redis；难度：进阶。内容：旁路缓存、失效重试与数据库一致性。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：旁路缓存、失效重试与数据库一致性。前置知识：数据库基础。",
+    "specifications": {
+      "主题": "Redis",
+      "适用难度": "进阶",
+      "学习目标": "旁路缓存、失效重试与数据库一致性",
+      "前置知识": "数据库基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-014",
+    "title": "Redis数据结构入门（合成测试）",
+    "tag": "science",
+    "price": "42.00",
+    "rate": 8.4,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：Redis；难度：入门。内容：字符串、哈希、列表与基础命令。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：字符串、哈希、列表与基础命令。前置知识：无。",
+    "specifications": {
+      "主题": "Redis",
+      "适用难度": "入门",
+      "学习目标": "字符串、哈希、列表与基础命令",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-015",
+    "title": "Redis秒杀预占设计（合成测试）",
+    "tag": "science",
+    "price": "88.00",
+    "rate": 8.5,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：Redis；难度：高级。内容：Lua原子预占、库存释放与故障补偿。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合高级学习者。学习目标：Lua原子预占、库存释放与故障补偿。前置知识：Redis与事务基础。",
+    "specifications": {
+      "主题": "Redis",
+      "适用难度": "高级",
+      "学习目标": "Lua原子预占、库存释放与故障补偿",
+      "前置知识": "Redis与事务基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-016",
+    "title": "Redis源码内存管理（合成测试）",
+    "tag": "science",
+    "price": "108.00",
+    "rate": 8.6,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：Redis；难度：高级。内容：内存分配、编码与源码阅读。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合高级学习者。学习目标：内存分配、编码与源码阅读。前置知识：C语言。",
+    "specifications": {
+      "主题": "Redis",
+      "适用难度": "高级",
+      "学习目标": "内存分配、编码与源码阅读",
+      "前置知识": "C语言"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-017",
+    "title": "可靠消息与幂等消费（合成测试）",
+    "tag": "science",
+    "price": "69.00",
+    "rate": 8.7,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：消息队列；难度：进阶。内容：消息重复投递、业务幂等与失败重试。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：消息重复投递、业务幂等与失败重试。前置知识：数据库事务。",
+    "specifications": {
+      "主题": "消息队列",
+      "适用难度": "进阶",
+      "学习目标": "消息重复投递、业务幂等与失败重试",
+      "前置知识": "数据库事务"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-018",
+    "title": "RocketMQ订单超时实践（合成测试）",
+    "tag": "science",
+    "price": "79.00",
+    "rate": 8.8,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：消息队列；难度：进阶。内容：延时消息、订单关闭与支付竞争。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：延时消息、订单关闭与支付竞争。前置知识：Java与事务基础。",
+    "specifications": {
+      "主题": "消息队列",
+      "适用难度": "进阶",
+      "学习目标": "延时消息、订单关闭与支付竞争",
+      "前置知识": "Java与事务基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-019",
+    "title": "Kafka日志流处理（合成测试）",
+    "tag": "science",
+    "price": "95.00",
+    "rate": 8.9,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：消息队列；难度：高级。内容：分区消费、位移与流式处理。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合高级学习者。学习目标：分区消费、位移与流式处理。前置知识：消息队列基础。",
+    "specifications": {
+      "主题": "消息队列",
+      "适用难度": "高级",
+      "学习目标": "分区消费、位移与流式处理",
+      "前置知识": "消息队列基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-020",
+    "title": "消息队列概念入门（合成测试）",
+    "tag": "science",
+    "price": "39.00",
+    "rate": 9.0,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：消息队列；难度：入门。内容：生产者、消费者与发布订阅。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：生产者、消费者与发布订阅。前置知识：无。",
+    "specifications": {
+      "主题": "消息队列",
+      "适用难度": "入门",
+      "学习目标": "生产者、消费者与发布订阅",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-021",
+    "title": "Vue商城界面实践（合成测试）",
+    "tag": "science",
+    "price": "68.00",
+    "rate": 7.0,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：前端；难度：进阶。内容：商品卡片、路由与购物车交互。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：商品卡片、路由与购物车交互。前置知识：JavaScript基础。",
+    "specifications": {
+      "主题": "前端",
+      "适用难度": "进阶",
+      "学习目标": "商品卡片、路由与购物车交互",
+      "前置知识": "JavaScript基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-022",
+    "title": "JavaScript基础练习（合成测试）",
+    "tag": "science",
+    "price": "45.00",
+    "rate": 7.1,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：前端；难度：入门。内容：函数、数组与异步语法。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：函数、数组与异步语法。前置知识：无。",
+    "specifications": {
+      "主题": "前端",
+      "适用难度": "入门",
+      "学习目标": "函数、数组与异步语法",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-023",
+    "title": "TypeScript类型设计（合成测试）",
+    "tag": "science",
+    "price": "72.00",
+    "rate": 7.2,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：前端；难度：进阶。内容：泛型、联合类型与接口约束。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：泛型、联合类型与接口约束。前置知识：JavaScript基础。",
+    "specifications": {
+      "主题": "前端",
+      "适用难度": "进阶",
+      "学习目标": "泛型、联合类型与接口约束",
+      "前置知识": "JavaScript基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-024",
+    "title": "浏览器渲染与性能（合成测试）",
+    "tag": "science",
+    "price": "86.00",
+    "rate": 7.3,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：前端；难度：高级。内容：布局、绘制与性能分析。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合高级学习者。学习目标：布局、绘制与性能分析。前置知识：前端开发基础。",
+    "specifications": {
+      "主题": "前端",
+      "适用难度": "高级",
+      "学习目标": "布局、绘制与性能分析",
+      "前置知识": "前端开发基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-025",
+    "title": "RAG商品推荐实践（合成测试）",
+    "tag": "science",
+    "price": "79.00",
+    "rate": 7.4,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：人工智能；难度：进阶。内容：商品检索、证据引用与检索评测。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：商品检索、证据引用与检索评测。前置知识：Python与数据库基础。",
+    "specifications": {
+      "主题": "人工智能",
+      "适用难度": "进阶",
+      "学习目标": "商品检索、证据引用与检索评测",
+      "前置知识": "Python与数据库基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-026",
+    "title": "Embedding语义搜索入门（合成测试）",
+    "tag": "science",
+    "price": "55.00",
+    "rate": 7.5,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：人工智能；难度：入门。内容：文本向量、相似度与语义检索。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：文本向量、相似度与语义检索。前置知识：编程基础。",
+    "specifications": {
+      "主题": "人工智能",
+      "适用难度": "入门",
+      "学习目标": "文本向量、相似度与语义检索",
+      "前置知识": "编程基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-027",
+    "title": "Agent工具调用与权限（合成测试）",
+    "tag": "science",
+    "price": "85.00",
+    "rate": 7.6,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：人工智能；难度：进阶。内容：工具参数校验、用户确认与权限隔离。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：工具参数校验、用户确认与权限隔离。前置知识：模型API基础。",
+    "specifications": {
+      "主题": "人工智能",
+      "适用难度": "进阶",
+      "学习目标": "工具参数校验、用户确认与权限隔离",
+      "前置知识": "模型API基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-028",
+    "title": "机器学习数学推导（合成测试）",
+    "tag": "science",
+    "price": "98.00",
+    "rate": 7.7,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：人工智能；难度：高级。内容：线性代数、概率与优化推导。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合高级学习者。学习目标：线性代数、概率与优化推导。前置知识：微积分。",
+    "specifications": {
+      "主题": "人工智能",
+      "适用难度": "高级",
+      "学习目标": "线性代数、概率与优化推导",
+      "前置知识": "微积分"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-029",
+    "title": "提示词入门练习（合成测试）",
+    "tag": "science",
+    "price": "29.90",
+    "rate": 7.8,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：人工智能；难度：入门。内容：任务描述、示例与输出格式。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：任务描述、示例与输出格式。前置知识：无。",
+    "specifications": {
+      "主题": "人工智能",
+      "适用难度": "入门",
+      "学习目标": "任务描述、示例与输出格式",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-030",
+    "title": "大模型评测与观测（合成测试）",
+    "tag": "science",
+    "price": "89.00",
+    "rate": 7.9,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：人工智能；难度：高级。内容：离线评测、延迟与成本追踪。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合高级学习者。学习目标：离线评测、延迟与成本追踪。前置知识：模型API基础。",
+    "specifications": {
+      "主题": "人工智能",
+      "适用难度": "高级",
+      "学习目标": "离线评测、延迟与成本追踪",
+      "前置知识": "模型API基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-031",
+    "title": "HTTP网络通信入门（合成测试）",
+    "tag": "science",
+    "price": "39.00",
+    "rate": 8.0,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：网络；难度：入门。内容：请求响应、状态码与浏览器通信。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：请求响应、状态码与浏览器通信。前置知识：无。",
+    "specifications": {
+      "主题": "网络",
+      "适用难度": "入门",
+      "学习目标": "请求响应、状态码与浏览器通信",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-032",
+    "title": "HTTPS证书与握手（合成测试）",
+    "tag": "science",
+    "price": "69.00",
+    "rate": 8.1,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：网络；难度：进阶。内容：TLS握手、证书链与身份验证。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：TLS握手、证书链与身份验证。前置知识：HTTP基础。",
+    "specifications": {
+      "主题": "网络",
+      "适用难度": "进阶",
+      "学习目标": "TLS握手、证书链与身份验证",
+      "前置知识": "HTTP基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-033",
+    "title": "操作系统进程与线程（合成测试）",
+    "tag": "science",
+    "price": "76.00",
+    "rate": 8.2,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：操作系统；难度：进阶。内容：调度、进程通信与同步。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：调度、进程通信与同步。前置知识：编程基础。",
+    "specifications": {
+      "主题": "操作系统",
+      "适用难度": "进阶",
+      "学习目标": "调度、进程通信与同步",
+      "前置知识": "编程基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-034",
+    "title": "Linux命令行起步（合成测试）",
+    "tag": "science",
+    "price": "38.00",
+    "rate": 8.3,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：操作系统；难度：入门。内容：文件、管道与进程命令。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：文件、管道与进程命令。前置知识：无。",
+    "specifications": {
+      "主题": "操作系统",
+      "适用难度": "入门",
+      "学习目标": "文件、管道与进程命令",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-035",
+    "title": "Docker部署商城（合成测试）",
+    "tag": "science",
+    "price": "75.00",
+    "rate": 8.4,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：运维；难度：进阶。内容：容器、网络与服务编排。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：容器、网络与服务编排。前置知识：Linux基础。",
+    "specifications": {
+      "主题": "运维",
+      "适用难度": "进阶",
+      "学习目标": "容器、网络与服务编排",
+      "前置知识": "Linux基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-036",
+    "title": "应用日志与可观测性（合成测试）",
+    "tag": "science",
+    "price": "82.00",
+    "rate": 8.5,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：运维；难度：进阶。内容：链路追踪、指标与故障定位。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：链路追踪、指标与故障定位。前置知识：服务开发基础。",
+    "specifications": {
+      "主题": "运维",
+      "适用难度": "进阶",
+      "学习目标": "链路追踪、指标与故障定位",
+      "前置知识": "服务开发基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-037",
+    "title": "数据结构图解入门（合成测试）",
+    "tag": "science",
+    "price": "49.00",
+    "rate": 8.6,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：算法；难度：入门。内容：链表、树与哈希表。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：链表、树与哈希表。前置知识：编程基础。",
+    "specifications": {
+      "主题": "算法",
+      "适用难度": "入门",
+      "学习目标": "链表、树与哈希表",
+      "前置知识": "编程基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-038",
+    "title": "算法复杂度与证明（合成测试）",
+    "tag": "science",
+    "price": "85.00",
+    "rate": 8.7,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：算法；难度：高级。内容：复杂度分析、归纳与正确性证明。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合高级学习者。学习目标：复杂度分析、归纳与正确性证明。前置知识：离散数学。",
+    "specifications": {
+      "主题": "算法",
+      "适用难度": "高级",
+      "学习目标": "复杂度分析、归纳与正确性证明",
+      "前置知识": "离散数学"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-039",
+    "title": "支付回调可靠处理（合成测试）",
+    "tag": "science",
+    "price": "79.00",
+    "rate": 8.8,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：支付；难度：进阶。内容：验签、金额校验与重复通知幂等。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：验签、金额校验与重复通知幂等。前置知识：数据库事务。",
+    "specifications": {
+      "主题": "支付",
+      "适用难度": "进阶",
+      "学习目标": "验签、金额校验与重复通知幂等",
+      "前置知识": "数据库事务"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-040",
+    "title": "分布式事务与补偿（合成测试）",
+    "tag": "science",
+    "price": "96.00",
+    "rate": 8.9,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：分布式；难度：高级。内容：Outbox、最终一致性与补偿流程。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合高级学习者。学习目标：Outbox、最终一致性与补偿流程。前置知识：数据库与消息队列。",
+    "specifications": {
+      "主题": "分布式",
+      "适用难度": "高级",
+      "学习目标": "Outbox、最终一致性与补偿流程",
+      "前置知识": "数据库与消息队列"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-041",
+    "title": "Java商城项目实践精装版（合成测试）",
+    "tag": "science",
+    "price": "80.01",
+    "rate": 9.0,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：Java；难度：进阶。内容：REST接口、分层架构与商城项目实现。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：REST接口、分层架构与商城项目实现。前置知识：Java基础。",
+    "specifications": {
+      "主题": "Java",
+      "适用难度": "进阶",
+      "学习目标": "REST接口、分层架构与商城项目实现",
+      "前置知识": "Java基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-042",
+    "title": "Java商城项目实践经济版（合成测试）",
+    "tag": "science",
+    "price": "59.00",
+    "rate": 7.0,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 0,
+    "frozen": 0,
+    "description": "合成测试图书，主题：Java；难度：进阶。内容：REST接口、分层架构与商城项目实现。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：REST接口、分层架构与商城项目实现。前置知识：Java基础。",
+    "specifications": {
+      "主题": "Java",
+      "适用难度": "进阶",
+      "学习目标": "REST接口、分层架构与商城项目实现",
+      "前置知识": "Java基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-043",
+    "title": "Java商城项目实践旧版（合成测试）",
+    "tag": "science",
+    "price": "49.00",
+    "rate": 7.1,
+    "status": "unavailable",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：Java；难度：进阶。内容：REST接口、分层架构与商城项目实现。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：REST接口、分层架构与商城项目实现。前置知识：Java基础。",
+    "specifications": {
+      "主题": "Java",
+      "适用难度": "进阶",
+      "学习目标": "REST接口、分层架构与商城项目实现",
+      "前置知识": "Java基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-044",
+    "title": "Java商城项目实践预约版（合成测试）",
+    "tag": "science",
+    "price": "69.00",
+    "rate": 7.2,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 20,
+    "description": "合成测试图书，主题：Java；难度：进阶。内容：REST接口、分层架构与商城项目实现。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：REST接口、分层架构与商城项目实现。前置知识：Java基础。",
+    "specifications": {
+      "主题": "Java",
+      "适用难度": "进阶",
+      "学习目标": "REST接口、分层架构与商城项目实现",
+      "前置知识": "Java基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-045",
+    "title": "MySQL索引调优边界版（合成测试）",
+    "tag": "science",
+    "price": "79.99",
+    "rate": 7.3,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：数据库；难度：进阶。内容：执行计划、联合索引与慢查询。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：执行计划、联合索引与慢查询。前置知识：SQL基础。",
+    "specifications": {
+      "主题": "数据库",
+      "适用难度": "进阶",
+      "学习目标": "执行计划、联合索引与慢查询",
+      "前置知识": "SQL基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-046",
+    "title": "MySQL索引调优扩展版（合成测试）",
+    "tag": "science",
+    "price": "80.01",
+    "rate": 7.4,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：数据库；难度：进阶。内容：执行计划、联合索引与慢查询。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：执行计划、联合索引与慢查询。前置知识：SQL基础。",
+    "specifications": {
+      "主题": "数据库",
+      "适用难度": "进阶",
+      "学习目标": "执行计划、联合索引与慢查询",
+      "前置知识": "SQL基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-047",
+    "title": "防止消息重复处理案例（合成测试）",
+    "tag": "science",
+    "price": "69.00",
+    "rate": 7.5,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：消息队列；难度：进阶。内容：消息重复投递、业务幂等与失败重试。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：消息重复投递、业务幂等与失败重试。前置知识：数据库事务。",
+    "specifications": {
+      "主题": "消息队列",
+      "适用难度": "进阶",
+      "学习目标": "消息重复投递、业务幂等与失败重试",
+      "前置知识": "数据库事务"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-048",
+    "title": "RAG检索故障演练（合成测试）",
+    "tag": "science",
+    "price": "79.00",
+    "rate": 7.6,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：人工智能；难度：高级。内容：模型超时、索引损坏与关键词降级。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合高级学习者。学习目标：模型超时、索引损坏与关键词降级。前置知识：RAG开发基础。",
+    "specifications": {
+      "主题": "人工智能",
+      "适用难度": "高级",
+      "学习目标": "模型超时、索引损坏与关键词降级",
+      "前置知识": "RAG开发基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-049",
+    "title": "成人英语发音起步（合成测试）",
+    "tag": "education",
+    "price": "35.00",
+    "rate": 7.7,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：英语；难度：入门。内容：音标与日常发音。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：音标与日常发音。前置知识：无。",
+    "specifications": {
+      "主题": "英语",
+      "适用难度": "入门",
+      "学习目标": "音标与日常发音",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-050",
+    "title": "英语学术阅读训练（合成测试）",
+    "tag": "education",
+    "price": "59.00",
+    "rate": 7.8,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：英语；难度：进阶。内容：论文段落与论证阅读。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：论文段落与论证阅读。前置知识：英语基础。",
+    "specifications": {
+      "主题": "英语",
+      "适用难度": "进阶",
+      "学习目标": "论文段落与论证阅读",
+      "前置知识": "英语基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-051",
+    "title": "高等数学预备课（合成测试）",
+    "tag": "education",
+    "price": "42.00",
+    "rate": 7.9,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：数学；难度：入门。内容：函数、极限与基础练习。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：函数、极限与基础练习。前置知识：高中数学。",
+    "specifications": {
+      "主题": "数学",
+      "适用难度": "入门",
+      "学习目标": "函数、极限与基础练习",
+      "前置知识": "高中数学"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-052",
+    "title": "概率统计应用练习（合成测试）",
+    "tag": "education",
+    "price": "65.00",
+    "rate": 8.0,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：数学；难度：进阶。内容：概率分布、估计与假设检验。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：概率分布、估计与假设检验。前置知识：微积分。",
+    "specifications": {
+      "主题": "数学",
+      "适用难度": "进阶",
+      "学习目标": "概率分布、估计与假设检验",
+      "前置知识": "微积分"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-053",
+    "title": "编程学习方法手册（合成测试）",
+    "tag": "education",
+    "price": "28.00",
+    "rate": 8.1,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：学习方法；难度：入门。内容：制定练习计划与记录反馈。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：制定练习计划与记录反馈。前置知识：无。",
+    "specifications": {
+      "主题": "学习方法",
+      "适用难度": "入门",
+      "学习目标": "制定练习计划与记录反馈",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-054",
+    "title": "计算机面试表达训练（合成测试）",
+    "tag": "education",
+    "price": "49.00",
+    "rate": 8.2,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：求职；难度：进阶。内容：项目介绍、复盘与沟通表达。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：项目介绍、复盘与沟通表达。前置知识：项目经历。",
+    "specifications": {
+      "主题": "求职",
+      "适用难度": "进阶",
+      "学习目标": "项目介绍、复盘与沟通表达",
+      "前置知识": "项目经历"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-055",
+    "title": "论文写作结构练习（合成测试）",
+    "tag": "education",
+    "price": "56.00",
+    "rate": 8.3,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：写作；难度：进阶。内容：摘要、论证与引用规范。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：摘要、论证与引用规范。前置知识：基础写作。",
+    "specifications": {
+      "主题": "写作",
+      "适用难度": "进阶",
+      "学习目标": "摘要、论证与引用规范",
+      "前置知识": "基础写作"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-056",
+    "title": "中文阅读启蒙（合成测试）",
+    "tag": "education",
+    "price": "25.00",
+    "rate": 8.4,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：阅读；难度：入门。内容：短句理解与阅读习惯。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：短句理解与阅读习惯。前置知识：无。",
+    "specifications": {
+      "主题": "阅读",
+      "适用难度": "入门",
+      "学习目标": "短句理解与阅读习惯",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-057",
+    "title": "教师课堂提问设计（合成测试）",
+    "tag": "education",
+    "price": "58.00",
+    "rate": 8.5,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：教学；难度：进阶。内容：提问梯度与学习反馈。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：提问梯度与学习反馈。前置知识：教学基础。",
+    "specifications": {
+      "主题": "教学",
+      "适用难度": "进阶",
+      "学习目标": "提问梯度与学习反馈",
+      "前置知识": "教学基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-058",
+    "title": "日语假名入门（合成测试）",
+    "tag": "education",
+    "price": "33.00",
+    "rate": 8.6,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：日语；难度：入门。内容：假名、发音与简单会话。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：假名、发音与简单会话。前置知识：无。",
+    "specifications": {
+      "主题": "日语",
+      "适用难度": "入门",
+      "学习目标": "假名、发音与简单会话",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-059",
+    "title": "Java面试知识复习（合成测试）",
+    "tag": "education",
+    "price": "60.00",
+    "rate": 8.7,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：Java；难度：进阶。内容：集合、并发与数据库问答复习。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：集合、并发与数据库问答复习。前置知识：Java基础。",
+    "specifications": {
+      "主题": "Java",
+      "适用难度": "进阶",
+      "学习目标": "集合、并发与数据库问答复习",
+      "前置知识": "Java基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-060",
+    "title": "SQL课堂习题集（合成测试）",
+    "tag": "education",
+    "price": "30.00",
+    "rate": 8.8,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：数据库；难度：入门。内容：查询、连接与聚合练习。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：查询、连接与聚合练习。前置知识：SQL基础。",
+    "specifications": {
+      "主题": "数据库",
+      "适用难度": "入门",
+      "学习目标": "查询、连接与聚合练习",
+      "前置知识": "SQL基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-061",
+    "title": "山城短篇故事（合成测试）",
+    "tag": "literature",
+    "price": "36.00",
+    "rate": 8.9,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：小说；难度：入门。内容：城市生活与人物关系的虚构故事。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：城市生活与人物关系的虚构故事。前置知识：无。",
+    "specifications": {
+      "主题": "小说",
+      "适用难度": "入门",
+      "学习目标": "城市生活与人物关系的虚构故事",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-062",
+    "title": "海边长篇小说（合成测试）",
+    "tag": "literature",
+    "price": "58.00",
+    "rate": 9.0,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：小说；难度：入门。内容：海港家庭与成长的虚构故事。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：海港家庭与成长的虚构故事。前置知识：无。",
+    "specifications": {
+      "主题": "小说",
+      "适用难度": "入门",
+      "学习目标": "海港家庭与成长的虚构故事",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-063",
+    "title": "消息未读（合成测试）",
+    "tag": "literature",
+    "price": "29.00",
+    "rate": 7.0,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：小说；难度：入门。内容：通信误会与人物关系的虚构故事，不讲消息队列技术。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：通信误会与人物关系的虚构故事，不讲消息队列技术。前置知识：无。",
+    "specifications": {
+      "主题": "小说",
+      "适用难度": "入门",
+      "学习目标": "通信误会与人物关系的虚构故事，不讲消息队列技术",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-064",
+    "title": "缓存的记忆（合成测试）",
+    "tag": "literature",
+    "price": "32.00",
+    "rate": 7.1,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：小说；难度：入门。内容：回忆与成长的虚构故事，不讲Redis技术。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：回忆与成长的虚构故事，不讲Redis技术。前置知识：无。",
+    "specifications": {
+      "主题": "小说",
+      "适用难度": "入门",
+      "学习目标": "回忆与成长的虚构故事，不讲Redis技术",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-065",
+    "title": "古典诗歌赏读（合成测试）",
+    "tag": "literature",
+    "price": "39.00",
+    "rate": 7.2,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：诗歌；难度：入门。内容：意象、节奏与诗歌阅读。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：意象、节奏与诗歌阅读。前置知识：无。",
+    "specifications": {
+      "主题": "诗歌",
+      "适用难度": "入门",
+      "学习目标": "意象、节奏与诗歌阅读",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-066",
+    "title": "现代诗创作练习（合成测试）",
+    "tag": "literature",
+    "price": "45.00",
+    "rate": 7.3,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：诗歌；难度：进阶。内容：诗歌语言与结构练习。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：诗歌语言与结构练习。前置知识：阅读基础。",
+    "specifications": {
+      "主题": "诗歌",
+      "适用难度": "进阶",
+      "学习目标": "诗歌语言与结构练习",
+      "前置知识": "阅读基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-067",
+    "title": "散文观察笔记（合成测试）",
+    "tag": "literature",
+    "price": "31.00",
+    "rate": 7.4,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：散文；难度：入门。内容：日常观察与散文表达。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：日常观察与散文表达。前置知识：无。",
+    "specifications": {
+      "主题": "散文",
+      "适用难度": "入门",
+      "学习目标": "日常观察与散文表达",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-068",
+    "title": "科幻城市漫游（合成测试）",
+    "tag": "literature",
+    "price": "49.00",
+    "rate": 7.5,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：科幻；难度：入门。内容：未来城市与伦理的虚构故事。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：未来城市与伦理的虚构故事。前置知识：无。",
+    "specifications": {
+      "主题": "科幻",
+      "适用难度": "入门",
+      "学习目标": "未来城市与伦理的虚构故事",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-069",
+    "title": "侦探与数据库（合成测试）",
+    "tag": "literature",
+    "price": "38.00",
+    "rate": 7.6,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：小说；难度：入门。内容：档案线索与推理的虚构故事，不讲SQL技术。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：档案线索与推理的虚构故事，不讲SQL技术。前置知识：无。",
+    "specifications": {
+      "主题": "小说",
+      "适用难度": "入门",
+      "学习目标": "档案线索与推理的虚构故事，不讲SQL技术",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-070",
+    "title": "文学批评方法（合成测试）",
+    "tag": "literature",
+    "price": "72.00",
+    "rate": 7.7,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：文学理论；难度：高级。内容：叙事分析与文本批评。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合高级学习者。学习目标：叙事分析与文本批评。前置知识：文学阅读基础。",
+    "specifications": {
+      "主题": "文学理论",
+      "适用难度": "高级",
+      "学习目标": "叙事分析与文本批评",
+      "前置知识": "文学阅读基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-071",
+    "title": "水彩颜色起步（合成测试）",
+    "tag": "art",
+    "price": "45.00",
+    "rate": 7.8,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：绘画；难度：入门。内容：配色、湿画法与基础练习。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：配色、湿画法与基础练习。前置知识：无。",
+    "specifications": {
+      "主题": "绘画",
+      "适用难度": "入门",
+      "学习目标": "配色、湿画法与基础练习",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-072",
+    "title": "素描明暗训练（合成测试）",
+    "tag": "art",
+    "price": "42.00",
+    "rate": 7.9,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：绘画；难度：入门。内容：线条、透视与明暗练习。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：线条、透视与明暗练习。前置知识：无。",
+    "specifications": {
+      "主题": "绘画",
+      "适用难度": "入门",
+      "学习目标": "线条、透视与明暗练习",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-073",
+    "title": "手机摄影构图（合成测试）",
+    "tag": "art",
+    "price": "39.00",
+    "rate": 8.0,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：摄影；难度：入门。内容：光线与构图练习。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：光线与构图练习。前置知识：无。",
+    "specifications": {
+      "主题": "摄影",
+      "适用难度": "入门",
+      "学习目标": "光线与构图练习",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-074",
+    "title": "产品界面配色（合成测试）",
+    "tag": "art",
+    "price": "69.00",
+    "rate": 8.1,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：设计；难度：进阶。内容：界面层级与色彩对比。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：界面层级与色彩对比。前置知识：设计基础。",
+    "specifications": {
+      "主题": "设计",
+      "适用难度": "进阶",
+      "学习目标": "界面层级与色彩对比",
+      "前置知识": "设计基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-075",
+    "title": "古典音乐聆听（合成测试）",
+    "tag": "art",
+    "price": "48.00",
+    "rate": 8.2,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：音乐；难度：入门。内容：乐器、节奏与曲式赏析。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：乐器、节奏与曲式赏析。前置知识：无。",
+    "specifications": {
+      "主题": "音乐",
+      "适用难度": "入门",
+      "学习目标": "乐器、节奏与曲式赏析",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-076",
+    "title": "博物馆艺术观察（合成测试）",
+    "tag": "art",
+    "price": "78.00",
+    "rate": 8.3,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：艺术史；难度：进阶。内容：展品观察与时代背景。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：展品观察与时代背景。前置知识：艺术基础。",
+    "specifications": {
+      "主题": "艺术史",
+      "适用难度": "进阶",
+      "学习目标": "展品观察与时代背景",
+      "前置知识": "艺术基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-077",
+    "title": "小团队任务协作（合成测试）",
+    "tag": "management",
+    "price": "49.00",
+    "rate": 8.4,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：团队；难度：入门。内容：任务拆分、进度沟通与复盘。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：任务拆分、进度沟通与复盘。前置知识：无。",
+    "specifications": {
+      "主题": "团队",
+      "适用难度": "入门",
+      "学习目标": "任务拆分、进度沟通与复盘",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-078",
+    "title": "电商运营指标（合成测试）",
+    "tag": "management",
+    "price": "69.00",
+    "rate": 8.5,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：电商；难度：进阶。内容：转化、复购与经营分析。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：转化、复购与经营分析。前置知识：运营基础。",
+    "specifications": {
+      "主题": "电商",
+      "适用难度": "进阶",
+      "学习目标": "转化、复购与经营分析",
+      "前置知识": "运营基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-079",
+    "title": "项目风险管理（合成测试）",
+    "tag": "management",
+    "price": "75.00",
+    "rate": 8.6,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：项目管理；难度：进阶。内容：风险识别与应对计划。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：风险识别与应对计划。前置知识：项目经历。",
+    "specifications": {
+      "主题": "项目管理",
+      "适用难度": "进阶",
+      "学习目标": "风险识别与应对计划",
+      "前置知识": "项目经历"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-080",
+    "title": "管理者消息沟通（合成测试）",
+    "tag": "management",
+    "price": "35.00",
+    "rate": 8.7,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：沟通；难度：入门。内容：会议与团队信息传递，不讲消息队列技术。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：会议与团队信息传递，不讲消息队列技术。前置知识：无。",
+    "specifications": {
+      "主题": "沟通",
+      "适用难度": "入门",
+      "学习目标": "会议与团队信息传递，不讲消息队列技术",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-081",
+    "title": "用户访谈实践（合成测试）",
+    "tag": "management",
+    "price": "59.00",
+    "rate": 8.8,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：产品；难度：进阶。内容：访谈设计与需求归纳。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：访谈设计与需求归纳。前置知识：产品基础。",
+    "specifications": {
+      "主题": "产品",
+      "适用难度": "进阶",
+      "学习目标": "访谈设计与需求归纳",
+      "前置知识": "产品基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-082",
+    "title": "供应链库存管理（合成测试）",
+    "tag": "management",
+    "price": "79.00",
+    "rate": 8.9,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：供应链；难度：进阶。内容：补货、周转与安全库存，不讲数据库锁。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：补货、周转与安全库存，不讲数据库锁。前置知识：管理基础。",
+    "specifications": {
+      "主题": "供应链",
+      "适用难度": "进阶",
+      "学习目标": "补货、周转与安全库存，不讲数据库锁",
+      "前置知识": "管理基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-083",
+    "title": "商业模型入门（合成测试）",
+    "tag": "management",
+    "price": "39.00",
+    "rate": 9.0,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：商业；难度：入门。内容：收入、成本与价值主张。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：收入、成本与价值主张。前置知识：无。",
+    "specifications": {
+      "主题": "商业",
+      "适用难度": "入门",
+      "学习目标": "收入、成本与价值主张",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-084",
+    "title": "财务报表阅读（合成测试）",
+    "tag": "management",
+    "price": "65.00",
+    "rate": 7.0,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：财务；难度：进阶。内容：资产负债与现金流阅读。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：资产负债与现金流阅读。前置知识：基础算术。",
+    "specifications": {
+      "主题": "财务",
+      "适用难度": "进阶",
+      "学习目标": "资产负债与现金流阅读",
+      "前置知识": "基础算术"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-085",
+    "title": "古代城市生活史（合成测试）",
+    "tag": "history",
+    "price": "48.00",
+    "rate": 7.1,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：社会史；难度：入门。内容：衣食住行与城市生活。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：衣食住行与城市生活。前置知识：无。",
+    "specifications": {
+      "主题": "社会史",
+      "适用难度": "入门",
+      "学习目标": "衣食住行与城市生活",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-086",
+    "title": "近代交通变迁（合成测试）",
+    "tag": "history",
+    "price": "69.00",
+    "rate": 7.2,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：社会史；难度：进阶。内容：铁路、航运与社会变化。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：铁路、航运与社会变化。前置知识：历史基础。",
+    "specifications": {
+      "主题": "社会史",
+      "适用难度": "进阶",
+      "学习目标": "铁路、航运与社会变化",
+      "前置知识": "历史基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-087",
+    "title": "世界文明时间线（合成测试）",
+    "tag": "history",
+    "price": "55.00",
+    "rate": 7.3,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：世界史；难度：入门。内容：文明交流与重要时期。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：文明交流与重要时期。前置知识：无。",
+    "specifications": {
+      "主题": "世界史",
+      "适用难度": "入门",
+      "学习目标": "文明交流与重要时期",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-088",
+    "title": "历史档案阅读法（合成测试）",
+    "tag": "history",
+    "price": "79.00",
+    "rate": 7.4,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：史学；难度：高级。内容：史料辨析与来源核对。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合高级学习者。学习目标：史料辨析与来源核对。前置知识：历史研究基础。",
+    "specifications": {
+      "主题": "史学",
+      "适用难度": "高级",
+      "学习目标": "史料辨析与来源核对",
+      "前置知识": "历史研究基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-089",
+    "title": "技术发明的历史（合成测试）",
+    "tag": "history",
+    "price": "59.00",
+    "rate": 7.5,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：科技史；难度：入门。内容：印刷、电力与通信发展。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：印刷、电力与通信发展。前置知识：无。",
+    "specifications": {
+      "主题": "科技史",
+      "适用难度": "入门",
+      "学习目标": "印刷、电力与通信发展",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-090",
+    "title": "海上贸易史（合成测试）",
+    "tag": "history",
+    "price": "72.00",
+    "rate": 7.6,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：经济史；难度：进阶。内容：港口、商路与贸易制度。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：港口、商路与贸易制度。前置知识：历史基础。",
+    "specifications": {
+      "主题": "经济史",
+      "适用难度": "进阶",
+      "学习目标": "港口、商路与贸易制度",
+      "前置知识": "历史基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-091",
+    "title": "逻辑推理入门（合成测试）",
+    "tag": "philosophy",
+    "price": "39.00",
+    "rate": 7.7,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：逻辑；难度：入门。内容：命题、论证与常见谬误。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：命题、论证与常见谬误。前置知识：无。",
+    "specifications": {
+      "主题": "逻辑",
+      "适用难度": "入门",
+      "学习目标": "命题、论证与常见谬误",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-092",
+    "title": "日常伦理讨论（合成测试）",
+    "tag": "philosophy",
+    "price": "45.00",
+    "rate": 7.8,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：伦理；难度：入门。内容：责任、公平与日常选择。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：责任、公平与日常选择。前置知识：无。",
+    "specifications": {
+      "主题": "伦理",
+      "适用难度": "入门",
+      "学习目标": "责任、公平与日常选择",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-093",
+    "title": "认识论问题导读（合成测试）",
+    "tag": "philosophy",
+    "price": "59.00",
+    "rate": 7.9,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：认识论；难度：进阶。内容：知识、证据与怀疑。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：知识、证据与怀疑。前置知识：哲学基础。",
+    "specifications": {
+      "主题": "认识论",
+      "适用难度": "进阶",
+      "学习目标": "知识、证据与怀疑",
+      "前置知识": "哲学基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-094",
+    "title": "人工智能伦理导读（合成测试）",
+    "tag": "philosophy",
+    "price": "65.00",
+    "rate": 8.0,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：伦理；难度：进阶。内容：算法公平、责任与社会影响，不讲模型API开发。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：算法公平、责任与社会影响，不讲模型API开发。前置知识：哲学基础。",
+    "specifications": {
+      "主题": "伦理",
+      "适用难度": "进阶",
+      "学习目标": "算法公平、责任与社会影响，不讲模型API开发",
+      "前置知识": "哲学基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-095",
+    "title": "哲学原典阅读训练（合成测试）",
+    "tag": "philosophy",
+    "price": "79.00",
+    "rate": 8.1,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：哲学；难度：高级。内容：概念分析与原典论证。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合高级学习者。学习目标：概念分析与原典论证。前置知识：哲学阅读基础。",
+    "specifications": {
+      "主题": "哲学",
+      "适用难度": "高级",
+      "学习目标": "概念分析与原典论证",
+      "前置知识": "哲学阅读基础"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-096",
+    "title": "日常拉伸练习（合成测试）",
+    "tag": "health",
+    "price": "29.00",
+    "rate": 8.2,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：运动；难度：入门。内容：温和拉伸与活动习惯，不提供疾病治疗方案。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：温和拉伸与活动习惯，不提供疾病治疗方案。前置知识：无。",
+    "specifications": {
+      "主题": "运动",
+      "适用难度": "入门",
+      "学习目标": "温和拉伸与活动习惯，不提供疾病治疗方案",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-097",
+    "title": "均衡饮食记录（合成测试）",
+    "tag": "health",
+    "price": "35.00",
+    "rate": 8.3,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：营养；难度：入门。内容：膳食记录与营养常识，不提供疾病治疗方案。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：膳食记录与营养常识，不提供疾病治疗方案。前置知识：无。",
+    "specifications": {
+      "主题": "营养",
+      "适用难度": "入门",
+      "学习目标": "膳食记录与营养常识，不提供疾病治疗方案",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-098",
+    "title": "睡眠习惯笔记（合成测试）",
+    "tag": "health",
+    "price": "39.00",
+    "rate": 8.4,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：健康；难度：入门。内容：作息记录与睡眠卫生常识，不提供疾病治疗方案。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：作息记录与睡眠卫生常识，不提供疾病治疗方案。前置知识：无。",
+    "specifications": {
+      "主题": "健康",
+      "适用难度": "入门",
+      "学习目标": "作息记录与睡眠卫生常识，不提供疾病治疗方案",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-099",
+    "title": "步行运动计划（合成测试）",
+    "tag": "health",
+    "price": "25.00",
+    "rate": 8.5,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：运动；难度：入门。内容：步行习惯与活动记录，不提供疾病治疗方案。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：步行习惯与活动记录，不提供疾病治疗方案。前置知识：无。",
+    "specifications": {
+      "主题": "运动",
+      "适用难度": "入门",
+      "学习目标": "步行习惯与活动记录，不提供疾病治疗方案",
+      "前置知识": "无"
+    }
+  },
+  {
+    "fixture_key": "rag-v1-100",
+    "title": "健康信息辨识（合成测试）",
+    "tag": "health",
+    "price": "49.00",
+    "rate": 8.6,
+    "status": "available",
+    "product_condition": "10_NEW",
+    "amount": 20,
+    "frozen": 0,
+    "description": "合成测试图书，主题：健康；难度：进阶。内容：信息来源与证据辨识，不提供疾病治疗方案。",
+    "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合进阶学习者。学习目标：信息来源与证据辨识，不提供疾病治疗方案。前置知识：阅读基础。",
+    "specifications": {
+      "主题": "健康",
+      "适用难度": "进阶",
+      "学习目标": "信息来源与证据辨识，不提供疾病治疗方案",
+      "前置知识": "阅读基础"
+    }
+  }
+]

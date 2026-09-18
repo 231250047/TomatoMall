@@ -10,16 +10,16 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Redis 缓存服务实现�?
+ * Redis 缓存服务实现�?
  * 
- * 【设计理念�?
- * 1. 统一封装 RedisTemplate 操作，提供更友好�?API
+ * 【设计理念�?
+ * 1. 统一封装 RedisTemplate 操作，提供更友好�?API
  * 2. 处理序列化、空值检查等通用逻辑
  * 3. 为上层业务提供可靠的缓存操作能力
  * 
- * 【Redis 在商城项目中的核心价值�?
- * 1. 性能提升:热点数据缓存，减少数据库压�?
- * 2. 高并发支持:原子操作保证数据一致�?
+ * 【Redis 在商城项目中的核心价值�?
+ * 1. 性能提升:热点数据缓存，减少数据库压�?
+ * 2. 高并发支持:原子操作保证数据一致�?
  * 3. 业务扩展:排行榜、延迟队列等高级功能
  */
 @Service
@@ -73,8 +73,8 @@ public class RedisServiceImpl implements RedisService {
     /**
      * 原子递增操作
      * 
-     * 【Redis 特性�?
-     * INCR/INCRBY 是原子操作，在高并发场景下保证线程安�?
+     * 【Redis 特性�?
+     * INCR/INCRBY 是原子操作，在高并发场景下保证线程安�?
      * 适用于:计数器、库存扣减、限流等场景
      */
     @Override
@@ -90,8 +90,8 @@ public class RedisServiceImpl implements RedisService {
     /**
      * SETNX 实现
      * 
-     * 【Redis 特性�?
-     * SET key value NX EX timeout 是原子操�?
+     * 【Redis 特性�?
+     * SET key value NX EX timeout 是原子操�?
      * 常用于:分布式锁、防止缓存击穿(互斥锁重建缓存)
      */
     @Override
@@ -146,7 +146,7 @@ public class RedisServiceImpl implements RedisService {
     /**
      * Hash 字段原子递增
      * 
-     * 【应用场景�?
+     * 【应用场景�?
      * 1. 购物车商品数量增减:HINCRBY cart:userId productId delta
      * 2. 商品浏览次数统计:HINCRBY product:1 viewCount 1
      */
@@ -198,11 +198,11 @@ public class RedisServiceImpl implements RedisService {
     }
 
     /**
-     * 阻塞式弹�?
+     * 阻塞式弹�?
      * 
-     * 【Redis 特性�?
+     * 【Redis 特性�?
      * BLPOP/BRPOP 支持阻塞等待，直到有元素可弹出或超时
-     * 适用于:简单消息队列、任务队�?
+     * 适用于:简单消息队列、任务队�?
      */
     @Override
     public Object lLeftPop(String key, long timeout, TimeUnit unit) {
@@ -217,10 +217,10 @@ public class RedisServiceImpl implements RedisService {
     // ==================== Set 类型操作实现 ====================
 
     /**
-     * 添加元素�?Set
+     * 添加元素�?Set
      * 
-     * 【Redis 特性�?
-     * Set 自动去重，添加已存在的元素不会报错，返回实际添加的数�?
+     * 【Redis 特性�?
+     * Set 自动去重，添加已存在的元素不会报错，返回实际添加的数�?
      * 适用于:收藏夹、标签、共同好友等场景
      */
     @Override
@@ -239,11 +239,11 @@ public class RedisServiceImpl implements RedisService {
     }
 
     /**
-     * 判断元素是否存在�?Set �?
+     * 判断元素是否存在�?Set �?
      * 
-     * 【Redis 特性�?
-     * SISMEMBER 时间复杂�?O(1)，非常高�?
-     * 适用于:判断用户是否已收藏、是否已点赞�?
+     * 【Redis 特性�?
+     * SISMEMBER 时间复杂�?O(1)，非常高�?
+     * 适用于:判断用户是否已收藏、是否已点赞�?
      */
     @Override
     public Boolean sIsMember(String key, Object value) {
@@ -258,11 +258,11 @@ public class RedisServiceImpl implements RedisService {
     // ==================== ZSet 类型操作实现 ====================
 
     /**
-     * 添加元素�?ZSet
+     * 添加元素�?ZSet
      * 
-     * 【Redis 特性�?
-     * ZSet �?score 自动排序，相同元素更�?score
-     * 适用于:排行榜、热搜、延迟队�?
+     * 【Redis 特性�?
+     * ZSet �?score 自动排序，相同元素更�?score
+     * 适用于:排行榜、热搜、延迟队�?
      */
     @Override
     public Boolean zAdd(String key, Object value, double score) {
@@ -275,10 +275,10 @@ public class RedisServiceImpl implements RedisService {
     }
 
     /**
-     * 增加元素的分�?
+     * 增加元素的分�?
      * 
-     * 【Redis 特性�?
-     * ZINCRBY 是原子操作，适合高并发场景下的分数累�?
+     * 【Redis 特性�?
+     * ZINCRBY 是原子操作，适合高并发场景下的分数累�?
      * 适用于:商品热度增加、搜索词频率统计
      */
     @Override
@@ -297,9 +297,9 @@ public class RedisServiceImpl implements RedisService {
     }
 
     /**
-     * 获取排行榜(从大到小�?
+     * 获取排行榜(从大到小�?
      * 
-     * 【应用场景�?
+     * 【应用场景�?
      * 获取热搜 Top 10:zReverseRange("search:hot", 0, 9)
      */
     @Override
@@ -341,9 +341,9 @@ public class RedisServiceImpl implements RedisService {
     }
 
     /**
-     * 按分数范围移除元�?
+     * 按分数范围移除元�?
      * 
-     * 【应用场景�?
+     * 【应用场景�?
      * 延迟队列:移除所有到期任务(score <= 当前时间戳)
      */
     @Override
@@ -352,10 +352,10 @@ public class RedisServiceImpl implements RedisService {
     }
 
     /**
-     * 按分数范围获取元�?
+     * 按分数范围获取元�?
      * 
-     * 【应用场景�?
-     * 延迟队列:获取所有到期任�?
+     * 【应用场景�?
+     * 延迟队列:获取所有到期任�?
      */
     @Override
     public Set<Object> zRangeByScore(String key, double min, double max) {

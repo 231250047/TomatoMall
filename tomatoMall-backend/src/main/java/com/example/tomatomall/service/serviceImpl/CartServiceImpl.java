@@ -78,7 +78,7 @@ public class CartServiceImpl implements CartService {
             int existingQty = existingOpt.map(CartItem::getQuantity).orElse(0);
             int newTotal = existingQty + quantity;
 
-            if (newTotal > stockpile.getAmount()) {
+            if (newTotal > stockpile.getAmount() - stockpile.getFrozen()) {
                 throw TomatoMallException.stockpileNotEnough();
             }
 
@@ -102,7 +102,7 @@ public class CartServiceImpl implements CartService {
                     
                     // 再次检查库�?
                     Stockpile recheck = stockpileRepository.findByProductId(productIdInt);
-                    if (recheck != null && existing.getQuantity() > recheck.getAmount()) {
+                    if (recheck != null && existing.getQuantity() > recheck.getAmount() - recheck.getFrozen()) {
                         throw TomatoMallException.stockpileNotEnough();
                     }
                     
@@ -128,6 +128,7 @@ public class CartServiceImpl implements CartService {
         Account account = securityUtil.getCurrentAccount();
         Integer userId = account.getId();
         
+        if (!userId.equals(item.getUserId())) throw new IllegalArgumentException("不能删除他人的购物项");
         cartItemRepository.deleteById(id);
         
         // 【Redis】从购物车缓存中删除
@@ -165,7 +166,7 @@ public class CartServiceImpl implements CartService {
             throw TomatoMallException.stockpileNotExist();
         }
 
-        if (quantity > stockpile.getAmount()) {
+        if (quantity > stockpile.getAmount() - stockpile.getFrozen()) {
             throw TomatoMallException.stockpileNotEnough();
         }
         item.setQuantity(quantity);

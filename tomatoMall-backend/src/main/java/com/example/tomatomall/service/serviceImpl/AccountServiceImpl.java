@@ -37,22 +37,24 @@ public class AccountServiceImpl implements AccountService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public String createUser(AccountVO accountVO) {
-        // 先做快速检查以尽早返回，但依赖 DB 唯一约束作为最终防�?
+        // 先做快速检查以尽早返回，但依赖 DB 唯一约束作为最终防�?
         Account account = accountRepository.findByUsername(accountVO.getUsername());
         if(account != null) {
             throw TomatoMallException.usernameAlreadyExists();
         }
         Account newAccount = accountVO.toPO();
+        // Public registration never assigns management privileges.
+        newAccount.setRole("user");
         String rawPassword = newAccount.getPassword();
         String encodedPassword = passwordEncoder.encode(rawPassword);
         newAccount.setPassword(encodedPassword);
 
         try {
-            // 使用 saveAndFlush 以便尽早触发唯一约束异常(若存在�?
+            // 使用 saveAndFlush 以便尽早触发唯一约束异常(若存在�?
             accountRepository.saveAndFlush(newAccount);
             return "注册成功";
         } catch (DataIntegrityViolationException ex) {
-            // 转换为业务异常，事务会回�?
+            // 转换为业务异常，事务会回�?
             throw TomatoMallException.usernameAlreadyExists();
         }
     }
@@ -108,7 +110,7 @@ public class AccountServiceImpl implements AccountService {
             throw TomatoMallException.notLogin();
         }
 
-        // 重新从数据库加载受管实体，避免使用可能为 detached �?securityUtil 对象，保证在同一事务内变更并 flush
+        // 重新从数据库加载受管实体，避免使用可能为 detached �?securityUtil 对象，保证在同一事务内变更并 flush
         Optional<Account> optional = accountRepository.findById(current.getId());
         Account account = optional.orElseThrow(() -> TomatoMallException.notLogin());
 
@@ -120,7 +122,7 @@ public class AccountServiceImpl implements AccountService {
             if(accountVO.getUsername() != null
                     && !accountVO.getUsername().equals(account.getUsername())
                     && !accountVO.getUsername().isEmpty()) {
-                // 显式检查用户名是否被占�?
+                // 显式检查用户名是否被占�?
                 Account exist = accountRepository.findByUsername(accountVO.getUsername());
                 if (exist != null && !exist.getId().equals(account.getId())) {
                     throw TomatoMallException.usernameAlreadyExists();
@@ -139,10 +141,7 @@ public class AccountServiceImpl implements AccountService {
                     && !accountVO.getName().isEmpty()) {
                 account.setName(accountVO.getName());
             }
-            if(accountVO.getRole() != null
-                    && !accountVO.getRole().isEmpty()) {
-                account.setRole(accountVO.getRole());
-            }
+            // Role changes require an administrative workflow, not a self-service profile edit.
             if(accountVO.getTelephone() != null
                     && !accountVO.getTelephone().equals(account.getTelephone())
                     && !accountVO.getTelephone().isEmpty()) {
@@ -159,14 +158,14 @@ public class AccountServiceImpl implements AccountService {
                 account.setLocation(accountVO.getLocation());
             }
 
-            // 保存并立�?flush，若实体上有 @Version 会触发乐观锁异常
+            // 保存并立�?flush，若实体上有 @Version 会触发乐观锁异常
             accountRepository.saveAndFlush(account);
             return "更新成功";
         } catch (OptimisticLockingFailureException e) {
-            // 乐观锁冲�?-> 转换为业务级异常，调用者可提示重试
+            // 乐观锁冲�?-> 转换为业务级异常，调用者可提示重试
             throw TomatoMallException.concurrentUpdate();
         } catch (DataIntegrityViolationException e) {
-            // 唯一约束�?DB 级别异常
+            // 唯一约束�?DB 级别异常
             throw TomatoMallException.usernameAlreadyExists();
         }
     }

@@ -11,12 +11,11 @@ public interface OrderService {
 
     void updateOrderStatus(String orderId, String alipayTradeNo, String amount);
 
-    void reduceStock(String orderId);
 
     List<ProductVO> getPurchasedProducts(Integer userId);
 
     /**
-     * 获取用户的订单列�?
+     * 获取用户的订单列�?
      */
     List<OrderVO> getOrderList(Integer userId);
 

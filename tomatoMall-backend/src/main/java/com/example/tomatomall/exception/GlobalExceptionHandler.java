@@ -19,6 +19,11 @@ import org.springframework.web.client.RestClientException;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+    @ExceptionHandler(IllegalArgumentException.class) @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public Response<String> invalid(IllegalArgumentException e) { return Response.buildFailure(e.getMessage(), "400"); }
+    @ExceptionHandler(org.springframework.security.access.AccessDeniedException.class) @ResponseStatus(HttpStatus.FORBIDDEN)
+    public Response<String> forbidden(Exception e) { return Response.buildFailure(e.getMessage(), "403"); }
+
     @ExceptionHandler(value = TomatoMallException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public Response<String> handleAIExternalException(TomatoMallException e) {

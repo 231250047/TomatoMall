@@ -1,0 +1,29 @@
+{
+  "date": "2026-09-17",
+  "requested_chat_model": "deepseek-v4-flash",
+  "probe_response_model": "deepseek-flash",
+  "embedding_model": "text-embedding-v4",
+  "dimensions": 1024,
+  "top_k": 5,
+  "similarity_threshold": 0.3,
+  "git_head": "a83c1668fd972b00cc55d7199260c3052619e6c3",
+  "working_tree_dirty": true,
+  "generation_query_ids": [
+    "q01",
+    "q03",
+    "q07",
+    "q12",
+    "q24",
+    "q30",
+    "q32",
+    "q35",
+    "q43",
+    "q50"
+  ],
+  "generation_scope": "10 selected pilot queries, not an independent validation set",
+  "sha256": {
+    "infra/rag/fixtures/products.json": "b02f31d22f3ce9a717dcdaeb0d8b6ef4f9911f9952f3317d1481abf04d1893b6",
+    "infra/rag/fixtures/queries.json": "e7912528a0ffc2a2f171d460ebcd1fa08b019f3b3cc74ea2c1ac7773e321bf13",
+    "tomatoMall-backend/target/TomatoMall-0.0.1-SNAPSHOT.jar": "f2ba38285e1621d098fbd8b92b281485fe93bb39bba5d38944d209999f87a44f"
+  }
+}

@@ -33,7 +33,7 @@ public class Advertisement {
     @Basic
     @Column(name = "related_url", nullable = true, length = 500)
     private String relatedUrl;
-    // getter �?setter 省略
+    // getter �?setter 省略
 
     public AdvertisementVO toVO() {
         AdvertisementVO advertisementVO = new AdvertisementVO();

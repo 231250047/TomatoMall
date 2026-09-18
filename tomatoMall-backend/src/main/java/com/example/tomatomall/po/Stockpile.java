@@ -12,6 +12,7 @@ import jakarta.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "stockpiles")
+@org.hibernate.annotations.Check(constraints="amount >= 0 and frozen >= 0 and frozen <= amount")
 public class Stockpile {
 
     @Id
@@ -25,7 +26,7 @@ public class Stockpile {
 
     @Basic
     @Column(name = "amount", nullable = false)
-    private Integer amount=400;//默认�?00
+    private Integer amount=400;//默认�?00
 
     @Basic
     @Column(name = "frozen", nullable = false)

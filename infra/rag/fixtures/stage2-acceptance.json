@@ -1,0 +1,174 @@
+[
+  {
+    "query_id": "s201",
+    "query": "请找一本讲变量与循环的Java起步教材",
+    "constraints": {
+      "in_stock": true,
+      "level": "入门",
+      "excludedTopics": [
+        "源码"
+      ]
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-001"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-003",
+      "rag-v1-005",
+      "rag-v1-022"
+    ],
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "s202",
+    "query": "我想练线程池任务取消的代码",
+    "constraints": {
+      "in_stock": true,
+      "level": "进阶"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-004"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-001"
+    ],
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "s203",
+    "query": "找解释MVCC隔离现象的资料",
+    "constraints": {
+      "in_stock": true,
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-008"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-009",
+      "rag-v1-069"
+    ],
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "s204",
+    "query": "Redis列表和字符串怎么用",
+    "constraints": {
+      "in_stock": true,
+      "level": "入门"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-014"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-016"
+    ],
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "s205",
+    "query": "JavaScript基础练习（合成测试）",
+    "constraints": {
+      "in_stock": true
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-022"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-001"
+    ],
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "s206",
+    "query": "MySQL索引调优边界版（合成测试）",
+    "constraints": {
+      "in_stock": true,
+      "max_price": "79.99"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-045"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-009",
+      "rag-v1-046"
+    ],
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "s207",
+    "query": "支付通知验签和幂等处理",
+    "constraints": {
+      "in_stock": true,
+      "category": "science"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-039"
+    ],
+    "forbidden_fixture_keys": [],
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "s208",
+    "query": "Outbox和业务提交失败后的补偿",
+    "constraints": {
+      "in_stock": true,
+      "level": "高级"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-040"
+    ],
+    "forbidden_fixture_keys": [
+      "rag-v1-020"
+    ],
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "s209",
+    "query": "帮我练习介绍项目与复盘的表达",
+    "constraints": {
+      "in_stock": true,
+      "category": "education"
+    },
+    "relevant_fixture_keys": [
+      "rag-v1-054"
+    ],
+    "forbidden_fixture_keys": [],
+    "expected_behavior": "recommend"
+  },
+  {
+    "query_id": "s210",
+    "query": "月球玄武岩同位素定年专著",
+    "constraints": {
+      "in_stock": true,
+      "category": "science"
+    },
+    "relevant_fixture_keys": [],
+    "forbidden_fixture_keys": [],
+    "expected_behavior": "no_match"
+  },
+  {
+    "query_id": "s211",
+    "query": "珊瑚礁海洋生态修复研究教材",
+    "constraints": {
+      "in_stock": true,
+      "category": "science"
+    },
+    "relevant_fixture_keys": [],
+    "forbidden_fixture_keys": [],
+    "expected_behavior": "no_match"
+  },
+  {
+    "query_id": "s212",
+    "query": "Java第一步（合成测试）",
+    "constraints": {
+      "in_stock": true,
+      "level": "高级"
+    },
+    "relevant_fixture_keys": [],
+    "forbidden_fixture_keys": [
+      "rag-v1-001"
+    ],
+    "expected_behavior": "no_match"
+  }
+]

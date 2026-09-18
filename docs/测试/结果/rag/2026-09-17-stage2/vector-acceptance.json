@@ -1,0 +1,112 @@
+[
+  {
+    "query_id": "s201",
+    "fixture_keys": [
+      "rag-v1-001"
+    ],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 192
+  },
+  {
+    "query_id": "s202",
+    "fixture_keys": [
+      "rag-v1-004"
+    ],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 160
+  },
+  {
+    "query_id": "s203",
+    "fixture_keys": [
+      "rag-v1-008"
+    ],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 149
+  },
+  {
+    "query_id": "s204",
+    "fixture_keys": [
+      "rag-v1-014"
+    ],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 162
+  },
+  {
+    "query_id": "s205",
+    "fixture_keys": [
+      "rag-v1-022",
+      "rag-v1-001",
+      "rag-v1-053",
+      "rag-v1-023",
+      "rag-v1-024"
+    ],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 198
+  },
+  {
+    "query_id": "s206",
+    "fixture_keys": [
+      "rag-v1-045",
+      "rag-v1-008"
+    ],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 149
+  },
+  {
+    "query_id": "s207",
+    "fixture_keys": [
+      "rag-v1-039"
+    ],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 153
+  },
+  {
+    "query_id": "s208",
+    "fixture_keys": [
+      "rag-v1-040"
+    ],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 184
+  },
+  {
+    "query_id": "s209",
+    "fixture_keys": [
+      "rag-v1-054"
+    ],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 183
+  },
+  {
+    "query_id": "s210",
+    "fixture_keys": [],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 168
+  },
+  {
+    "query_id": "s211",
+    "fixture_keys": [],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 157
+  },
+  {
+    "query_id": "s212",
+    "fixture_keys": [
+      "rag-v1-005",
+      "rag-v1-003"
+    ],
+    "degraded": false,
+    "strategy": "vector",
+    "elapsed_ms": 149
+  }
+]

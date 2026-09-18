@@ -1,0 +1,26 @@
+{
+  "date": "2026-09-17",
+  "evaluation_jar_sha256": "df6526ebc0e117673b6a17799676f54937d0da675d94d87dd8e79f7c7b7a03db",
+  "queries_sha256": "47b6cee335ad151af43382c744d5bfccc5c731199b8dc2d8603ee1a76b176354",
+  "embedding": "text-embedding-v4",
+  "dimensions": 1024,
+  "chat_requested_model": "deepseek-v4-flash",
+  "router_temperature": 0,
+  "router_max_tokens": 700,
+  "router_thinking": "disabled",
+  "selection_max_tokens": 4096,
+  "notes": "16 single-turn raw questions; 100 synthetic products; evaluation DB isolated. Later budget-topic false-positive fix has separate focused tests.",
+  "final_package_tests": {
+    "tests": 166,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 9
+  },
+  "final_jar_sha256": "4c376ff6928f66443bb080786beee8fab908ac66e21f6a3a81b4c0d491a9be80",
+  "source_hashes": {
+    "tomatoMall-backend/src/main/java/com/example/tomatomall/shopping/BookToolPlanner.java": "3bdd5fe9cc6ee61bd36bfb9c545b4a53dea45134cadd28c8f84306784b13cf86",
+    "tomatoMall-backend/src/main/java/com/example/tomatomall/shopping/GroundedBookRecommendation.java": "d10bb2c561a1cd9aeda76f1b54bc0e99253deb754d47dc9015b469dee7f9ed34",
+    "tomatoMall-backend/src/main/java/com/example/tomatomall/shopping/BookShoppingAgent.java": "4a4a01bfd0aa863106f3fb2828a3dee455d8af08428dd07f5e077acb8cc52a0f",
+    "tomatoMall-backend/src/main/java/com/example/tomatomall/shopping/BookPurchaseFilter.java": "9b4f805df4bfe5760780ada2376825db730ef046c3e894b1cc05cfc269736bbe"
+  }
+}

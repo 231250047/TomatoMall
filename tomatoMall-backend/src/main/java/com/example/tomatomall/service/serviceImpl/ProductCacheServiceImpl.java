@@ -18,37 +18,37 @@ import java.util.concurrent.TimeUnit;
  * 
  * 【Redis 数据结构】Hash
  * Key: product:detail:{productId}
- * Field-Value: 商品各属�?
+ * Field-Value: 商品各属�?
  * 
  * 【缓存策略】Cache Aside Pattern(旁路缓存)
- * - 读取:先读缓存，未命中再�?DB，然后写缓存
+ * - 读取:先读缓存，未命中再�?DB，然后写缓存
  * - 写入:先更新 DB，再删除缓存
  * 
- * 【缓存三大问题解决方案�?
- * 1. 缓存穿透:缓存空值(NULL_OBJECT 标记�?
- * 2. 缓存击穿:互斥锁重建缓存(SETNX�?
- * 3. 缓存雪崩:随机过期时�?
+ * 【缓存三大问题解决方案�?
+ * 1. 缓存穿透:缓存空值(NULL_OBJECT 标记�?
+ * 2. 缓存击穿:互斥锁重建缓存(SETNX�?
+ * 3. 缓存雪崩:随机过期时�?
  * 
- * 【场景实现�?
- * - 完整的缓存设计方�?
- * - 缓存一致性保�?
- * - 高并发场景下的缓存保�?
+ * 【场景实现�?
+ * - 完整的缓存设计方�?
+ * - 缓存一致性保�?
+ * - 高并发场景下的缓存保�?
  */
 @Service
 public class ProductCacheServiceImpl implements ProductCacheService {
     
     // 缓存 Key 前缀
     private static final String PRODUCT_CACHE_PREFIX = "product:detail:";
-    // 商品热度 Key(ZSet�?
+    // 商品热度 Key(ZSet�?
     private static final String PRODUCT_HOT_KEY = "product:hot";
     // 缓存锁前缀
     private static final String CACHE_LOCK_PREFIX = "lock:product:";
-    // 空值标记，防止缓存穿�?
+    // 空值标记，防止缓存穿�?
     private static final String NULL_CACHE_VALUE = "NULL_OBJECT";
     
-    // 基础缓存时间�?0分钟�?
+    // 基础缓存时间�?0分钟�?
     private static final long CACHE_TTL_MINUTES = 30;
-    // 空值缓存时间(5分钟�?
+    // 空值缓存时间(5分钟�?
     private static final long NULL_CACHE_TTL_MINUTES = 5;
     // 锁超时时间(10秒)
     private static final long LOCK_TTL_SECONDS = 10;
@@ -63,21 +63,21 @@ public class ProductCacheServiceImpl implements ProductCacheService {
     private ObjectMapper objectMapper;
     
     /**
-     * 从缓存获取商品详�?
+     * 从缓存获取商品详�?
      * 
-     * 【实现说明�?
-     * 使用 Hash 存储商品，可以高效获�?更新单个字段
+     * 【实现说明�?
+     * 使用 Hash 存储商品，可以高效获�?更新单个字段
      */
     @Override
     public ProductVO getProductFromCache(String productId) {
         String cacheKey = PRODUCT_CACHE_PREFIX + productId;
         
-        // 检查缓存是否存�?
+        // 检查缓存是否存�?
         if (!redisService.hasKey(cacheKey)) {
             return null;
         }
         
-        // 获取所有字�?
+        // 获取所有字�?
         Map<Object, Object> cacheMap = redisService.hGetAll(cacheKey);
         if (cacheMap == null || cacheMap.isEmpty()) {
             return null;
@@ -93,10 +93,10 @@ public class ProductCacheServiceImpl implements ProductCacheService {
     }
     
     /**
-     * 将商品详情存入缓�?
+     * 将商品详情存入缓�?
      * 
-     * 【缓存雪崩防护�?
-     * 使用随机过期时间，避免大量缓存同时失�?
+     * 【缓存雪崩防护�?
+     * 使用随机过期时间，避免大量缓存同时失�?
      */
     @Override
     public void setProductToCache(ProductVO productVO) {
@@ -107,7 +107,7 @@ public class ProductCacheServiceImpl implements ProductCacheService {
         String cacheKey = PRODUCT_CACHE_PREFIX + productVO.getId();
         Map<String, Object> cacheMap = productVOToMap(productVO);
         
-        // 随机过期时间:基础时间 + 0~10分钟随机值(防止缓存雪崩�?
+        // 随机过期时间:基础时间 + 0~10分钟随机值(防止缓存雪崩�?
         long randomTTL = CACHE_TTL_MINUTES + new Random().nextInt(10);
         
         redisService.hSetAll(cacheKey, cacheMap, randomTTL, TimeUnit.MINUTES);
@@ -116,9 +116,9 @@ public class ProductCacheServiceImpl implements ProductCacheService {
     /**
      * 删除商品缓存
      * 
-     * 【Cache Aside Pattern�?
-     * 更新数据库后，删除缓存而不是更新缓�?
-     * 原因:避免并发更新导致的数据不一�?
+     * 【Cache Aside Pattern�?
+     * 更新数据库后，删除缓存而不是更新缓�?
+     * 原因:避免并发更新导致的数据不一�?
      */
     @Override
     public void deleteProductCache(String productId) {
@@ -129,16 +129,16 @@ public class ProductCacheServiceImpl implements ProductCacheService {
     /**
      * 获取商品详情(优先缓存)
      * 
-     * 【完整的缓存策略实现�?
-     * 1. 缓存穿透防护:缓存空�?
+     * 【完整的缓存策略实现�?
+     * 1. 缓存穿透防护:缓存空�?
      * 2. 缓存击穿防护:互斥锁重建
-     * 3. 缓存雪崩防护:随机过期时�?
+     * 3. 缓存雪崩防护:随机过期时�?
      */
     @Override
     public ProductVO getProductWithCache(String productId) {
         String cacheKey = PRODUCT_CACHE_PREFIX + productId;
         
-        // 1. 尝试从缓存获�?
+        // 1. 尝试从缓存获�?
         if (redisService.hasKey(cacheKey)) {
             Map<Object, Object> cacheMap = redisService.hGetAll(cacheKey);
             
@@ -152,7 +152,7 @@ public class ProductCacheServiceImpl implements ProductCacheService {
             }
         }
         
-        // 2. 缓存未命中，尝试获取锁重建缓存(缓存击穿防护�?
+        // 2. 缓存未命中，尝试获取锁重建缓存(缓存击穿防护�?
         String lockKey = CACHE_LOCK_PREFIX + productId;
         boolean locked = redisService.setIfAbsent(lockKey, "1", LOCK_TTL_SECONDS, TimeUnit.SECONDS);
         
@@ -177,7 +177,7 @@ public class ProductCacheServiceImpl implements ProductCacheService {
             Thread.currentThread().interrupt();
             return loadFromDatabase(productId);
         } finally {
-            // 释放�?
+            // 释放�?
             if (locked) {
                 redisService.delete(lockKey);
             }
@@ -185,21 +185,21 @@ public class ProductCacheServiceImpl implements ProductCacheService {
     }
     
     /**
-     * 记录商品浏览，用于热度统�?
+     * 记录商品浏览，用于热度统�?
      * 
      * 【Redis 数据结构】ZSet
-     * 使用 ZINCRBY 原子递增分数，实现浏览次数统�?
+     * 使用 ZINCRBY 原子递增分数，实现浏览次数统�?
      */
     @Override
     public void recordProductView(String productId) {
-        // 使用 ZSet 记录商品热度，每次浏览增�?1 �?
+        // 使用 ZSet 记录商品热度，每次浏览增�?1 �?
         redisService.zIncrScore(PRODUCT_HOT_KEY, productId, 1);
     }
     
     // ==================== 私有方法 ====================
     
     /**
-     * 从数据库加载并缓存商�?
+     * 从数据库加载并缓存商�?
      */
     private ProductVO loadAndCacheProduct(String productId) {
         ProductVO productVO = loadFromDatabase(productId);
@@ -207,7 +207,7 @@ public class ProductCacheServiceImpl implements ProductCacheService {
         if (productVO != null) {
             setProductToCache(productVO);
         } else {
-            // 缓存空值，防止缓存穿�?
+            // 缓存空值，防止缓存穿�?
             cacheNullValue(productId);
         }
         
@@ -226,10 +226,10 @@ public class ProductCacheServiceImpl implements ProductCacheService {
     }
     
     /**
-     * 缓存空�?
+     * 缓存空�?
      * 
-     * 【缓存穿透防护�?
-     * 当数据库中不存在该数据时，缓存一个空值标�?
+     * 【缓存穿透防护�?
+     * 当数据库中不存在该数据时，缓存一个空值标�?
      * 设置较短的过期时间，避免占用过多内存
      */
     private void cacheNullValue(String productId) {
@@ -240,7 +240,7 @@ public class ProductCacheServiceImpl implements ProductCacheService {
     }
     
     /**
-     * ProductVO 转换�?Map(用�?Hash 存储�?
+     * ProductVO 转换�?Map(用�?Hash 存储�?
      */
     private Map<String, Object> productVOToMap(ProductVO vo) {
         Map<String, Object> map = new HashMap<>();
@@ -261,7 +261,7 @@ public class ProductCacheServiceImpl implements ProductCacheService {
     }
     
     /**
-     * Map 转换�?ProductVO
+     * Map 转换�?ProductVO
      */
     private ProductVO mapToProductVO(Map<Object, Object> map) {
         ProductVO vo = new ProductVO();

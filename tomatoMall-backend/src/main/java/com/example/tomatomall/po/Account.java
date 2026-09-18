@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 
 @Table(name = "account")
 @Data
-@NoArgsConstructor(force = true) // �?Lombok 生成默认�?
+@NoArgsConstructor(force = true) // �?Lombok 生成默认�?
 @AllArgsConstructor
 @Entity
 public class Account {

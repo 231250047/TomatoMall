@@ -1,0 +1,69 @@
+[
+  {
+    "request": {
+      "query": "Java",
+      "level": "入门",
+      "excludedTopics": [
+        "源码"
+      ],
+      "maxPrice": 80
+    },
+    "http_status": 200,
+    "response": {
+      "items": [
+        {
+          "product": {
+            "id": 1,
+            "title": "Java第一步（合成测试）",
+            "price": 39.9,
+            "tag": "science",
+            "description": "合成测试图书，主题：Java；难度：入门。内容：变量、循环与面向对象基础。",
+            "detail": "本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：变量、循环与面向对象基础。前置知识：无。",
+            "status": "available",
+            "availableStock": 20,
+            "specifications": [
+              "主题：Java",
+              "前置知识：无",
+              "学习目标：变量、循环与面向对象基础",
+              "适用难度：入门"
+            ],
+            "level": "入门"
+          },
+          "score": 0.01639344262295082,
+          "evidence": "书名：Java第一步（合成测试）\n分类：science\n简介：合成测试图书，主题：Java；难度：入门。内容：变量、循环与面向对象基础。\n详情：本商品为商城检索评测编写的虚构资料，不对应真实出版物。适合入门学习者。学习目标：变量、循环与面向对象基础。前置知识：无。\n规格：主题：Java；前置知识：无；学习目标：变量、循环与面向对象基础；适用难度：入门",
+          "vectorSimilarity": 0.4503440856933594
+        }
+      ],
+      "strategy": "hybrid",
+      "degraded": false,
+      "reason": "",
+      "elapsedMs": 249,
+      "outcome": "MATCHES",
+      "scoreType": "RRF"
+    }
+  },
+  {
+    "request": {
+      "query": "Java",
+      "author": "某作者"
+    },
+    "http_status": 400,
+    "response": {
+      "code": "400",
+      "msg": "不支持的检索参数：author",
+      "data": null
+    }
+  },
+  {
+    "request": {
+      "query": "Java",
+      "maxPrice": 80.001
+    },
+    "http_status": 400,
+    "response": {
+      "code": "400",
+      "msg": "价格最多两位小数",
+      "data": null
+    }
+  }
+]

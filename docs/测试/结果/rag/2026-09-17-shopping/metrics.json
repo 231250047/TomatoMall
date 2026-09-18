@@ -1,0 +1,13 @@
+{
+  "queries": 16,
+  "route_correct": 16,
+  "target_questions": 7,
+  "target_hit": 7,
+  "over_budget_queries": 0,
+  "response_checks": 8,
+  "response_checks_passed": 8,
+  "median_seconds": 0.37,
+  "p95_seconds_nearest_rank": 13.54,
+  "tool_model_calls": 8,
+  "selection_model_calls": 6
+}
